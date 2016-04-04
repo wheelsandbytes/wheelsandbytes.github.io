@@ -36,13 +36,13 @@ I've never seen this before. Let's try single user mode and `fsck -fy /`
 
 ![Alt text](img/disk-error-mba/fsck1.jpg)
 
-`** The voume Macitnosh HD could not be verified completely.`
+`** The voume Macintnosh HD could not be verified completely.`
 
 O__o
 
 It's worth noting that `fsck -drfy /` wasn't able to do anything either.
 
-Time to bring out the El Capitan installer disk. Thanks to [DiskMaker X](http://diskmakerx.com), we had the installer up in running shortly:
+Time to bring out the El Capitan installer disk. Thanks to [DiskMaker X](http://diskmakerx.com), we had the installer running shortly:
 
 ![Alt text](img/disk-error-mba/installer1.jpg)
 
@@ -150,11 +150,11 @@ Almost done...
 
 Okay, so now it should be completely blank, no data whatsoever. Reparitionting the disk with `diskutil partitionDisk` and repairing with `diskutil repairDisk` now...
 
-![Alt text](img/disk-error-mba/repairDisk1.jpg)
+![Alt text](img/disk-error-mba/repairdisk1.jpg)
 
 The issue was repairing the volume `/dev/disk0s2` from before, so we'll try that next:
 
-![Alt text](img/disk-error-mba/repairVolume1.jpg)
+![Alt text](img/disk-error-mba/repairvolume1.jpg)
 
 O___O NO ERROR. Final attempt at installing the system:
 
