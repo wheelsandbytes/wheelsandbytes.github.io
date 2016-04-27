@@ -16,9 +16,32 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+a {
     font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
+}
+
+.dropdown {
+    font-size: 14px;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    display:inline-block;margin:0 auto; text-align:center;
+    /*padding-top : 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;*/
+}
+
+.dropdown-menu>li>a{
+    font-size: 14px;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    background-color: #f8f8f8
+}
+
+.dropdown-menu {
+    font-size: 14px;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    background-color: #f8f8f8
 }
 
 .topnav {
