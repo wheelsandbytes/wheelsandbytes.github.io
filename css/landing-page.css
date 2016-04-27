@@ -10,27 +10,27 @@ html {
     height: 100%;
 }
 
-body,
 h1,
+h3 {
+    font-family: STXihei, "华文细黑", "Lato", sans-serif;
+    font-weight: 200;
+}
+
+body,
 h2,
-h3,
 h4,
 h5,
 h6,
 a {
-    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial, sans-serif;
+    font-weight: 500;
 }
 
 .dropdown {
-    font-size: 14px;
-    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
+    font-size: 15px;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,STXihei,sans-serif;
+    font-weight: 600;
     display:inline-block;margin:0 auto;
-    /*text-align:center;*/
-    /*padding-top : 0px;
-    padding-bottom: 0px;
-    margin-top: 0px;*/
 }
 
 .dropdown-menu>li>a{
@@ -46,7 +46,7 @@ a {
 }
 
 .topnav {
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .lead {
