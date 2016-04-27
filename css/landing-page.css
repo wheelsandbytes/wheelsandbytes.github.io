@@ -26,7 +26,8 @@ a {
     font-size: 14px;
     font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
-    display:inline-block;margin:0 auto; text-align:center;
+    display:inline-block;margin:0 auto;
+    /*text-align:center;*/
     /*padding-top : 0px;
     padding-bottom: 0px;
     margin-top: 0px;*/
