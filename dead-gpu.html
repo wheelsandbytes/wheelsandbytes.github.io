@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<title>MBP8,2 Dead GPU</title>
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<xmp theme="simplex" style="display:none;">
+
+# MacBookPro8,2 AMD GPU Dies...
+
+## So I'm sitting in class,
+#### setting Windows up to run in VirtualBox off my second internal SSD. VirtualBox did not give me any issues. The next step is to reboot and make sure it is still able to boot up natively. So I shut it down and prepare to go home.
+
+#### I get home and...
+
+![Alt text](img/dead-gpu/1.jpg)
+
+![Alt text](img/dead-gpu/2.jpg)
+
+![Alt text](img/dead-gpu/3.jpg)
+
+![Alt text](img/dead-gpu/staring.tiff)
+
+![Alt text](img/dead-gpu/3.jpg)
+
+![Alt text](img/dead-gpu/one-hour-later.tiff)
+
+![Alt text](img/dead-gpu/4.jpg)
+
+#### IT WAS WORKING 20 MINUTES AGO
+
+![Alt text](img/dead-gpu/jackie-chan.tiff)
+
+![Alt text](img/dead-gpu/questioning.tiff)
+
+#### Maybe the NVRAM forgot what needs to be booted. Time to give it a kick in the pants:
+
+![Alt text](img/dead-gpu/5.jpg)
+
+#### Holding Option, we get the usual array of what is to be expected:
+
+![Alt text](img/dead-gpu/6.jpg)
+
+Odd, my usual SSD custom icons are not showing...already suspicious. Selecting Macintosh HD yields:
+
+![Alt text](img/dead-gpu/7.jpg)
+
+![Alt text](img/dead-gpu/staring.tiff)
+
+![Alt text](img/dead-gpu/7.jpg)
+
+![Alt text](img/dead-gpu/suspicious.tiff)
+
+![Alt text](img/dead-gpu/7.jpg)
+
+#### AAAAAAAAAAND we're stuck again....
+
+![Alt text](img/dead-gpu/y-u-no-boot.png)
+
+Reboot again, holding option:
+
+![Alt text](img/dead-gpu/8.jpg)
+
+#### We need to go into verbose mode with '-v'
+
+![Alt text](img/dead-gpu/9.jpg)
+
+![Alt text](img/dead-gpu/10.jpg)
+
+![Alt text](img/dead-gpu/cereal-guy.tiff)
+
+![Alt text](img/dead-gpu/11.jpg)
+
+#### What in the world...
+
+![Alt text](img/dead-gpu/staring.tiff)
+
+![Alt text](img/dead-gpu/12.jpg)
+
+#### So instead of a white screen, we get a black screen...
+
+![Alt text](img/dead-gpu/double-facepalm.tiff)
+
+#### Recovery mode?
+
+![Alt text](img/dead-gpu/13.jpg)
+
+![Alt text](img/dead-gpu/14.jpg)
+
+![Alt text](img/dead-gpu/15.jpg)
+
+![Alt text](img/dead-gpu/16.jpg)
+
+![Alt text](img/dead-gpu/one-hour-later.tiff)
+
+![Alt text](img/dead-gpu/16.jpg)
+
+![Alt text](img/dead-gpu/staring.tiff)
+
+#### Alright, no recovery mode either then...
+
+#### Next step....uh... El Capitan installer?
+
+![Alt text](img/dead-gpu/17.jpg)
+
+![Alt text](img/dead-gpu/swiss.tiff)
+
+![Alt text](img/dead-gpu/close-enough.tiff)
+
+![Alt text](img/dead-gpu/18.jpg)
+
+![Alt text](img/dead-gpu/19.jpg)
+
+![Alt text](img/dead-gpu/20.jpg)
+
+#### FANTASTIC, a white screen again.
+
+![Alt text](img/dead-gpu/dark-stare.tiff)
+
+#### Welp... gonna try the installer in safe boot:
+
+![Alt text](img/dead-gpu/21.jpg)
+
+![Alt text](img/dead-gpu/22.jpg)
+
+![Alt text](img/dead-gpu/23.jpg)
+
+![Alt text](img/dead-gpu/24.jpg)
+
+![Alt text](img/dead-gpu/suspicious.tiff)
+
+## Diagnostics???
+
+![Alt text](img/dead-gpu/25.jpg)
+
+![Alt text](img/dead-gpu/3.jpg)
+
+![Alt text](img/dead-gpu/deskflip-pokemon-card.jpg)
+
+#### I shall give the installer one more chance in Safe Boot:
+
+![Alt text](img/dead-gpu/26.jpg)
+
+![Alt text](img/dead-gpu/27.jpg)
+
+![Alt text](img/dead-gpu/28.jpg)
+
+![Alt text](img/dead-gpu/29.jpg)
+
+![Alt text](img/dead-gpu/30.jpg)
+
+![Alt text](img/dead-gpu/kernel-panic.tiff)
+
+#### What happens if we try to boot Windows?
+
+![Alt text](img/dead-gpu/31.jpg)
+
+![Alt text](img/dead-gpu/32.jpg)
+
+![Alt text](img/dead-gpu/33.jpg)
+
+![Alt text](img/dead-gpu/computer-slice.tiff)
+
+#### Nope. How about booting my SSD from USB?
+
+![Alt text](img/dead-gpu/34.jpg)
+
+![Alt text](img/dead-gpu/35.jpg)
+
+![Alt text](img/dead-gpu/36.jpg)
+
+![Alt text](img/dead-gpu/37.jpg)
+
+![Alt text](img/dead-gpu/38.jpg)
+
+![Alt text](img/dead-gpu/39.jpg)
+
+![Alt text](img/dead-gpu/40.jpg)
+
+![Alt text](img/dead-gpu/41.jpg)
+
+![Alt text](img/dead-gpu/42.jpg)
+
+#### Okay, NOW we are getting somewhere. The issue appears to video related. Faulty AMD GPU possibly?
+
+## Context
+ This MacBook Pro has two GPUs, an Intel HD 3000 and an AMD 6490M. This generation of dual-GPU MacBooks defaults to the AMD card on boot up. This means that the firmware has the 6490M already selected before any OS starts up. Now, if the 6490M is in fact busted, then I have to find a way to fall back on the Intel HD graphics for the time being. That will be tough, since I have no idea how the PCI graphics controller works on this machine. [On my old MBP5,1](win7efi.html) it was rather straightforward, since the active GPU was simply the last active GPU when the computer was shut down. Plus, I had the ability to control which GPU was selected through the gpu-power-prefs NVRAM variable. Having done some digging using the rEFIt shell on this machine, I cannot find such a variable. I guess that would make sense, considering the hardware is designed to switch GPUs on the fly with no interruption in video output. There appears to be no explicit setting for power to either GPU (and obviously the Intel GPU is always  powered, it is integrated into the CPU).
+
+#### Screenshots of my rEFIt shenanigans:
+
+![Alt text](img/dead-gpu/43.jpg)
+
+![Alt text](img/dead-gpu/44.jpg)
+
+![Alt text](img/dead-gpu/45.jpg)
+
+![Alt text](img/dead-gpu/46.jpg)
+
+![Alt text](img/dead-gpu/47.jpg)
+
+![Alt text](img/dead-gpu/48.jpg)
+
+![Alt text](img/dead-gpu/49.jpg)
+
+#### There is no gpu-power-prefs variable, and I really do not feel like studying the hex dump for GraphicsOutput xD
+
+#### Let us see if Apple has us covered...
+
+![Alt text](img/dead-gpu/50.jpg)
+
+![Alt text](img/dead-gpu/51.jpg)
+
+![Alt text](img/dead-gpu/52.jpg)
+
+![Alt text](img/dead-gpu/happy.tiff)
+
+#### Awwww yeah. Time to get it ready for shipping!
+
+![Alt text](img/dead-gpu/59.jpg)
+
+#### Pulling the main SSD first so I can keep using my system on another Mac...
+
+![Alt text](img/dead-gpu/53.jpg)
+
+![Alt text](img/dead-gpu/54.jpg)
+
+![Alt text](img/dead-gpu/55.jpg)
+
+#### Wiped and ready for packaging!
+
+![Alt text](img/dead-gpu/56.jpg)
+
+#### Hoping not to screw up these instructions... XD
+
+#### Meanwhile, my friend's Apple Pencil came in:
+
+![Alt text](img/dead-gpu/58.jpg)
+
+#### Packaged up and ready to be shipped:
+
+![Alt text](img/dead-gpu/57.jpg)
+
+![Alt text](img/dead-gpu/happy-kitteh.tiff)
+
+![Alt text](img/dead-gpu/several-days-later.tiff)
+
+![Alt text](img/dead-gpu/fedex.png)
+
+![Alt text](img/dead-gpu/doge.tiff)
+
+![Alt text](img/dead-gpu/60.jpg)
+
+![Alt text](img/dead-gpu/61.jpg)
+
+![Alt text](img/dead-gpu/62.jpg)
+
+![Alt text](img/dead-gpu/63.jpg)
+
+![Alt text](img/dead-gpu/64.jpg)
+
+![Alt text](img/dead-gpu/65.jpg)
+
+![Alt text](img/dead-gpu/66.jpg)
+
+## Bonus backlit keyboard at night:
+
+![Alt text](img/dead-gpu/67.jpg)
+
+</xmp>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="list-inline">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="footer-menu-divider">&sdot;</li>
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li class="footer-menu-divider">&sdot;</li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <p class="copyright text-muted small">Copyright &copy; wheelsandbytes 2016. All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+</html>
