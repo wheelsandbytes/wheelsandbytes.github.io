@@ -23,10 +23,6 @@
 
 ![Alt text](img/dead-gpu/staring.png)
 
-![Alt text](img/dead-gpu/3.jpg)
-
-![Alt text](img/dead-gpu/one-hour-later.png)
-
 ![Alt text](img/dead-gpu/4.jpg)
 
 #### IT WAS WORKING 20 MINUTES AGO
@@ -49,21 +45,11 @@ Odd, my usual SSD custom icons are not showing...already suspicious. Selecting M
 
 ![Alt text](img/dead-gpu/staring.png)
 
-![Alt text](img/dead-gpu/7.jpg)
-
-![Alt text](img/dead-gpu/suspicious.png)
-
-![Alt text](img/dead-gpu/7.jpg)
-
 #### AAAAAAAAAAND we're stuck again....
 
 ![Alt text](img/dead-gpu/y-u-no-boot.png)
 
-Reboot again, holding option:
-
-![Alt text](img/dead-gpu/8.jpg)
-
-#### We need to go into verbose mode with '-v'
+### Reboot again with attempt at verbose mode
 
 ![Alt text](img/dead-gpu/9.jpg)
 
@@ -71,29 +57,19 @@ Reboot again, holding option:
 
 ![Alt text](img/dead-gpu/cereal-guy.png)
 
-![Alt text](img/dead-gpu/11.jpg)
-
-#### What in the world...
+### What in the world...
 
 ![Alt text](img/dead-gpu/staring.png)
 
 ![Alt text](img/dead-gpu/12.jpg)
 
-#### So instead of a white screen, we get a black screen...
+### So instead of a white screen, we get a black screen...
 
 ![Alt text](img/dead-gpu/double-facepalm.png)
 
-#### Recovery mode?
+### Recovery mode?
 
 ![Alt text](img/dead-gpu/13.jpg)
-
-![Alt text](img/dead-gpu/14.jpg)
-
-![Alt text](img/dead-gpu/15.jpg)
-
-![Alt text](img/dead-gpu/16.jpg)
-
-![Alt text](img/dead-gpu/one-hour-later.png)
 
 ![Alt text](img/dead-gpu/16.jpg)
 
@@ -115,17 +91,15 @@ Reboot again, holding option:
 
 ![Alt text](img/dead-gpu/20.jpg)
 
-#### FANTASTIC, a white screen again.
+### FANTASTIC, a white screen again.
 
 ![Alt text](img/dead-gpu/dark-stare.png)
 
-#### Welp... gonna try the installer in safe boot:
+### Welp... gonna try the installer in safe boot:
 
 ![Alt text](img/dead-gpu/21.jpg)
 
 ![Alt text](img/dead-gpu/22.jpg)
-
-![Alt text](img/dead-gpu/23.jpg)
 
 ![Alt text](img/dead-gpu/24.jpg)
 
@@ -139,13 +113,7 @@ Reboot again, holding option:
 
 ![Alt text](img/dead-gpu/deskflip-pokemon-card.jpg)
 
-#### I shall give the installer one more chance in Safe Boot:
-
-![Alt text](img/dead-gpu/26.jpg)
-
-![Alt text](img/dead-gpu/27.jpg)
-
-![Alt text](img/dead-gpu/28.jpg)
+### I shall give the installer one more chance in Safe Boot:
 
 ![Alt text](img/dead-gpu/29.jpg)
 
@@ -153,7 +121,7 @@ Reboot again, holding option:
 
 ![Alt text](img/dead-gpu/kernel-panic.png)
 
-#### What happens if we try to boot Windows?
+### What happens if we try to boot Windows?
 
 ![Alt text](img/dead-gpu/31.jpg)
 
@@ -188,7 +156,7 @@ Reboot again, holding option:
 ## Context
  This MacBook Pro has two GPUs, an Intel HD 3000 and an AMD 6490M. This generation of dual-GPU MacBooks defaults to the AMD card on boot up. This means that the firmware has the 6490M already selected before any OS starts up. Now, if the 6490M is in fact busted, then I have to find a way to fall back on the Intel HD graphics for the time being. That will be tough, since I have no idea how the PCI graphics controller works on this machine. [On my old MBP5,1](win7efi.html) it was rather straightforward, since the active GPU was simply the last active GPU when the computer was shut down. Plus, I had the ability to control which GPU was selected through the gpu-power-prefs NVRAM variable. Having done some digging using the rEFIt shell on this machine, I cannot find such a variable. I guess that would make sense, considering the hardware is designed to switch GPUs on the fly with no interruption in video output. There appears to be no explicit setting for power to either GPU (and obviously the Intel GPU is always  powered, it is integrated into the CPU).
 
-#### Screenshots of my rEFIt shenanigans:
+### Screenshots of my rEFIt shenanigans:
 
 ![Alt text](img/dead-gpu/43.jpg)
 
@@ -206,7 +174,7 @@ Reboot again, holding option:
 
 #### There is no gpu-power-prefs variable, and I really do not feel like studying the hex dump for GraphicsOutput xD
 
-#### Let us see if Apple has us covered...
+### Let us see if Apple has us covered...
 
 ![Alt text](img/dead-gpu/50.jpg)
 
