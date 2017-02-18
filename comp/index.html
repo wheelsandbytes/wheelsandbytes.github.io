@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html ng-app>
 <!-- w h e e l s _a n d_ b y t e s -->
-<!-- h o m e -->
+<!-- c o m p u t e r _ w o r k s -->
 <head>
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!-- FontAwesome icons :D -->
-    <script src="https://use.fontawesome.com/8280dcd8f6.js"></script>
 
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -28,32 +25,33 @@
 
 
     <!-- le mi app controlleres -->
-    <script src="js/app.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/scripts.js"></script>
 
     <!-- Custom Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 </head>
 
-<body class="grey darken-1">
+<body ng-controller="AppController" class="background grey darken-1">
 
     <!-- navs -->
-    <div data-ng-include="'_nav.html'"></div>
+    <div ng-include="'_subnav.html'"></div>
 
-    <div class="parallax-container">
-        <div class="parallax"><img class="responsive-img" src="img/bg/intro-bg.jpg"></div>
-        <!-- haedaers -->
-        <div data-ng-include="'_header.html'"></div>
-    </div>
-
-    <!-- stuffs -->
-    <div data-ng-include="'_content.html'"></div>
-
-    <div class="parallax-container">
-        <div class="parallax"><img class="responsive-img" src="img/bg/mgm-bg.jpg"></div>
+    <div class="row center transparent" style="padding:4px">
+        <div class="card z-depth-5">
+            <div class="card-image">
+                <img src="bg.jpg">
+                <span class="card-title">#justcomputerthings</span>
+            </div>
+            <div class="card-content">
+                <!-- List of Comp Articles -->
+                <div ng-include="'_list.html'"></div>
+            </div>
+        </div>
     </div>
 
     <!-- futters -->
-    <div data-ng-include="'_footer.html'"></div>
+    <div ng-include="'../_footer.html'"></div>
 
 </body>
 </html>

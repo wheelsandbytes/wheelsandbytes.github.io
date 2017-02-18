@@ -1,0 +1,58 @@
+[
+    {
+        "page": "openemu-ps1.html",
+        "title": "PlayStation 1 in OpenEmu",
+        "thumbnail": "img/thumbnail.jpg",
+        "type" : "comp",
+        "path" : "openemu-ps1/",
+        "description" : "How to play PlayStation 1 games on a Mac!"
+    },
+    {
+        "page": "win7efi.html",
+        "title": "MBP5,1 Win 7 x64 EFI",
+        "thumbnail": "img/thumbnail.jpg",
+        "type" : "comp",
+        "path" : "win7efi/",
+        "description" : "Windows 7 x64 booted using the 2008 MacBook Pro's EFI + dual GPU usage"
+    },
+    {
+        "page": "disk-error-mba.html",
+        "title": "MBA6,1 Disk Errors",
+        "thumbnail": "img/thumbnail.jpg",
+        "type" : "comp",
+        "path" : "disk-error-mba/",
+        "description" : "My weekend struggle with a MacBook Air and its SSD issues"
+    },
+    {
+        "page": "dead-gpu.html",
+        "title": "MBP8,2 Dead GPU",
+        "thumbnail": "img/thumbnail.jpg",
+        "type" : "comp",
+        "path" : "dead-gpu/",
+        "description" : "That awkward moment when your own MacBook Pro's GPU dies..."
+    },
+    {
+        "page": "test-code.html",
+        "title": "Test Code Using SSH",
+        "thumbnail": "img/thumbnail.jpg",
+        "type" : "comp",
+        "path" : "test-code/",
+        "description" : "How to compile and test your code on UF's Thunder server"
+    },
+    {
+        "page": "vbox-windows.html",
+        "title": "Install Windows using VBox",
+        "thumbnail": "img/thumbnail.jpg",
+        "type" : "comp",
+        "path" : "vbox-windows/",
+        "description" : "Install Windows to an internal physical drive using VirtualBox"
+    },
+    {
+        "page": "firefox-useragent.html",
+        "title": "User Agent Spoofing",
+        "thumbnail": "img/thumbnail.jpg",
+        "type" : "comp",
+        "path" : "firefox-useragent/",
+        "description" : "How to spoof your user agent using Firefox..."
+    }
+]
