@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<title>MBA6,1 Disk Errors</title>
+
+<xmp theme="simplex" style="display:none;">
+
+# MacBookAir6,1 disk I/O error...and how I fixed it
+
+## I'm usually up late, so this is normal:
+
+![Alt text](img/problem1.jpg)
+
+#### It's late? Only 12:45am haha
+
+![Alt text](img/yaoming.png)
+
+![Alt text](img/problem2.jpg)
+
+![Alt text](img/challengeaccepted.jpg)
+
+#### Alright, so let's use verbose mode to figure out what's going on. OS X is pretty descriptive with a little `-v` magic.
+
+![Alt text](img/errors1.jpg)
+
+![Alt text](img/pokerface.jpg)
+
+![Alt text](img/errors2.jpg)
+
+![Alt text](img/surprisedface.jpg)
+
+
+
+I've never seen this before. Let's try single user mode and `fsck -fy /`
+
+![Alt text](img/fsck1.jpg)
+
+#### `** The voume Macintosh HD could not be verified completely.`
+
+![Alt text](img/pokerface.jpg)
+
+It's worth noting that `fsck -drfy /` wasn't able to do anything either.
+
+Time to bring out the El Capitan installer disk. Thanks to [DiskMaker X](http://diskmakerx.com), we had the installer running shortly:
+
+![Alt text](img/installer1.jpg)
+
+#### Attempting to run First Aid using Disk Utility proved absolutely *worthless*
+
+![Alt text](img/firstaid1.jpg)
+
+![Alt text](img/deskflip1.png)
+
+This tool used to be so good and reliable... Anyway, looks like a hardware issue with the internal SSD. I really hope not...but always assume the worst.
+
+#### Let's see if the filesystem is still readable...
+
+![Alt text](img/accessiblefs1.jpg)
+
+#### Oh good, it looks like we can read the files. Yay! You won't lose anything!
+
+![Alt text](img/kittehsmile.jpg)
+
+#### Took the computer home, busted out `cp -R` and within about an hour had everything backed up.
+
+![Alt text](img/copyfiles1.jpg)
+
+![Alt text](img/copyfiles2.jpg)
+
+![Alt text](img/thumbsup.jpg)
+
+## Time to experiment
+
+![Alt text](img/installer2.jpg)
+
+![Alt text](img/installer3.jpg)
+
+Let's give `fsck_hfs -fy /dev/disk0s2` a shot and see what it says:
+
+![Alt text](img/machd1.jpg)
+
+#### This was expected. Wipe it with `diskutil eraseDisk jhfs+ "MACHD" /dev/disk0`
+
+![Alt text](img/machd2.jpg)
+
+#### ...is there hope?
+
+![Alt text](img/machdinstall1.jpg)
+
+![Alt text](img/installfailed1.jpg)
+
+![Alt text](img/installfailed2.jpg)
+
+![Alt text](img/installfailed3.jpg)
+
+![Alt text](img/computerstare.jpg)
+
+![Alt text](img/errors3.jpg)
+
+![Alt text](img/areyoukiddingme.jpg)
+
+![Alt text](img/fsck2.jpg)
+
+![Alt text](img/facepalm.jpg)
+
+![Alt text](img/whyyy.jpg)
+
+#### Apple diagnostics?
+
+![Alt text](img/diagnostic1.jpg)
+
+![Alt text](img/diagnostic2.jpg)
+
+![Alt text](img/noissuefound.png)
+
+![Alt text](img/doublefacepalm.png)
+
+![Alt text](img/deskflip1.png)
+
+#### Wiping it with `diskutil` didn't help, so let's give Gparted a go.
+
+![Alt text](img/gparted1.jpg)
+
+#### Boots right up with no problem. EFI ftw.
+
+![Alt text](img/gparted2.jpg)
+
+#### Created a completely new GPT setup. Attempting to install OS X again:
+
+![Alt text](img/attempt1.jpg)
+
+#### Left the apartment for 3 hours and came back to this:
+
+![Alt text](img/attempt2.jpg)
+
+![Alt text](img/questioning.jpg)
+
+#### Reboot with `-v` aaaaaaand
+
+![Alt text](img/attempt3.jpg)
+
+![Alt text](img/deskflip2.gif)
+
+![Alt text](img/sadsitting.jpg)
+
+#### I'm about to give up and call it a hardware issue.
+
+## Hold on...
+
+There is one thing I have never tried on a disk... *zeroing*
+
+##### Hmm...
+
+Pulled the SSD from my MacBook Pro because the Terminal on the installer is annoying:
+
+![Alt text](img/ssdrescue1.jpg)
+
+![Alt text](img/ssdrescue2.jpg)
+
+#### *Never tried this before...*
+
+![Alt text](img/zerodisk1.jpg)
+
+#### Almost done...
+
+![Alt text](img/zerodisk2.jpg)
+
+#### Okay, so now it should be completely blank, no data whatsoever. Repartitioning the disk with `diskutil partitionDisk` and repairing with `diskutil repairDisk` now...
+
+![Alt text](img/repairdisk1.jpg)
+
+#### The issue was repairing the volume from before, so we'll try that next with `diskutil repairVolume /dev/disk0s2`:
+
+![Alt text](img/repairvolume1.jpg)
+
+![Alt text](img/surprisedcat1.jpg)
+
+NO ERROR. Final attempt at installing the system:
+
+![Alt text](img/finalinstall1.jpg)
+
+![Alt text](img/surprisedcat1.jpg)
+
+![Alt text](img/finalinstall2.jpg)
+
+![Alt text](img/surprisedcat1.jpg)
+
+![Alt text](img/finalinstall3.jpg)
+
+![Alt text](img/surprisedcat1.jpg)
+
+![Alt text](img/finalinstall4.jpg)
+
+![Alt text](img/gasp.gif)
+
+![Alt text](img/done.jpg)
+
+![Alt text](img/effyeah.png)
+
+## *Never give up.*
+
+### [Part 2 Here](../disk-error-mba2/disk-error-mba2.html)
+
+</xmp>
+
+<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+</html>
