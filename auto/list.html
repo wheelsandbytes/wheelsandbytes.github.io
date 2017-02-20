@@ -1,0 +1,19 @@
+<div class="row center">
+    <div class="col s12">
+        <ul ng-repeat="item in articles">
+            <div class="col s12 m4 l3" style="padding:8px;">
+                <li class="card z-depth-3 grey darken-3">
+                    <div class="card-image" style="padding:6px;">
+                        <img class="responsive-img" src="{{ getArticlePath(item) }}/{{ getArticleThumbnail(item) }}">
+                    </div>
+                    <div class="card-content white-text">
+                        <p>{{ getArticleDescription(item) }}</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="{{ getArticlePath(item) }}{{getArticleLink(item) }}">{{ getArticleTitle(item) }}</a>
+                    </div>
+                </li>
+            </div>
+        </ul>
+    </div>
+</div>
