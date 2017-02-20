@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html ng-app>
 <!-- w h e e l s _a n d_ b y t e s -->
-<!-- h o m e -->
+<!-- s p e c s -->
+<!-- F L ~ S T Y L E ~ M G M -->
 <head>
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -24,34 +25,42 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-
-    <!-- le mi custom css -->
-    <link rel="stylesheet" href="css/custom.css">
+    <!-- le mi app controlleres -->
+    <script src="../js/scripts.js"></script>
 
     <!-- Custom Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 </head>
 
-<body class="grey darken-1">
-
-    <!-- navs -->
-    <div data-ng-include="'nav.html'"></div>
+<body>
 
     <div class="parallax-container">
-        <div class="parallax"><img src="img/bg/intro-bg.jpg"></div>
-        <!-- haedaers -->
-        <div data-ng-include="'header.html'"></div>
+        <div class="parallax"><img src="img/vordoven1.jpg"></div>
     </div>
 
-    <!-- stuffs -->
-    <div data-ng-include="'content.html'"></div>
+    <div data-ng-include="'suspension.html'"></div>
 
     <div class="parallax-container">
-        <div class="parallax"><img src="img/bg/mgm-bg.jpg"></div>
+        <div class="parallax"><img src="img/vordoven2.jpg"></div>
     </div>
 
-    <!-- futters -->
-    <div data-ng-include="'footer.html'"></div>
+    <div data-ng-include="'wheels.html'"></div>
+
+    <div class="parallax-container">
+        <div class="parallax"><img src="img/washed.jpg"></div>
+    </div>
+
+    <div ng-include="'appearance.html'"></div>
+
+    <div class="parallax-container">
+        <div class="parallax"><img src="img/set3-2.jpg"></div>
+    </div>
+
+    <div ng-include="'engine.html'"></div>
+
+    <div class="parallax-container">
+        <div class="parallax"><img src="img/sideview.jpg"></div>
+    </div>
 
 </body>
 </html>
