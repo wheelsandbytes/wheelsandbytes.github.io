@@ -1,12 +1,5 @@
 [
     {
-        "page": "buy-car.html",
-        "title": "Buy Car",
-        "thumbnail": "img/thumbnail.jpg",
-        "path" : "buy-car/",
-        "description" : "How to buy car"
-    },
-    {
         "page": "cvn-fb-faq.html",
         "title": "CVN FB FAQ",
         "thumbnail": "img/thumbnail.jpg",
@@ -26,5 +19,12 @@
         "thumbnail": "img/thumbnail.jpg",
         "path" : "lower-your-panther/",
         "description" : "How to lower any Panther platform vehicle the easy way!"
+    },
+    {
+        "page": "buy-car.html",
+        "title": "Buy Car",
+        "thumbnail": "img/thumbnail.jpg",
+        "path" : "buy-car/",
+        "description" : "How to buy car"
     }
 ]
