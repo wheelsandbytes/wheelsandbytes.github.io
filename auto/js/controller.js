@@ -2,7 +2,7 @@ function AppController($scope, $http) {
 
     $scope.selectedArticle = "";
 
-    $http.get('../comp/articles.json').success(function(data) {
+    $http.get('articles.json').success(function(data) {
         $scope.articles = data;
     });
 
