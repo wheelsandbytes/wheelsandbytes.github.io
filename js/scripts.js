@@ -3,4 +3,5 @@ $(document).ready(function(){
     $(".dropdown-button").dropdown();
     $('.parallax').parallax();
     $(".button-collapse").sideNav();
+    $('.slider').slider();
 });
