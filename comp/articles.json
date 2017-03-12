@@ -47,5 +47,12 @@
         "thumbnail": "img/thumbnail.jpg",
         "path" : "firefox-useragent/",
         "description" : "How to spoof your user agent using Firefox..."
+    },
+    {
+      "page": "install-refit.html",
+      "title": "Install rEFIt on a USB Disk",
+      "thumbnail": "img/thumbnail.jpg",
+      "path" : "install-refit/",
+      "description": "How to install rEFIt on an external USB flash drive with macOS"
     }
 ]
