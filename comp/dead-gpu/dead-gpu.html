@@ -103,7 +103,7 @@ Odd, my usual SSD custom icons are not showing...already suspicious. Selecting M
 
 ![Alt text](img/24.jpg)
 
-![Alt text](img/suspicious.png)
+![Alt text](img/suspicious.jpg)
 
 ## Diagnostics???
 
@@ -154,7 +154,7 @@ Odd, my usual SSD custom icons are not showing...already suspicious. Selecting M
 #### Okay, NOW we are getting somewhere. The issue appears to video related. Faulty AMD GPU possibly?
 
 ## Context
- This MacBook Pro has two GPUs, an Intel HD 3000 and an AMD 6490M. This generation of dual-GPU MacBooks defaults to the AMD card on boot up. This means that the firmware has the 6490M already selected before any OS starts up. Now, if the 6490M is in fact busted, then I have to find a way to fall back on the Intel HD graphics for the time being. That will be tough, since I have no idea how the PCI graphics controller works on this machine. [On my old MBP5,1](win7efi.html) it was rather straightforward, since the active GPU was simply the last active GPU when the computer was shut down. Plus, I had the ability to control which GPU was selected through the gpu-power-prefs NVRAM variable. Having done some digging using the rEFIt shell on this machine, I cannot find such a variable. I guess that would make sense, considering the hardware is designed to switch GPUs on the fly with no interruption in video output. There appears to be no explicit setting for power to either GPU (and obviously the Intel GPU is always  powered, it is integrated into the CPU).
+ This MacBook Pro has two GPUs, an Intel HD 3000 and an AMD 6490M. This generation of dual-GPU MacBooks defaults to the AMD card on boot up. This means that the firmware has the 6490M already selected before any OS starts up. Now, if the 6490M is in fact busted, then I have to find a way to fall back on the Intel HD graphics for the time being. That will be tough, since I have no idea how the PCI graphics controller works on this machine. [On my old MBP5,1](../win7efi/win7efi.html) it was rather straightforward, since the active GPU was simply the last active GPU when the computer was shut down. Plus, I had the ability to control which GPU was selected through the gpu-power-prefs NVRAM variable. Having done some digging using the rEFIt shell on this machine, I cannot find such a variable. I guess that would make sense, considering the hardware is designed to switch GPUs on the fly with no interruption in video output. There appears to be no explicit setting for power to either GPU (and obviously the Intel GPU is always  powered, it is integrated into the CPU).
 
 ### Screenshots of my rEFIt shenanigans:
 
@@ -236,7 +236,10 @@ Odd, my usual SSD custom icons are not showing...already suspicious. Selecting M
 
 ![Alt text](img/67.jpg)
 
+---
+Copyright &copy; wheelsandbytes 2015-2017. All Rights Reserved
 </xmp>
+</body>
 
 <script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
 </html>
