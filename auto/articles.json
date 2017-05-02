@@ -1,30 +1,37 @@
 [
-    {
-        "page": "cvn-fb-faq.html",
-        "title": "CVN FB FAQ",
-        "thumbnail": "img/thumbnail.jpg",
-        "path" : "cvn-fb-faq/",
-        "description" : "[Too] Frequently Asked Questions from the Crown Vic Facebook page"
-    },
-    {
-        "page": "cvn-links.html",
-        "title": "CVN Links",
-        "thumbnail": "img/thumbnail.jpg",
-        "path" : "cvn-links/",
-        "description" : "Useful Crown Victoria/Panther platform links (including crownvic.net)"
-    },
-    {
-        "page": "lower-your-panther.html",
-        "title": "Lower Your Panther",
-        "thumbnail": "img/thumbnail.jpg",
-        "path" : "lower-your-panther/",
-        "description" : "How to lower any Panther platform vehicle the easy way!"
-    },
-    {
-        "page": "buy-car.html",
-        "title": "Buy Car",
-        "thumbnail": "img/thumbnail.jpg",
-        "path" : "buy-car/",
-        "description" : "How to buy car"
-    }
+  {
+    "page": "mgm-aero.html",
+    "title": "MGM Aero Drawings",
+    "thumbnail": "img/thumbnail.jpg",
+    "path" : "mgm-aero/",
+    "description" : "MGM Aero Concept Drawings"
+  },
+  {
+    "page": "cvn-fb-faq.html",
+    "title": "CVN FB FAQ",
+    "thumbnail": "img/thumbnail.jpg",
+    "path" : "cvn-fb-faq/",
+    "description" : "[Too] Frequently Asked Questions from the Crown Vic Facebook page"
+  },
+  {
+    "page": "cvn-links.html",
+    "title": "CVN Links",
+    "thumbnail": "img/thumbnail.jpg",
+    "path" : "cvn-links/",
+    "description" : "Useful Crown Victoria/Panther platform links (including crownvic.net)"
+  },
+  {
+    "page": "lower-your-panther.html",
+    "title": "Lower Your Panther",
+    "thumbnail": "img/thumbnail.jpg",
+    "path" : "lower-your-panther/",
+    "description" : "How to lower any Panther platform vehicle the easy way!"
+  },
+  {
+    "page": "buy-car.html",
+    "title": "Buy Car",
+    "thumbnail": "img/thumbnail.jpg",
+    "path" : "buy-car/",
+    "description" : "How to buy car"
+  }
 ]
