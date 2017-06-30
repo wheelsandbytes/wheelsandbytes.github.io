@@ -1,58 +1,65 @@
 [
-    {
-        "page": "openemu-ps1.html",
-        "title": "PlayStation 1 in OpenEmu",
-        "thumbnail": "img/thumbnail.jpg",
-        "path" : "openemu-ps1/",
-        "description" : "How to play PlayStation 1 games on a Mac!"
-    },
-    {
-        "page": "win7efi.html",
-        "title": "MBP5,1 Win 7 x64 EFI",
-        "thumbnail": "img/thumbnail.jpg",
-        "path" : "win7efi/",
-        "description" : "Windows 7 x64 booted using the 2008 MacBook Pro's EFI + dual GPU usage"
-    },
-    {
-        "page": "disk-error-mba.html",
-        "title": "MBA6,1 Disk Errors",
-        "thumbnail": "img/thumbnail.jpg",
-        "path" : "disk-error-mba/",
-        "description" : "My weekend struggle with a MacBook Air and its SSD issues"
-    },
-    {
-        "page": "dead-gpu.html",
-        "title": "MBP8,2 Dead GPU",
-        "thumbnail": "img/thumbnail.jpg",
-        "path" : "dead-gpu/",
-        "description" : "That awkward moment when your own MacBook Pro's GPU dies..."
-    },
-    {
-        "page": "test-code.html",
-        "title": "Test Code Using SSH",
-        "thumbnail": "img/thumbnail.jpg",
-        "path" : "test-code/",
-        "description" : "How to compile and test your code on UF's Thunder server"
-    },
-    {
-        "page": "vbox-windows.html",
-        "title": "Install Windows using VBox",
-        "thumbnail": "img/thumbnail.jpg",
-        "path" : "vbox-windows/",
-        "description" : "Install Windows to an internal physical drive using VirtualBox"
-    },
-    {
-        "page": "firefox-useragent.html",
-        "title": "User Agent Spoofing",
-        "thumbnail": "img/thumbnail.jpg",
-        "path" : "firefox-useragent/",
-        "description" : "How to spoof your user agent using Firefox..."
-    },
-    {
-      "page": "install-refit.html",
-      "title": "Install rEFIt on a USB Disk",
-      "thumbnail": "img/thumbnail.jpg",
-      "path" : "install-refit/",
-      "description": "How to install rEFIt on an external USB flash drive with macOS"
-    }
+  {
+    "page": "openemu-ps1.html",
+    "title": "PlayStation 1 in OpenEmu",
+    "thumbnail": "img/thumbnail.jpg",
+    "path" : "openemu-ps1/",
+    "description" : "How to play PlayStation 1 games on a Mac!"
+  },
+  {
+    "page": "win7efi.html",
+    "title": "MBP5,1 Win 7 x64 EFI",
+    "thumbnail": "img/thumbnail.jpg",
+    "path" : "win7efi/",
+    "description" : "Windows 7 x64 booted using the 2008 MacBook Pro's EFI + dual GPU usage"
+  },
+  {
+    "page": "disk-error-mba.html",
+    "title": "MBA6,1 Disk Errors",
+    "thumbnail": "img/thumbnail.jpg",
+    "path" : "disk-error-mba/",
+    "description" : "My weekend struggle with a MacBook Air and its SSD issues"
+  },
+  {
+    "page": "dead-gpu.html",
+    "title": "MBP8,2 Dead GPU",
+    "thumbnail": "img/thumbnail.jpg",
+    "path" : "dead-gpu/",
+    "description" : "That awkward moment when your own MacBook Pro's GPU dies..."
+  },
+  {
+    "page": "test-code.html",
+    "title": "Test Code Using SSH",
+    "thumbnail": "img/thumbnail.jpg",
+    "path" : "test-code/",
+    "description" : "How to compile and test your code on UF's Thunder server"
+  },
+  {
+    "page": "vbox-windows.html",
+    "title": "Install Windows using VBox",
+    "thumbnail": "img/thumbnail.jpg",
+    "path" : "vbox-windows/",
+    "description" : "Install Windows to an internal physical drive using VirtualBox"
+  },
+  {
+    "page": "firefox-useragent.html",
+    "title": "User Agent Spoofing",
+    "thumbnail": "img/thumbnail.jpg",
+    "path" : "firefox-useragent/",
+    "description" : "How to spoof your user agent using Firefox..."
+  },
+  {
+    "page": "install-refit.html",
+    "title": "Install rEFIt on a USB Disk",
+    "thumbnail": "img/thumbnail.jpg",
+    "path" : "install-refit/",
+    "description": "How to install rEFIt on an external USB flash drive with macOS"
+  },
+  {
+    "page": "dell-hell.html",
+    "title": "Coming soon...",
+    "thumbnail": "img/thumbnail.jpg",
+    "path" : "dell-hell/",
+    "description": "...welcome to Dell Hell..."
+  }
 ]

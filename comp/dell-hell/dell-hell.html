@@ -1,0 +1,85 @@
+<span class="neg">ERROR 404</span>
+
+
+<!-- Typed.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.7/typed.min.js"></script>
+
+<script>
+$(function(){
+
+  let errorMessage =
+   "<br>|<br>|<br>" +
+    "Why are you here..." +
+    "<br>|<br>|<br>" +
+    "You should not be here..." +
+    "<br>|<br>|<br>" +
+    " Something very bad has happened..." +
+    "<br>|<br>|<br>|<br>" +
+    "<br>|<br>|<br>|<br>|<br>|<br>|<br>|<br>|<br>|<br>|<br>|<br>|<br>|<br>" +
+    "<i>Copyright 2017 [wheels_and_bytes]</i>"
+  ;
+
+  $(".errorText").typed({
+    strings: [errorMessage],
+    contentType: 'html',
+    typeSpeed: 10
+  });
+});
+</script>
+
+<div class="errorText"></div>
+
+<style media="screen" type="text/css">
+body {
+  background:#0000aa;
+  color:#ffffff;
+  font-family:courier;
+  font-size:14pt;
+  text-align:center;
+  margin:150px;
+}
+
+.neg {
+  background:#fff;
+  color:#0000aa;
+  padding:5px 15px;
+  font-weight:bold;
+}
+
+a,a:hover {
+  color:inherit;
+  font:inherit;
+}
+
+.menu {
+  text-align:center;
+  margin-top:10px;
+}
+
+.typed-cursor{
+  opacity: 1;
+  -webkit-animation: blink 0.7s infinite;
+  -moz-animation: blink 0.7s infinite;
+  animation: blink 0.7s infinite;
+}
+@keyframes blink{
+  0% { opacity:0; }
+  50% { opacity:0; }
+  100% { opacity:0; }
+}
+@-webkit-keyframes blink{
+  0% { opacity:0; }
+  50% { opacity:0; }
+  100% { opacity:0; }
+}
+@-moz-keyframes blink{
+  0% { opacity:0; }
+  50% { opacity:0; }
+  100% { opacity:0; }
+}
+.typed-fade-out{
+    opacity: 0;
+    animation: 0;
+    transition: opacity .25s;
+}
+</style>
