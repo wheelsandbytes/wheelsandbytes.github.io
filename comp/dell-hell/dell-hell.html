@@ -1,4 +1,8 @@
+<!DOCTYPE html>
+<html>
+<title>Welcome to Dell Hell</title>
 
+<xmp theme="simplex" style="display:none;">
 
 # Budget Ballin'? ...or... The Dell from Hell?
 
@@ -6,72 +10,71 @@
 
 ![halp pls](img/halp.jpg)
 
-# .
-# .
-# .
+# +
+# +
+# +
 
 ![bring it](img/bringit.jpg)
 
-# .
-# .
-# .
+# +
+# +
+# +
 
 ![s13.5](img/03.JPG)
 
-# .
-# .
-# .
+# +
+# +
+# +
 
 ![the dell](img/05.JPG)
 
-# .
-# .
-# .
+# +
+# +
+# +
 
 ![dell rear](img/06.JPG)
 
-# .
-# .
-# .
+# +
+# +
+# +
 
 ![dell inside](img/07.JPG)
 
-# .
-# . Aight, time to figure out what's wrong with it...
-# .
+# +
+# aight, time to figure out what's wrong with it...
+# +
 
 ![tea time](img/09.JPG)
 
-# .
-# . setting up the battle station
-# .
+# +
+# setting up the battle station
+# +
 
 ![battle station](img/10.JPG)
 
-# .
-# . power ON
-# .
+# +
+# power ON
+# +
 
 ![power on](img/12.JPG)
 
-# .
-# .
-# .
+# +
+# +
+# +
 
 ![startup black](img/13.JPG)
 
-# .
-# .
-# .
+# +
+# +
+# +
 
 ![dell loading](img/17.JPG)
 
-# .
-# .
-# .
+# +
+# +
+# +
 
 ![setup starting](img/16.JPG)
-
 
 ![windows loading](img/18.JPG)
 
@@ -79,150 +82,12 @@
 
 ![Alt text](img/20.JPG)
 
-### FANTASTIC, a white screen again.
 
-![Alt text](img/dark-stare.png)
-
-### Welp... gonna try the installer in safe boot:
-
-![Alt text](img/21.JPG)
-
-![Alt text](img/22.JPG)
-
-![Alt text](img/24.JPG)
-
-![Alt text](img/suspicious.JPG)
-
-## Diagnostics???
-
-![Alt text](img/25.JPG)
-
-![Alt text](img/3.JPG)
-
-![Alt text](img/deskflip-pokemon-card.JPG)
-
-### I shall give the installer one more chance in Safe Boot:
-
-![Alt text](img/29.JPG)
-
-![Alt text](img/30.JPG)
-
-![Alt text](img/kernel-panic.png)
-
-### What happens if we try to boot Windows?
-
-![Alt text](img/31.JPG)
-
-![Alt text](img/32.JPG)
-
-![Alt text](img/33.JPG)
-
-![Alt text](img/computer-slice.png)
-
-#### Nope. How about booting my SSD from USB?
-
-![Alt text](img/34.JPG)
-
-![Alt text](img/35.JPG)
-
-![Alt text](img/36.JPG)
-
-![Alt text](img/37.JPG)
-
-![Alt text](img/38.JPG)
-
-![Alt text](img/39.JPG)
-
-![Alt text](img/40.JPG)
-
-![Alt text](img/41.JPG)
-
-![Alt text](img/42.JPG)
-
-#### Okay, NOW we are getting somewhere. The issue appears to video related. Faulty AMD GPU possibly?
-
-## Context
- This MacBook Pro has two GPUs, an Intel HD 3000 and an AMD 6490M. This generation of dual-GPU MacBooks defaults to the AMD card on boot up. This means that the firmware has the 6490M already selected before any OS starts up. Now, if the 6490M is in fact busted, then I have to find a way to fall back on the Intel HD graphics for the time being. That will be tough, since I have no idea how the PCI graphics controller works on this machine. [On my old MBP5,1](../win7efi/win7efi.html) it was rather straightforward, since the active GPU was simply the last active GPU when the computer was shut down. Plus, I had the ability to control which GPU was selected through the gpu-power-prefs NVRAM variable. Having done some digging using the rEFIt shell on this machine, I cannot find such a variable. I guess that would make sense, considering the hardware is designed to switch GPUs on the fly with no interruption in video output. There appears to be no explicit setting for power to either GPU (and obviously the Intel GPU is always  powered, it is integrated into the CPU).
-
-### Screenshots of my rEFIt shenanigans:
-
-![Alt text](img/43.JPG)
-
-![Alt text](img/44.JPG)
-
-![Alt text](img/45.JPG)
-
-![Alt text](img/46.JPG)
-
-![Alt text](img/47.JPG)
-
-![Alt text](img/48.JPG)
-
-![Alt text](img/49.JPG)
-
-#### There is no gpu-power-prefs variable, and I really do not feel like studying the hex dump for GraphicsOutput xD
-
-### Let us see if Apple has us covered...
-
-![Alt text](img/50.JPG)
-
-![Alt text](img/51.JPG)
-
-![Alt text](img/52.JPG)
-
-![Alt text](img/happy.png)
-
-#### Awwww yeah. Time to get it ready for shipping!
-
-![Alt text](img/59.JPG)
-
-#### Pulling the main SSD first so I can keep using my system on another Mac...
-
-![Alt text](img/53.JPG)
-
-![Alt text](img/54.JPG)
-
-![Alt text](img/55.JPG)
-
-#### Wiped and ready for packaging!
-
-![Alt text](img/56.JPG)
-
-#### Hoping not to screw up these instructions... XD
-
-#### Meanwhile, my friend's Apple Pencil came in:
-
-![Alt text](img/58.JPG)
-
-#### Packaged up and ready to be shipped:
-
-![Alt text](img/57.JPG)
-
-![Alt text](img/happy-kitteh.png)
-
-![Alt text](img/several-days-later.png)
-
-![Alt text](img/fedex.png)
-
-![Alt text](img/doge.png)
-
-![Alt text](img/60.JPG)
-
-![Alt text](img/61.JPG)
-
-![Alt text](img/62.JPG)
-
-![Alt text](img/63.JPG)
-
-![Alt text](img/64.JPG)
-
-![Alt text](img/65.JPG)
-
-![Alt text](img/66.JPG)
-
-## Bonus backlit keyboard at night:
-
-![Alt text](img/67.JPG)
 
 ---
 Copyright &copy; wheelsandbytes 2015-2017. All Rights Reserved
+
+</xmp>
+
+<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+</html>
