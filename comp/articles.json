@@ -61,5 +61,12 @@
     "thumbnail": "img/thumbnail.jpg",
     "path" : "dell-hell/",
     "description": "...welcome to Dell Hell..."
+  },
+  {
+    "page": "fw-password.html",
+    "title": "Bye bye firmware password",
+    "thumbnail": "img/thumbnail.jpg",
+    "path" : "fw-password/",
+    "description": "Remove a Mac firmware password without recovery mode"
   }
 ]
