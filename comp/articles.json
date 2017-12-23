@@ -68,5 +68,12 @@
     "thumbnail": "img/thumbnail.jpg",
     "path" : "fw-password/",
     "description": "Remove a Mac firmware password without recovery mode"
+  },
+  {
+    "page": "new-mac.html",
+    "title": "New Mac pro tips",
+    "thumbnail": "img/thumbnail.jpg",
+    "path" : "new-mac/",
+    "description": "starting from scratch > Migration Assistance"
   }
 ]
