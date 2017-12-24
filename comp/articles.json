@@ -71,9 +71,9 @@
   },
   {
     "page": "new-mac.html",
-    "title": "New Mac pro tips",
+    "title": "pro tips for new mac",
     "thumbnail": "img/thumbnail.jpg",
     "path" : "new-mac/",
-    "description": "starting from scratch > Migration Assistance"
+    "description": "starting from scratch > Migration Assistant"
   }
 ]
