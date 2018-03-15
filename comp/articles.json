@@ -75,5 +75,12 @@
     "thumbnail": "img/thumbnail.jpg",
     "path" : "new-mac/",
     "description": "starting from scratch > Migration Assistant"
+  },
+  {
+    "page": "noob-site.html",
+    "title": "web dev for n00bs",
+    "thumbnail": "img/thumbnail.png",
+    "path" : "noob-site/",
+    "description": "starting a stupid basic website the easy way"
   }
 ]

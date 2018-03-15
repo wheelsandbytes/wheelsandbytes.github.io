@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<title>Hello World</title>
+
+<body>
+
+<xmp theme="simplex" style="display:none;">
+
+### Hello World
+
+Post meaningful content here...
+
+[Learn Markdown here...](https://daringfireball.net/projects/markdown/)
+
+Here's a picture of a kitten:
+
+![kitten](https://static1.squarespace.com/static/54e8ba93e4b07c3f655b452e/t/56c2a04520c64707756f4267/1493764650017/?format=500w)
+
+</xmp>
+</body>
+
+<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+</html>
