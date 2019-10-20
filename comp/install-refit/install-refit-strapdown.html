@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<title>Install rEFIt on a USB Disk</title>
+
+<body>
+
+<xmp theme="simplex" style="display:none;">
+
+# How to install rEFIt on an external USB drive
+
+---
+
+## Basically [this](http://refit.sourceforge.net/doc/c1s1_install.html) with pretty pictures.
+
+### 1. Download rEFIt from [here](http://prdownloads.sourceforge.net/refit/rEFIt-0.14.dmg?download).
+
+![Alt text](img/1.png)
+
+### 2. Open the disk image.
+
+![Alt text](img/2.png)
+
+### 3. Wait, the disk image isn't needed just yet...
+
+### 4. Plug your flash drive in...
+
+![Alt](img/3.jpg)
+
+![Alt](img/4.jpg)
+
+### 5. Open Terminal
+
+Type `diskutil list` and press enter
+
+Should like something like this:
+
+![Alt](img/5.png)
+
+The USB disks are always at the bottom. You can see mine is listed as:
+
+![Alt](img/6.png)
+
+In most cases, the `IDENTIFIER` for your USB flash drive is something else. In my case, it is `disk3`
+
+_Make sure to note your correct `IDENTIFIER`, otherwise u gon erase the wrong disk._
+
+### 6. Erase USB flash drive using Terminal
+
+In Terminal, type `diskutil eraseDisk JHFS+ "USB" GPT /dev/disk3` but replace `disk3` with _your_ `IDENTIFIER`. Press enter. POOF there goes your data.
+
+It gon look like dis:
+
+![Alt](img/7.png)
+
+### 7. Copy the "efi" folder to the USB drive
+
+Recall that our USB flash drive was renamed to `USB` in the erase process.
+
+In Terminal, type `cp -R /Volumes/rEFIt/efi /Volumes/USB` and press enter
+
+Then, `cd /Volumes/USB/efi/refit/` and press enter
+
+Then, `sudo ./enable.sh` and press enter
+
+YOUR PASSWORD AIN'T GONNA SHOW but type it in and press enter anyway. Why? Because UNIX.
+
+Should look like this:
+
+![Alt](img/9.png)
+
+### Done.
+
+Eject the USB flash drive like you normally would, then reboot your Mac while holding the option key, and you should see rEFIt as an option.
+
+![Alt](img/10.jpg)
+
+---
+Copyright &copy; wheelsandbytes 2015-2017. All Rights Reserved
+
+</xmp>
+</body>
+
+<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+</html>

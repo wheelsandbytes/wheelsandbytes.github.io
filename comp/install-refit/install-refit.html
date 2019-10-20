@@ -1,84 +1,67 @@
-<!DOCTYPE html>
-<html>
-<title>Install rEFIt on a USB Disk</title>
 
-<body>
-
-<xmp theme="simplex" style="display:none;">
-
-# How to install rEFIt on an external USB drive
-
----
-
-## Basically [this](http://refit.sourceforge.net/doc/c1s1_install.html) with pretty pictures.
-
-### 1. Download rEFIt from [here](http://prdownloads.sourceforge.net/refit/rEFIt-0.14.dmg?download).
-
-![Alt text](img/1.png)
-
-### 2. Open the disk image.
-
-![Alt text](img/2.png)
-
-### 3. Wait, the disk image isn't needed just yet...
-
-### 4. Plug your flash drive in...
-
-![Alt](img/3.jpg)
-
-![Alt](img/4.jpg)
-
-### 5. Open Terminal
-
-Type `diskutil list` and press enter
-
-Should like something like this:
-
-![Alt](img/5.png)
-
-The USB disks are always at the bottom. You can see mine is listed as:
-
-![Alt](img/6.png)
-
-In most cases, the `IDENTIFIER` for your USB flash drive is something else. In my case, it is `disk3`
-
-_Make sure to note your correct `IDENTIFIER`, otherwise u gon erase the wrong disk._
-
-### 6. Erase USB flash drive using Terminal
-
-In Terminal, type `diskutil eraseDisk JHFS+ "USB" GPT /dev/disk3` but replace `disk3` with _your_ `IDENTIFIER`. Press enter. POOF there goes your data.
-
-It gon look like dis:
-
-![Alt](img/7.png)
-
-### 7. Copy the "efi" folder to the USB drive
-
-Recall that our USB flash drive was renamed to `USB` in the erase process.
-
-In Terminal, type `cp -R /Volumes/rEFIt/efi /Volumes/USB` and press enter
-
-Then, `cd /Volumes/USB/efi/refit/` and press enter
-
-Then, `sudo ./enable.sh` and press enter
-
-YOUR PASSWORD AIN'T GONNA SHOW but type it in and press enter anyway. Why? Because UNIX.
-
-Should look like this:
-
-![Alt](img/9.png)
-
-### Done.
-
-Eject the USB flash drive like you normally would, then reboot your Mac while holding the option key, and you should see rEFIt as an option.
-
-![Alt](img/10.jpg)
-
----
-Copyright &copy; wheelsandbytes 2015-2017. All Rights Reserved
-
-</xmp>
-</body>
-
-<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
-</html>
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- common.css -->
+      <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Monaco, Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
+      <!-- ace-static.css -->
+      <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
+      <style>.ace-monokai .ace_gutter {background: #2F3129;color: #8F908A}.ace-monokai .ace_print-margin {width: 1px;background: #555651}.ace-monokai {background-color: #272822;color: #F8F8F2}.ace-monokai .ace_cursor {color: #F8F8F0}.ace-monokai .ace_marker-layer .ace_selection {background: #49483E}.ace-monokai.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #272822;}.ace-monokai .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-monokai .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #49483E}.ace-monokai .ace_marker-layer .ace_active-line {background: #202020}.ace-monokai .ace_gutter-active-line {background-color: #272727}.ace-monokai .ace_marker-layer .ace_selected-word {border: 1px solid #49483E}.ace-monokai .ace_invisible {color: #52524d}.ace-monokai .ace_entity.ace_name.ace_tag,.ace-monokai .ace_keyword,.ace-monokai .ace_meta.ace_tag,.ace-monokai .ace_storage {color: #F92672}.ace-monokai .ace_punctuation,.ace-monokai .ace_punctuation.ace_tag {color: #fff}.ace-monokai .ace_constant.ace_character,.ace-monokai .ace_constant.ace_language,.ace-monokai .ace_constant.ace_numeric,.ace-monokai .ace_constant.ace_other {color: #AE81FF}.ace-monokai .ace_invalid {color: #F8F8F0;background-color: #F92672}.ace-monokai .ace_invalid.ace_deprecated {color: #F8F8F0;background-color: #AE81FF}.ace-monokai .ace_support.ace_constant,.ace-monokai .ace_support.ace_function {color: #66D9EF}.ace-monokai .ace_fold {background-color: #A6E22E;border-color: #F8F8F2}.ace-monokai .ace_storage.ace_type,.ace-monokai .ace_support.ace_class,.ace-monokai .ace_support.ace_type {font-style: italic;color: #66D9EF}.ace-monokai .ace_entity.ace_name.ace_function,.ace-monokai .ace_entity.ace_other,.ace-monokai .ace_entity.ace_other.ace_attribute-name,.ace-monokai .ace_variable {color: #A6E22E}.ace-monokai .ace_variable.ace_parameter {font-style: italic;color: #FD971F}.ace-monokai .ace_string {color: #E6DB74}.ace-monokai .ace_comment {color: #75715E}.ace-monokai .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ0FD0ZXBzd/wPAAjVAoxeSgNeAAAAAElFTkSuQmCC) right repeat-y}</style>
+      <!-- export.css -->
+      <style>
+        body{margin:0 auto;max-width:800px;line-height:1.4}
+        #nav{margin:5px 0 10px;font-size:15px}
+        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
+        #contentarea{font-size:15px;margin:16px 0}
+        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
+        .code-cell{font-family:Monaco,Menlo,Consolas,'Ubuntu Mono','source-code-pro',monospace;font-size:12px;}
+        .latex-cell{white-space:pre-wrap;}
+      </style>
+      <!-- User CSS -->
+      <style> body{background-color: #fafafa;color:#444} .text-cell {font-size: 16px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 17px;}.latex-cell {font-size: 15px;}</style>
+    </head>
+    <body>
+      
+      <div id="contentarea"><div class="cell markdown-cell"><h1>How to install rEFIt on an external USB drive</h1>
+<hr>
+<h2>Basically <a href="http://refit.sourceforge.net/doc/c1s1_install.html">this</a> with pretty pictures.</h2>
+<h3>1. Download rEFIt from <a href="http://prdownloads.sourceforge.net/refit/rEFIt-0.14.dmg?download">here</a>.</h3>
+<p><img src="resources/6877E00DB45E393FDE8F38EC0A670A57.png" alt="1.png" width="406" height="106"></p>
+<h3>2. Open the disk image.</h3>
+<p><img src="resources/52D4ADE5798287142226350DA2923791.png" alt="2.png" width="659" height="477"></p>
+<h3>3. Wait, the disk image isn't needed just yet...</h3>
+<h3>4. Plug your flash drive in...</h3>
+<p><img src="resources/768E14177194FF140987DAAF8585024B.jpg" alt="3.jpg" width="525" height="481"></p>
+<p><img src="resources/72F4F5D5E5BEECD8C5B678DD450686A4.jpg" alt="4.jpg" width="525" height="471"></p>
+<h3>5. Open Terminal</h3>
+<p>Type <code>diskutil list</code> and press enter</p>
+<p>Should like something like this:</p>
+<p><img src="resources/C9FFC90105180ED0DEB07F12D40A8726.png" alt="5.png" width="682" height="312"></p>
+<p>The USB disks are always at the bottom. You can see mine is listed as:</p>
+<p><img src="resources/5150BEF93683281F9A4D5AC10F65FCDA.png" alt="6.png" width="682" height="82"></p>
+<p>In most cases, the <code>IDENTIFIER</code> for your USB flash drive is something else. In my case, it is <code>disk3</code></p>
+<p><em>Make sure to note your correct <code>IDENTIFIER</code>, otherwise u gon erase the wrong disk.</em></p>
+<h3>6. Erase USB flash drive using Terminal</h3>
+<p>In Terminal, type <code>diskutil eraseDisk JHFS+ "USB" GPT /dev/disk3</code> but replace <code>disk3</code> with <em>your</em> <code>IDENTIFIER</code>. Press enter. POOF there goes your data.</p>
+<p>It gon look like dis:</p>
+<p><img src="resources/736FA0785AED8255810DDFD1130A68A6.png" alt="7.png" width="682" height="182"></p>
+<h3>7. Copy the "efi" folder to the USB drive</h3>
+<p>Recall that our USB flash drive was renamed to <code>USB</code> in the erase process.</p>
+<p>In Terminal, type <code>cp -R /Volumes/rEFIt/efi /Volumes/USB</code> and press enter</p>
+<p>Then, <code>cd /Volumes/USB/efi/refit/</code> and press enter</p>
+<p>Then, <code>sudo ./enable.sh</code> and press enter</p>
+<p>YOUR PASSWORD AIN'T GONNA SHOW but type it in and press enter anyway. Why? Because UNIX.</p>
+<p>Should look like this:</p>
+<p><img src="resources/5CBEA4D27E5760D60E6BEACF6ED16465.png" alt="9.png" width="682" height="93"></p>
+<h3>Done.</h3>
+<p>Eject the USB flash drive like you normally would, then reboot your Mac while holding the option key, and you should see rEFIt as an option.</p>
+<p><img src="resources/9DA93F5484FDF8E1A917B501A018F685.jpg" alt="10.jpg" width="225" height="180"></p>
+<hr>
+<p>Copyright © wheelsandbytes 2015-2019. All Rights Reserved</p>
+</div></div>
+      <script></script>
+    </body>
+    </html>
+  
