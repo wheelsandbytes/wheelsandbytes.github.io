@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>[ w n b » comp stuff ] on [ wheels and bytes ]</title>
+    <link>http://localhost:1313/comp-stuff/</link>
+    <description>Recent content in [ w n b » comp stuff ] on [ wheels and bytes ]</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Mar 2017 22:36:50 -0600</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/comp-stuff/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to install rEFIt on an external USB drive</title>
+      <link>http://localhost:1313/comp-stuff/install-refit/</link>
+      <pubDate>Sun, 12 Mar 2017 22:36:50 -0600</pubDate>
+      
+      <guid>http://localhost:1313/comp-stuff/install-refit/</guid>
+      <description>Basically this with pretty pictures. 1. Download rEFIt from here. 2. Open the disk image. 3. Wait, the disk image isn&amp;rsquo;t needed just yet&amp;hellip; 4. Plug your flash drive in&amp;hellip; 5. Open Terminal Type diskutil list and press enter
+Should like something like this:
+The USB disks are always at the bottom. You can see mine is listed as:
+In most cases, the IDENTIFIER for your USB flash drive is something else.</description>
+    </item>
+    
+    <item>
+      <title>MBP8,2 Dead GPU</title>
+      <link>http://localhost:1313/comp-stuff/dead-gpu/</link>
+      <pubDate>Fri, 17 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/comp-stuff/dead-gpu/</guid>
+      <description>So I&amp;rsquo;m sitting in class, setting Windows up to run in VirtualBox off my second internal SSD. VirtualBox did not give me any issues. The next step is to reboot and make sure it is still able to boot up natively. So I shut it down and prepare to go home.
+I get home and&amp;hellip;
+IT WAS WORKING 20 MINUTES AGO
+Maybe the NVRAM forgot what needs to be booted.</description>
+    </item>
+    
+  </channel>
+</rss>
