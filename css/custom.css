@@ -11,6 +11,10 @@ h1,h2,h3,h4,h5,h6,p {
   color: #eee;
 }
 
+.bg-lightgrey {
+  background-color: #ddd;
+}
+
 .thin-border {
   border-top: 0px;
   border-bottom: 2px;
@@ -22,4 +26,8 @@ h1,h2,h3,h4,h5,h6,p {
 
 .pinstripe-bg {
   background-image: url("/img/bg/bg-pin.png");
+}
+
+.section {
+  padding: 0 0 0 0;
 }

@@ -1,65 +1,236 @@
 <!DOCTYPE html>
-<html ng-app>
+<html>
 <!-- w h e e l s _a n d_ b y t e s -->
 <!-- c o m p u t e r _ w o r k s -->
 <head>
   <!--Import Google Icon Font-->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!--Import jQuery before materialize.js-->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-
   <!--Import materialize.css-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-
-  <!-- AngularJS ftw -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
-
-  <!-- jQuery -->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-
-  <!-- Typed.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.7/typed.min.js"></script>
 
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <!-- LOCAL -->
 
-
-  <!-- le mi app controlleres -->
-  <script src="./js/controller.js"></script>
-  <script src="../js/scripts.js"></script>
+  <!-- NO MORE JAVASCRIPT -->
 
   <!-- le mi app CSS -->
-  <link rel="stylesheet" href="../css/custom.css">
+  <link rel="stylesheet" href="/css/custom.css">
 
   <!-- Custom Fonts -->
   <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 </head>
+<body class="bg-lightgrey">
+  <nav>
+    <div class="nav-wrapper grey darken-3 z-depth-5">
+      <div class="row">
+        <div class="col s12 l6">
+          <a href="../index.html" class="brand-logo">[ wheels_and_bytes ]</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
 
-<body ng-controller="AppController" class="grey lighten-3">
 
-  <!-- navs -->
-  <div ng-include="'subnav.html'"></div>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="../auto/">Auto Stuffs</a></li>
+          <li><a href="./">Comp Stuffs</a></li>
+        </ul>
+        <ul class="side-nav grey lighten-3 z-depth-5" id="mobile-demo">
+          <li><a href="../auto/">Auto Stuffs</a></li>
+          <li><a href="./">Comp Stuffs</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <img class="responsive-img" src="bg.jpg">
-
   <h3 class="center">#justcomputerthings</h3>
+  <div class="section center">
 
-  <!-- List of Comp Articles -->
-  <div ng-include="'list.html'"></div>
+    <div class="row">
 
-  <section class="grey center">
-    <!-- Icon for noob-site -->
-    <div>Icons made by <a href="https://www.flaticon.com/authors/nikita-golubev" title="Nikita Golubev">Nikita Golubev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-  </section>
-  <!-- futters -->
-  <div ng-include="'../footer.html'"></div>
-
-
+      <ul>
+        <div class="col s12 m4 l3" style="padding:8px;">
+          <li class="card z-depth-3 grey darken-3">
+            <div class="card-image" style="padding:6px;">
+              <img class="responsive-img" src="openemu-ps1//img/thumbnail.jpg">
+            </div>
+            <div class="card-content white-text">
+              <p>How to play PlayStation 1 games on a Mac!</p>
+            </div>
+            <div class="card-action">
+              <a href="openemu-ps1/">PlayStation 1 in OpenEmu</a>
+            </div>
+          </li>
+        </div>
+      </ul>
+      <ul>
+        <div class="col s12 m4 l3" style="padding:8px;">
+          <li class="card z-depth-3 grey darken-3">
+            <div class="card-image" style="padding:6px;">
+              <img class="responsive-img" src="win7efi//img/thumbnail.jpg">
+            </div>
+            <div class="card-content white-text">
+              <p>Windows 7 x64 booted using the 2008 MacBook Pro's EFI + dual GPU usage</p>
+            </div>
+            <div class="card-action">
+              <a href="win7efi/win7efi.html">MBP5,1 Win 7 x64 EFI</a>
+            </div>
+          </li>
+        </div>
+      </ul>
+      <ul>
+        <div class="col s12 m4 l3" style="padding:8px;">
+          <li class="card z-depth-3 grey darken-3">
+            <div class="card-image" style="padding:6px;">
+              <img class="responsive-img" src="disk-error-mba//img/thumbnail.jpg">
+            </div>
+            <div class="card-content white-text">
+              <p>My weekend struggle with a MacBook Air and its SSD issues</p>
+            </div>
+            <div class="card-action">
+              <a href="disk-error-mba/">MBA6,1 Disk Errors</a>
+            </div>
+          </li>
+        </div>
+      </ul>
+      <ul>
+        <div class="col s12 m4 l3" style="padding:8px;">
+          <li class="card z-depth-3 grey darken-3">
+            <div class="card-image" style="padding:6px;">
+              <img class="responsive-img" src="dead-gpu//img/thumbnail.jpg">
+            </div>
+            <div class="card-content white-text">
+              <p>That awkward moment when your own MacBook Pro's GPU dies...</p>
+            </div>
+            <div class="card-action">
+              <a href="dead-gpu/">MBP8,2 Dead GPU</a>
+            </div>
+          </li>
+        </div>
+      </ul>
+      <ul>
+        <div class="col s12 m4 l3" style="padding:8px;">
+          <li class="card z-depth-3 grey darken-3">
+            <div class="card-image" style="padding:6px;">
+              <img class="responsive-img" src="test-code//img/thumbnail.jpg">
+            </div>
+            <div class="card-content white-text">
+              <p>How to compile and test your code on UF's Thunder server</p>
+            </div>
+            <div class="card-action">
+              <a href="test-code/">Test Code Using SSH</a>
+            </div>
+          </li>
+        </div>
+      </ul>
+      <ul>
+        <div class="col s12 m4 l3" style="padding:8px;">
+          <li class="card z-depth-3 grey darken-3">
+            <div class="card-image" style="padding:6px;">
+              <img class="responsive-img" src="vbox-windows//img/thumbnail.jpg">
+            </div>
+            <div class="card-content white-text">
+              <p>Install Windows to an internal physical drive using VirtualBox</p>
+            </div>
+            <div class="card-action">
+              <a href="vbox-windows/">Install Windows using VBox</a>
+            </div>
+          </li>
+        </div>
+      </ul>
+      <ul>
+        <div class="col s12 m4 l3" style="padding:8px;">
+          <li class="card z-depth-3 grey darken-3">
+            <div class="card-image" style="padding:6px;">
+              <img class="responsive-img" src="firefox-useragent//img/thumbnail.jpg">
+            </div>
+            <div class="card-content white-text">
+              <p>How to spoof your user agent using Firefox...</p>
+            </div>
+            <div class="card-action">
+              <a href="firefox-useragent/">User Agent Spoofing</a>
+            </div>
+          </li>
+        </div>
+      </ul>
+      <ul>
+        <div class="col s12 m4 l3" style="padding:8px;">
+          <li class="card z-depth-3 grey darken-3">
+            <div class="card-image" style="padding:6px;">
+              <img class="responsive-img" src="install-refit//img/thumbnail.jpg">
+            </div>
+            <div class="card-content white-text">
+              <p>How to install rEFIt on an external USB flash drive with macOS</p>
+            </div>
+            <div class="card-action">
+              <a href="install-refit/">Install rEFIt on a USB Disk</a>
+            </div>
+          </li>
+        </div>
+      </ul>
+      <ul>
+        <div class="col s12 m4 l3" style="padding:8px;">
+          <li class="card z-depth-3 grey darken-3">
+            <div class="card-image" style="padding:6px;">
+              <img class="responsive-img" src="dell-hell//img/thumbnail.jpg">
+            </div>
+            <div class="card-content white-text">
+              <p>...welcome to Dell Hell...</p>
+            </div>
+            <div class="card-action">
+              <a href="dell-hell/">Coming soon...</a>
+            </div>
+          </li>
+        </div>
+      </ul>
+      <ul>
+        <div class="col s12 m4 l3" style="padding:8px;">
+          <li class="card z-depth-3 grey darken-3">
+            <div class="card-image" style="padding:6px;">
+              <img class="responsive-img" src="fw-password//img/thumbnail.jpg">
+            </div>
+            <div class="card-content white-text">
+              <p>Remove a Mac firmware password without recovery mode</p>
+            </div>
+            <div class="card-action">
+              <a href="fw-password/">Bye bye firmware password</a>
+            </div>
+          </li>
+        </div>
+      </ul>
+      <ul>
+        <div class="col s12 m4 l3" style="padding:8px;">
+          <li class="card z-depth-3 grey darken-3">
+            <div class="card-image" style="padding:6px;">
+              <img class="responsive-img" src="new-mac//img/thumbnail.jpg">
+            </div>
+            <div class="card-content white-text">
+              <p>starting from scratch &gt; Migration Assistant</p>
+            </div>
+            <div class="card-action">
+              <a href="new-mac/">pro tips for new mac</a>
+            </div>
+          </li>
+        </div>
+      </ul>
+      <ul>
+        <div class="col s12 m4 l3" style="padding:8px;">
+          <li class="card z-depth-3 grey darken-3">
+            <div class="card-image" style="padding:6px;">
+              <img class="responsive-img" src="noob-site//img/thumbnail.png">
+            </div>
+            <div class="card-content white-text">
+              <p>starting a stupid basic website the easy way</p>
+            </div>
+            <div class="card-action">
+              <a href="noob-site/">web dev for n00bs</a>
+            </div>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
 </body>
 </html>

@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- common.css -->
+  <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
+  <!-- ace-static.css -->
+  <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
+  <style>.ace-tomorrow-night-eighties .ace_gutter {background: #272727;color: #CCC}.ace-tomorrow-night-eighties .ace_print-margin {width: 1px;background: #272727}.ace-tomorrow-night-eighties {background-color: #2D2D2D;color: #CCCCCC}.ace-tomorrow-night-eighties .ace_constant.ace_other,.ace-tomorrow-night-eighties .ace_cursor {color: #CCCCCC}.ace-tomorrow-night-eighties .ace_marker-layer .ace_selection {background: #515151}.ace-tomorrow-night-eighties.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #2D2D2D;}.ace-tomorrow-night-eighties .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-tomorrow-night-eighties .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #6A6A6A}.ace-tomorrow-night-bright .ace_stack {background: rgb(66, 90, 44)}.ace-tomorrow-night-eighties .ace_marker-layer .ace_active-line {background: #393939}.ace-tomorrow-night-eighties .ace_gutter-active-line {background-color: #393939}.ace-tomorrow-night-eighties .ace_marker-layer .ace_selected-word {border: 1px solid #515151}.ace-tomorrow-night-eighties .ace_invisible {color: #6A6A6A}.ace-tomorrow-night-eighties .ace_keyword,.ace-tomorrow-night-eighties .ace_meta,.ace-tomorrow-night-eighties .ace_storage,.ace-tomorrow-night-eighties .ace_storage.ace_type,.ace-tomorrow-night-eighties .ace_support.ace_type {color: #CC99CC}.ace-tomorrow-night-eighties .ace_keyword.ace_operator {color: #66CCCC}.ace-tomorrow-night-eighties .ace_constant.ace_character,.ace-tomorrow-night-eighties .ace_constant.ace_language,.ace-tomorrow-night-eighties .ace_constant.ace_numeric,.ace-tomorrow-night-eighties .ace_keyword.ace_other.ace_unit,.ace-tomorrow-night-eighties .ace_support.ace_constant,.ace-tomorrow-night-eighties .ace_variable.ace_parameter {color: #F99157}.ace-tomorrow-night-eighties .ace_invalid {color: #CDCDCD;background-color: #F2777A}.ace-tomorrow-night-eighties .ace_invalid.ace_deprecated {color: #CDCDCD;background-color: #CC99CC}.ace-tomorrow-night-eighties .ace_fold {background-color: #6699CC;border-color: #CCCCCC}.ace-tomorrow-night-eighties .ace_entity.ace_name.ace_function,.ace-tomorrow-night-eighties .ace_support.ace_function,.ace-tomorrow-night-eighties .ace_variable {color: #6699CC}.ace-tomorrow-night-eighties .ace_support.ace_class,.ace-tomorrow-night-eighties .ace_support.ace_type {color: #FFCC66}.ace-tomorrow-night-eighties .ace_heading,.ace-tomorrow-night-eighties .ace_markup.ace_heading,.ace-tomorrow-night-eighties .ace_string {color: #99CC99}.ace-tomorrow-night-eighties .ace_comment {color: #999999}.ace-tomorrow-night-eighties .ace_entity.ace_name.ace_tag,.ace-tomorrow-night-eighties .ace_entity.ace_other.ace_attribute-name,.ace-tomorrow-night-eighties .ace_meta.ace_tag,.ace-tomorrow-night-eighties .ace_variable {color: #F2777A}.ace-tomorrow-night-eighties .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ09NrYAgMjP4PAAtGAwchHMyAAAAAAElFTkSuQmCC) right repeat-y}</style>
+  <!-- export.css -->
+  <style>
+  body{margin:0 auto;max-width:800px;line-height:1.4}
+  #nav{margin:5px 0 10px;font-size:15px}
+  #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
+  #contentarea{font-size:15px;margin:16px 0}
+  .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
+  .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
+  .latex-cell{white-space:pre-wrap;}
+  </style>
+  <!-- User CSS -->
+  <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+</head>
+<body>
+
+  <div id="titlearea">
+    <h2>Install physical Windows using VirtualBox</h2>
+  </div>
+  <div id="contentarea"><div class="cell markdown-cell"><h1>Installing Windows on a physical drive using VirtualBox</h1>
+    <p><img src="img/vbox-screen.png" alt="Alt text"></p>
+    <h2>Keyword: <em>physical</em> drive</h2>
+    <p>This guide uses Windows 10, but this applies to any version of Windows. I've tested this on Windows 7, 8, and 8.1. Windows 7 is the only one that doesn't suck XD</p>
+    <h2>Overview</h2>
+    <p>There are two easy ways to get Windows on a Mac:</p>
+    <ol>
+      <li>
+        <p>Use source of physical media, such as a Windows install CD/DVD or USB flash drive.</p>
+      </li>
+      <li>
+        <p>Use VirtualBox/Parallels Desktop/VMWare Fusion and set up a virtual machine.</p>
+      </li>
+    </ol>
+    <h3>Why run it natively?</h3>
+    <p><em>To play games</em>. Or to be able to use 100% of the hardware resources for other applications, if you're into productivity and those things... VMs are much more convienent for everything else.</p>
+    <h3>Why run a VM?</h3>
+    <p>VMs are super convenient for many reasons:</p>
+    <ul>
+      <li>They can run side-by-side with macOS without partitioning, rebooting, etc...</li>
+      <li>You don't have to reboot</li>
+      <li>They can be backed up</li>
+      <li>You don't have to reboot</li>
+      <li>You can use snapshots to revert immediately back to working installations</li>
+      <li>You don't have to reboot</li>
+      <li>They can integrate with the host OS for the purposes of transferring files, running guest OS-specific applications, etc...</li>
+      <li><em>You don't have to reboot</em></li>
+    </ul>
+    <h2>An alternative method for native installation</h2>
+    <p>We can use VirtualBox to start the installation process for Windows on a physical drive, then complete the installation by booting the drive using the actual hardware (instead of the VM).</p>
+    <h4>Why not use a flash drive?</h4>
+    <p>See my notes down at the bottom about the "Why some Macs cannot use Boot Camp Assistant to make USB boot drive."</p>
+    <h4>Why not use a CD/DVD?</h4>
+    <p><em>...because we're not stuck in the 90s anymore...</em></p>
+    <hr>
+    <h3>1. Install <a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a></h3>
+    <h3>2. Set up your Mac's secondary physical drive for access</h3>
+    <h4>VirtualBox needs full access to the physical drive that you plan to use.</h4>
+    <p>Fire up Terminal and look for your physical drive's mount point using <code>diskutil list</code></p>
+    <p><img src="img/diskutil-list.png" alt="Alt text"></p>
+    <p>On my MacBook Pro, there are two physical SSDs. The one I am interested in using is  <code>/dev/disk0</code>. Next, we have to set up the correct permissions for the physical drive so that userland VirtualBox can access it.</p>
+    <pre><div class="ace-tomorrow-night-eighties"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>diskutil umountDisk /dev/disk0
+    </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>sudo chmod 775 /dev/disk0
+    </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>sudo chown tim /dev/disk0
+    </div></div></div></pre>
+    <p>VirtualBox comes with a nice tool that we can use called <code>createrawvmdk</code>. We will use this to create the .VMDK file that will be attached to the VM. This VMDK is simply a pointer to our physical drive.</p>
+    <pre><div class="ace-tomorrow-night-eighties"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>sudo VBoxManage internalcommands createrawvmdk -filename "Windows.vmdk" -rawdisk /dev/disk0
+    </div></div></div></pre>
+    <p>VirtualBox will create a file called <code>Windows.vmdk</code> in your working directory.</p>
+    <p><img src="img/vmdk.png" alt="Alt text"></p>
+    <p>VirtualBox will remount the disk after it has created the VMDK. We need to unmount it and repeat the permissions modification:</p>
+    <pre><div class="ace-tomorrow-night-eighties"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>diskutil umountDisk /dev/disk0
+    </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>sudo chmod 775 /dev/disk0
+    </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>sudo chown tim /dev/disk0
+    </div></div></div></pre>
+    <p>We also need to define the permissions for the VMDK file so that the VM will have access to the physical drive:</p>
+    <pre><div class="ace-tomorrow-night-eighties"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>sudo chmod 775 ~/Windows.vmdk
+    </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>sudo chown tim ~/Windows.vmdk
+    </div></div></div></pre>
+    <p>Now we are done setting up the VMDK for physical drive access.</p>
+    <h3>3. Create the VM</h3>
+    <p>Open VirtualBox and create a new virtual machine.</p>
+    <p><img src="img/create-vm-1.png" alt="Alt text"></p>
+    <p>Give it a solid amount of RAM</p>
+    <p><img src="img/create-vm-2.png" alt="Alt text"></p>
+    <p><strong>Select "Do not add a virtual disk."</strong> This is important because VirtualBox by default attaches virtual disks using a SATA controller. Initially, we need to attach the physical drive using the IDE controller. After the drive is formatted and the install files are copied over, the rest of the installation is completed using the native hardware (and thus, the native onboard SATA controller), so VBox's setup becomes irrelevant.</p>
+    <p><img src="img/create-vm-3.png" alt="Alt text"></p>
+    <p>Select "Create" and we are done.</p>
+    <h3>4. Change the virtual disk controller</h3>
+    <p>Open up the settings for your new VM and select "storage." Remove the default SATA storage controller, and add an IDE storage controller. Change the "Type" to "ICH6."</p>
+    <p><img src="img/ide-win-1.png" alt="Alt text"></p>
+    <p>Add an optical drive, and attach your Windows ISO to it.</p>
+    <p><img src="img/ide-win-2.png" alt="Alt text"></p>
+    <p>Set the permissions on the physical drive and the VMDK before attaching it to the virtual machine with</p>
+    <pre><div class="ace-tomorrow-night-eighties"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>diskutil umountDisk /dev/disk0
+    </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>sudo chmod 775 /dev/disk0
+    </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>sudo chown tim /dev/disk0
+    </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>sudo chmod 775 ~/Windows.vmdk
+    </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>sudo chown tim ~/Windows.vmdk
+    </div></div></div></pre>
+    <p>Add a virtual hard disk drive to the VM:</p>
+    <p><img src="img/ide-win-3.png" alt="Alt text"></p>
+    <p><img src="img/ide-win-4.png" alt="Alt text"></p>
+    <p><img src="img/ide-win-5.png" alt="Alt text"></p>
+    <p>You'll notice that the size of the virtual hard disk is the same as the size of your physical disk.</p>
+    <h3>5. Before launching the VM...</h3>
+    <p>When you add the VMDK, VBox mounts the physical drive, so we need to set the permissions again before we launch the VM. This needs to be done every time your Mac mounts the physical drive. This happens every time you reboot the Mac, and every time you shut down the VM.</p>
+    <p>So, once more:</p>
+    <pre><div class="ace-tomorrow-night-eighties"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>diskutil umountDisk /dev/disk0
+    </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>sudo chmod 775 /dev/disk0
+    </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>sudo chown tim /dev/disk0
+    </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>sudo chmod 775 ~/Windows.vmdk
+    </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>sudo chown tim ~/Windows.vmdk
+    </div></div></div></pre>
+    <h3>6. Launch the VM</h3>
+    <p>Click "Start" to fire up the VM. Make sure to press a key to boot the installer from the DVD image.</p>
+    <p><img src="img/launch-vm-1.png" alt="Alt text"></p>
+    <p>This should look familiar:</p>
+    <p><img src="img/launch-vm-2.png" alt="Alt text"></p>
+    <p>Format the drive as you normally would:</p>
+    <p><img src="img/launch-vm-3.png" alt="Alt text"></p>
+    <p>And then start the Windows installation. When it's finished copying the files, it will reboot. Click "Restart" and shut off the VM right before it boots back up. <strong>If you're not quick enough, and the installation process starts in the VM, you're gonna be starting over, so pay attention</strong>.</p>
+    <h3>7. Finish the installation natively</h3>
+    <ol>
+      <li>
+        <p>Reboot your Mac while holding the Option key.</p>
+      </li>
+      <li>
+        <p>Select "Windows"</p>
+      </li>
+      <li>
+        <p>Watch Windows complete the installation as if your Mac were any other PC.</p>
+      </li>
+    </ol>
+    <h3>8. Install Bootcamp drivers</h3>
+    <p>Plug in the flash drive that you used to store the Bootcamp drivers, and install them in Windows. You're done! <em>Go download <a href="http://store.steampowered.com">Steam</a> and <a href="https://www.origin.com/en-us/store/">Origin</a> and play some games</em>.</p>
+    <hr>
+    <h2>End Notes</h2>
+    <hr>
+    <h4>Why some Macs cannot use Boot Camp Assistant to make USB boot drive</h4>
+    <p>If you want to go the USB flash drive route, you're stuck with Apple's Boot Camp Assistant utility. Boot Camp Assistant can not only download the Bootcamp drivers for your Mac, but it can also use a Windows 7, 8, 8.1, or 10 image to create a USB boot drive, which will then allow you to boot your Mac from it and install Windows. <em>However</em>, Apple's BCA is configured such that if your Mac originally shipped with an optical drive, it will force you to use a physical Windows CD/DVD to install Windows using the Boot Camp route. This is stupid for two reasons:</p>
+    <ol>
+      <li>
+        <p>It prevents us from taking advantage of the convenience and speed of USB and an ISO image of Windows on any Mac that is not a MacBook Air (or retina Pro)</p>
+      </li>
+      <li>
+        <p>If you swapped your useless optical drive for a secondary SSD/HDD carrier (<a href="https://eshop.macsales.com/shop/internal_storage/Data_Doubler">OWC's Data Doubler</a> is one example), you literally have no optical drive. BCA fails to account for hardware changes, and will refuse to allow you to create a USB drive despite not having access to an actual optical drive.</p>
+      </li>
+    </ol>
+    <h4>Further notes on BCA</h4>
+    <p>Boot Camp Assistant can also non-destructively reparition your boot disk to make room for a Windows partition. <em>Please don't go this route</em>. The hybrid MBR partition scheme sucks, and will instantly corrupt your Windows installation if you attempt to modify any of the GPT partitions.</p>
+    <hr>
+    <h3>Limits of VM</h3>
+    <p>We all know that installing Windows (or any OS) in a VM takes up space on your main boot drive. We also know that you obviously cannot boot from a .VDI, .VHD, .HDD, or a .VMDK file, which is the virtual hard disk file for your VM.</p>
+    <h4>Limits of booting a Windows installation (<em>not the installer</em>) on different hardware</h4>
+    <p>Windows installs itself by first copying the critical files from the installation media to the drive on which it will be installed, then reboots and continues the installation using the files already copied to the boot drive. The reason this is important is because Windows (in CSM) configures itself for the hardware that it is completing the installation on. So, if you complete the installation on the native hardware, Windows will configure itself for the native hardware. If you complete the installation in a VM, Windows will configure itself for the virtual/emulated hardware.</p>
+    <hr>
+    <p>Copyright © wheelsandbytes 2015-2021. All Rights Reserved</p>
+  </div></div>
+  <script></script>
+</body>
+</html>
