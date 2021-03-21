@@ -1,0 +1,151 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- common.css -->
+      <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
+      <!-- ace-static.css -->
+      <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
+      <style>.ace-tomorrow-night-eighties .ace_gutter {background: #272727;color: #CCC}.ace-tomorrow-night-eighties .ace_print-margin {width: 1px;background: #272727}.ace-tomorrow-night-eighties {background-color: #2D2D2D;color: #CCCCCC}.ace-tomorrow-night-eighties .ace_constant.ace_other,.ace-tomorrow-night-eighties .ace_cursor {color: #CCCCCC}.ace-tomorrow-night-eighties .ace_marker-layer .ace_selection {background: #515151}.ace-tomorrow-night-eighties.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #2D2D2D;}.ace-tomorrow-night-eighties .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-tomorrow-night-eighties .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #6A6A6A}.ace-tomorrow-night-bright .ace_stack {background: rgb(66, 90, 44)}.ace-tomorrow-night-eighties .ace_marker-layer .ace_active-line {background: #393939}.ace-tomorrow-night-eighties .ace_gutter-active-line {background-color: #393939}.ace-tomorrow-night-eighties .ace_marker-layer .ace_selected-word {border: 1px solid #515151}.ace-tomorrow-night-eighties .ace_invisible {color: #6A6A6A}.ace-tomorrow-night-eighties .ace_keyword,.ace-tomorrow-night-eighties .ace_meta,.ace-tomorrow-night-eighties .ace_storage,.ace-tomorrow-night-eighties .ace_storage.ace_type,.ace-tomorrow-night-eighties .ace_support.ace_type {color: #CC99CC}.ace-tomorrow-night-eighties .ace_keyword.ace_operator {color: #66CCCC}.ace-tomorrow-night-eighties .ace_constant.ace_character,.ace-tomorrow-night-eighties .ace_constant.ace_language,.ace-tomorrow-night-eighties .ace_constant.ace_numeric,.ace-tomorrow-night-eighties .ace_keyword.ace_other.ace_unit,.ace-tomorrow-night-eighties .ace_support.ace_constant,.ace-tomorrow-night-eighties .ace_variable.ace_parameter {color: #F99157}.ace-tomorrow-night-eighties .ace_invalid {color: #CDCDCD;background-color: #F2777A}.ace-tomorrow-night-eighties .ace_invalid.ace_deprecated {color: #CDCDCD;background-color: #CC99CC}.ace-tomorrow-night-eighties .ace_fold {background-color: #6699CC;border-color: #CCCCCC}.ace-tomorrow-night-eighties .ace_entity.ace_name.ace_function,.ace-tomorrow-night-eighties .ace_support.ace_function,.ace-tomorrow-night-eighties .ace_variable {color: #6699CC}.ace-tomorrow-night-eighties .ace_support.ace_class,.ace-tomorrow-night-eighties .ace_support.ace_type {color: #FFCC66}.ace-tomorrow-night-eighties .ace_heading,.ace-tomorrow-night-eighties .ace_markup.ace_heading,.ace-tomorrow-night-eighties .ace_string {color: #99CC99}.ace-tomorrow-night-eighties .ace_comment {color: #999999}.ace-tomorrow-night-eighties .ace_entity.ace_name.ace_tag,.ace-tomorrow-night-eighties .ace_entity.ace_other.ace_attribute-name,.ace-tomorrow-night-eighties .ace_meta.ace_tag,.ace-tomorrow-night-eighties .ace_variable {color: #F2777A}.ace-tomorrow-night-eighties .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ09NrYAgMjP4PAAtGAwchHMyAAAAAAElFTkSuQmCC) right repeat-y}</style>
+      <!-- export.css -->
+      <style>
+        body{margin:0 auto;max-width:800px;line-height:1.4}
+        #nav{margin:5px 0 10px;font-size:15px}
+        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
+        #contentarea{font-size:15px;margin:16px 0}
+        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
+        .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
+        .latex-cell{white-space:pre-wrap;}
+      </style>
+      <!-- User CSS -->
+      <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+    </head>
+    <body>
+      
+      <div id="titlearea">
+        <h2>MBP8,2 Dead GPU</h2>
+      </div>
+      <div id="contentarea"><div class="cell markdown-cell"><h1>MacBookPro8,2 AMD GPU Dies...</h1>
+<h2>So I'm sitting in class,</h2>
+<h4>setting Windows up to run in VirtualBox off my second internal SSD. VirtualBox did not give me any issues. The next step is to reboot and make sure it is still able to boot up natively. So I shut it down and prepare to go home.</h4>
+<h4>I get home and...</h4>
+<p><img src="img/1.jpg" alt="Alt text"></p>
+<p><img src="img/2.jpg" alt="Alt text"></p>
+<p><img src="img/3.jpg" alt="Alt text"></p>
+<p><img src="img/staring.png" alt="Alt text"></p>
+<p><img src="img/4.jpg" alt="Alt text"></p>
+<h4>IT WAS WORKING 20 MINUTES AGO</h4>
+<p><img src="img/jackie-chan.png" alt="Alt text"></p>
+<p><img src="img/questioning.png" alt="Alt text"></p>
+<h4>Maybe the NVRAM forgot what needs to be booted. Time to give it a kick in the pants:</h4>
+<p><img src="img/5.jpg" alt="Alt text"></p>
+<h4>Holding Option, we get the usual array of what is to be expected:</h4>
+<p><img src="img/6.jpg" alt="Alt text"></p>
+<p>Odd, my usual SSD custom icons are not showing...already suspicious. Selecting Macintosh HD yields:</p>
+<p><img src="img/7.jpg" alt="Alt text"></p>
+<p><img src="img/staring.png" alt="Alt text"></p>
+<h4>AAAAAAAAAAND we're stuck again....</h4>
+<p><img src="img/y-u-no-boot.png" alt="Alt text"></p>
+<h3>Reboot again with attempt at verbose mode</h3>
+<p><img src="img/9.jpg" alt="Alt text"></p>
+<p><img src="img/10.jpg" alt="Alt text"></p>
+<p><img src="img/cereal-guy.png" alt="Alt text"></p>
+<h3>What in the world...</h3>
+<p><img src="img/staring.png" alt="Alt text"></p>
+<p><img src="img/12.jpg" alt="Alt text"></p>
+<h3>So instead of a white screen, we get a black screen...</h3>
+<p><img src="img/double-facepalm.png" alt="Alt text"></p>
+<h3>Recovery mode?</h3>
+<p><img src="img/13.jpg" alt="Alt text"></p>
+<p><img src="img/16.jpg" alt="Alt text"></p>
+<p><img src="img/staring.png" alt="Alt text"></p>
+<h4>Alright, no recovery mode either then...</h4>
+<h4>Next step....uh... El Capitan installer?</h4>
+<p><img src="img/17.jpg" alt="Alt text"></p>
+<p><img src="img/swiss.png" alt="Alt text"></p>
+<p><img src="img/close-enough.png" alt="Alt text"></p>
+<p><img src="img/18.jpg" alt="Alt text"></p>
+<p><img src="img/19.jpg" alt="Alt text"></p>
+<p><img src="img/20.jpg" alt="Alt text"></p>
+<h3>FANTASTIC, a white screen again.</h3>
+<p><img src="img/dark-stare.png" alt="Alt text"></p>
+<h3>Welp... gonna try the installer in safe boot:</h3>
+<p><img src="img/21.jpg" alt="Alt text"></p>
+<p><img src="img/22.jpg" alt="Alt text"></p>
+<p><img src="img/24.jpg" alt="Alt text"></p>
+<p><img src="img/suspicious.jpg" alt="Alt text"></p>
+<h2>Diagnostics???</h2>
+<p><img src="img/25.jpg" alt="Alt text"></p>
+<p><img src="img/3.jpg" alt="Alt text"></p>
+<p><img src="img/deskflip-pokemon-card.jpg" alt="Alt text"></p>
+<h3>I shall give the installer one more chance in Safe Boot:</h3>
+<p><img src="img/29.jpg" alt="Alt text"></p>
+<p><img src="img/30.jpg" alt="Alt text"></p>
+<p><img src="img/kernel-panic.png" alt="Alt text"></p>
+<h3>What happens if we try to boot Windows?</h3>
+<p><img src="img/31.jpg" alt="Alt text"></p>
+<p><img src="img/32.jpg" alt="Alt text"></p>
+<p><img src="img/33.jpg" alt="Alt text"></p>
+<p><img src="img/computer-slice.png" alt="Alt text"></p>
+<h4>Nope. How about booting my SSD from USB?</h4>
+<p><img src="img/34.jpg" alt="Alt text"></p>
+<p><img src="img/35.jpg" alt="Alt text"></p>
+<p><img src="img/36.jpg" alt="Alt text"></p>
+<p><img src="img/37.jpg" alt="Alt text"></p>
+<p><img src="img/38.jpg" alt="Alt text"></p>
+<p><img src="img/39.jpg" alt="Alt text"></p>
+<p><img src="img/40.jpg" alt="Alt text"></p>
+<p><img src="img/41.jpg" alt="Alt text"></p>
+<p><img src="img/42.jpg" alt="Alt text"></p>
+<h4>Okay, NOW we are getting somewhere. The issue appears to video related. Faulty AMD GPU possibly?</h4>
+<h2>Context</h2>
+<p>This MacBook Pro has two GPUs, an Intel HD 3000 and an AMD 6490M. This generation of dual-GPU MacBooks defaults to the AMD card on boot up. This means that the firmware has the 6490M already selected before any OS starts up. Now, if the 6490M is in fact busted, then I have to find a way to fall back on the Intel HD graphics for the time being. That will be tough, since I have no idea how the PCI graphics controller works on this machine. <a href="../win7efi/win7efi.html">On my old MBP5,1</a> it was rather straightforward, since the active GPU was simply the last active GPU when the computer was shut down. Plus, I had the ability to control which GPU was selected through the gpu-power-prefs NVRAM variable. Having done some digging using the rEFIt shell on this machine, I cannot find such a variable. I guess that would make sense, considering the hardware is designed to switch GPUs on the fly with no interruption in video output. There appears to be no explicit setting for power to either GPU (and obviously the Intel GPU is always  powered, it is integrated into the CPU).</p>
+<h3>Screenshots of my rEFIt shenanigans:</h3>
+<p><img src="img/43.jpg" alt="Alt text"></p>
+<p><img src="img/44.jpg" alt="Alt text"></p>
+<p><img src="img/45.jpg" alt="Alt text"></p>
+<p><img src="img/46.jpg" alt="Alt text"></p>
+<p><img src="img/47.jpg" alt="Alt text"></p>
+<p><img src="img/48.jpg" alt="Alt text"></p>
+<p><img src="img/49.jpg" alt="Alt text"></p>
+<h4>There is no gpu-power-prefs variable, and I really do not feel like studying the hex dump for GraphicsOutput xD</h4>
+<h3>Let us see if Apple has us covered...</h3>
+<p><img src="img/50.jpg" alt="Alt text"></p>
+<p><img src="img/51.jpg" alt="Alt text"></p>
+<p><img src="img/52.jpg" alt="Alt text"></p>
+<p><img src="img/happy.png" alt="Alt text"></p>
+<h4>Awwww yeah. Time to get it ready for shipping!</h4>
+<p><img src="img/59.jpg" alt="Alt text"></p>
+<h4>Pulling the main SSD first so I can keep using my system on another Mac...</h4>
+<p><img src="img/53.jpg" alt="Alt text"></p>
+<p><img src="img/54.jpg" alt="Alt text"></p>
+<p><img src="img/55.jpg" alt="Alt text"></p>
+<h4>Wiped and ready for packaging!</h4>
+<p><img src="img/56.jpg" alt="Alt text"></p>
+<h4>Hoping not to screw up these instructions... XD</h4>
+<h4>Meanwhile, my friend's Apple Pencil came in:</h4>
+<p><img src="img/58.jpg" alt="Alt text"></p>
+<h4>Packaged up and ready to be shipped:</h4>
+<p><img src="img/57.jpg" alt="Alt text"></p>
+<p><img src="img/happy-kitteh.png" alt="Alt text"></p>
+<p><img src="img/several-days-later.png" alt="Alt text"></p>
+<p><img src="img/fedex.png" alt="Alt text"></p>
+<p><img src="img/doge.png" alt="Alt text"></p>
+<p><img src="img/60.jpg" alt="Alt text"></p>
+<p><img src="img/61.jpg" alt="Alt text"></p>
+<p><img src="img/62.jpg" alt="Alt text"></p>
+<p><img src="img/63.jpg" alt="Alt text"></p>
+<p><img src="img/64.jpg" alt="Alt text"></p>
+<p><img src="img/65.jpg" alt="Alt text"></p>
+<p><img src="img/66.jpg" alt="Alt text"></p>
+<h2>Bonus backlit keyboard at night:</h2>
+<p><img src="img/67.jpg" alt="Alt text"></p>
+<hr>
+<p>Copyright © wheelsandbytes 2015-2017. All Rights Reserved</p>
+</div></div>
+      <script></script>
+    </body>
+    </html>
+  
