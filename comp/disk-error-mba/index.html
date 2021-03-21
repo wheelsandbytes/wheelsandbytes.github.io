@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- common.css -->
+  <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
+  <!-- ace-static.css -->
+  <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
+  <style>.ace-tomorrow-night-eighties .ace_gutter {background: #272727;color: #CCC}.ace-tomorrow-night-eighties .ace_print-margin {width: 1px;background: #272727}.ace-tomorrow-night-eighties {background-color: #2D2D2D;color: #CCCCCC}.ace-tomorrow-night-eighties .ace_constant.ace_other,.ace-tomorrow-night-eighties .ace_cursor {color: #CCCCCC}.ace-tomorrow-night-eighties .ace_marker-layer .ace_selection {background: #515151}.ace-tomorrow-night-eighties.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #2D2D2D;}.ace-tomorrow-night-eighties .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-tomorrow-night-eighties .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #6A6A6A}.ace-tomorrow-night-bright .ace_stack {background: rgb(66, 90, 44)}.ace-tomorrow-night-eighties .ace_marker-layer .ace_active-line {background: #393939}.ace-tomorrow-night-eighties .ace_gutter-active-line {background-color: #393939}.ace-tomorrow-night-eighties .ace_marker-layer .ace_selected-word {border: 1px solid #515151}.ace-tomorrow-night-eighties .ace_invisible {color: #6A6A6A}.ace-tomorrow-night-eighties .ace_keyword,.ace-tomorrow-night-eighties .ace_meta,.ace-tomorrow-night-eighties .ace_storage,.ace-tomorrow-night-eighties .ace_storage.ace_type,.ace-tomorrow-night-eighties .ace_support.ace_type {color: #CC99CC}.ace-tomorrow-night-eighties .ace_keyword.ace_operator {color: #66CCCC}.ace-tomorrow-night-eighties .ace_constant.ace_character,.ace-tomorrow-night-eighties .ace_constant.ace_language,.ace-tomorrow-night-eighties .ace_constant.ace_numeric,.ace-tomorrow-night-eighties .ace_keyword.ace_other.ace_unit,.ace-tomorrow-night-eighties .ace_support.ace_constant,.ace-tomorrow-night-eighties .ace_variable.ace_parameter {color: #F99157}.ace-tomorrow-night-eighties .ace_invalid {color: #CDCDCD;background-color: #F2777A}.ace-tomorrow-night-eighties .ace_invalid.ace_deprecated {color: #CDCDCD;background-color: #CC99CC}.ace-tomorrow-night-eighties .ace_fold {background-color: #6699CC;border-color: #CCCCCC}.ace-tomorrow-night-eighties .ace_entity.ace_name.ace_function,.ace-tomorrow-night-eighties .ace_support.ace_function,.ace-tomorrow-night-eighties .ace_variable {color: #6699CC}.ace-tomorrow-night-eighties .ace_support.ace_class,.ace-tomorrow-night-eighties .ace_support.ace_type {color: #FFCC66}.ace-tomorrow-night-eighties .ace_heading,.ace-tomorrow-night-eighties .ace_markup.ace_heading,.ace-tomorrow-night-eighties .ace_string {color: #99CC99}.ace-tomorrow-night-eighties .ace_comment {color: #999999}.ace-tomorrow-night-eighties .ace_entity.ace_name.ace_tag,.ace-tomorrow-night-eighties .ace_entity.ace_other.ace_attribute-name,.ace-tomorrow-night-eighties .ace_meta.ace_tag,.ace-tomorrow-night-eighties .ace_variable {color: #F2777A}.ace-tomorrow-night-eighties .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ09NrYAgMjP4PAAtGAwchHMyAAAAAAElFTkSuQmCC) right repeat-y}</style>
+  <!-- export.css -->
+  <style>
+  body{margin:0 auto;max-width:800px;line-height:1.4}
+  #nav{margin:5px 0 10px;font-size:15px}
+  #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
+  #contentarea{font-size:15px;margin:16px 0}
+  .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
+  .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
+  .latex-cell{white-space:pre-wrap;}
+  </style>
+  <!-- User CSS -->
+  <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+</head>
+<body>
+
+  <div id="titlearea">
+    <h2>MBA6,1 Disk Errors</h2>
+  </div>
+  <div id="contentarea"><div class="cell markdown-cell"><h1>MacBookAir6,1 disk I/O error...and how I fixed it</h1>
+    <h2>I'm usually up late, so this is normal:</h2>
+    <p><img src="img/problem1.jpg" alt="Alt text"></p>
+    <h4>It's late? Only 12:45am haha</h4>
+    <p><img src="img/yaoming.png" alt="Alt text"></p>
+    <p><img src="img/problem2.jpg" alt="Alt text"></p>
+    <p><img src="img/challengeaccepted.jpg" alt="Alt text"></p>
+    <h4>Alright, so let's use verbose mode to figure out what's going on. OS X is pretty descriptive with a little <code>-v</code> magic.</h4>
+    <p><img src="img/errors1.jpg" alt="Alt text"></p>
+    <p><img src="img/pokerface.jpg" alt="Alt text"></p>
+    <p><img src="img/errors2.jpg" alt="Alt text"></p>
+    <p><img src="img/surprisedface.jpg" alt="Alt text"></p>
+    <p>I've never seen this before. Let's try single user mode and <code>fsck -fy /</code></p>
+    <p><img src="img/fsck1.jpg" alt="Alt text"></p>
+    <h4><code>** The voume Macintosh HD could not be verified completely.</code></h4>
+    <p><img src="img/pokerface.jpg" alt="Alt text"></p>
+    <p>It's worth noting that <code>fsck -drfy /</code> wasn't able to do anything either.</p>
+    <p>Time to bring out the El Capitan installer disk. Thanks to <a href="http://diskmakerx.com">DiskMaker X</a>, we had the installer running shortly:</p>
+    <p><img src="img/installer1.jpg" alt="Alt text"></p>
+    <h4>Attempting to run First Aid using Disk Utility proved absolutely <em>worthless</em></h4>
+    <p><img src="img/firstaid1.jpg" alt="Alt text"></p>
+    <p><img src="img/deskflip1.png" alt="Alt text"></p>
+    <p>This tool used to be so good and reliable... Anyway, looks like a hardware issue with the internal SSD. I really hope not...but always assume the worst.</p>
+    <h4>Let's see if the filesystem is still readable...</h4>
+    <p><img src="img/accessiblefs1.jpg" alt="Alt text"></p>
+    <h4>Oh good, it looks like we can read the files. Yay! You won't lose anything!</h4>
+    <p><img src="img/kittehsmile.jpg" alt="Alt text"></p>
+    <h4>Took the computer home, busted out <code>cp -R</code> and within about an hour had everything backed up.</h4>
+    <p><img src="img/copyfiles1.jpg" alt="Alt text"></p>
+    <p><img src="img/copyfiles2.jpg" alt="Alt text"></p>
+    <p><img src="img/thumbsup.jpg" alt="Alt text"></p>
+    <h2>Time to experiment</h2>
+    <p><img src="img/installer2.jpg" alt="Alt text"></p>
+    <p><img src="img/installer3.jpg" alt="Alt text"></p>
+    <p>Let's give <code>fsck_hfs -fy /dev/disk0s2</code> a shot and see what it says:</p>
+    <p><img src="img/machd1.jpg" alt="Alt text"></p>
+    <h4>This was expected. Wipe it with <code>diskutil eraseDisk jhfs+ "MACHD" /dev/disk0</code></h4>
+    <p><img src="img/machd2.jpg" alt="Alt text"></p>
+    <h4>...is there hope?</h4>
+    <p><img src="img/machdinstall1.jpg" alt="Alt text"></p>
+    <p><img src="img/installfailed1.jpg" alt="Alt text"></p>
+    <p><img src="img/installfailed2.jpg" alt="Alt text"></p>
+    <p><img src="img/installfailed3.jpg" alt="Alt text"></p>
+    <p><img src="img/computerstare.jpg" alt="Alt text"></p>
+    <p><img src="img/errors3.jpg" alt="Alt text"></p>
+    <p><img src="img/areyoukiddingme.jpg" alt="Alt text"></p>
+    <p><img src="img/fsck2.jpg" alt="Alt text"></p>
+    <p><img src="img/facepalm.jpg" alt="Alt text"></p>
+    <p><img src="img/whyyy.jpg" alt="Alt text"></p>
+    <h4>Apple diagnostics?</h4>
+    <p><img src="img/diagnostic1.jpg" alt="Alt text"></p>
+    <p><img src="img/diagnostic2.jpg" alt="Alt text"></p>
+    <p><img src="img/noissuefound.png" alt="Alt text"></p>
+    <p><img src="img/doublefacepalm.png" alt="Alt text"></p>
+    <p><img src="img/deskflip1.png" alt="Alt text"></p>
+    <h4>Wiping it with <code>diskutil</code> didn't help, so let's give Gparted a go.</h4>
+    <p><img src="img/gparted1.jpg" alt="Alt text"></p>
+    <h4>Boots right up with no problem. EFI ftw.</h4>
+    <p><img src="img/gparted2.jpg" alt="Alt text"></p>
+    <h4>Created a completely new GPT setup. Attempting to install OS X again:</h4>
+    <p><img src="img/attempt1.jpg" alt="Alt text"></p>
+    <h4>Left the apartment for 3 hours and came back to this:</h4>
+    <p><img src="img/attempt2.jpg" alt="Alt text"></p>
+    <p><img src="img/questioning.jpg" alt="Alt text"></p>
+    <h4>Reboot with <code>-v</code> aaaaaaand</h4>
+    <p><img src="img/attempt3.jpg" alt="Alt text"></p>
+    <p><img src="img/deskflip2.gif" alt="Alt text"></p>
+    <p><img src="img/sadsitting.jpg" alt="Alt text"></p>
+    <h4>I'm about to give up and call it a hardware issue.</h4>
+    <h2>Hold on...</h2>
+    <p>There is one thing I have never tried on a disk... <em>zeroing</em></p>
+    <h5>Hmm...</h5>
+    <p>Pulled the SSD from my MacBook Pro because the Terminal on the installer is annoying:</p>
+    <p><img src="img/ssdrescue1.jpg" alt="Alt text"></p>
+    <p><img src="img/ssdrescue2.jpg" alt="Alt text"></p>
+    <h4><em>Never tried this before...</em></h4>
+    <p><img src="img/zerodisk1.jpg" alt="Alt text"></p>
+    <h4>Almost done...</h4>
+    <p><img src="img/zerodisk2.jpg" alt="Alt text"></p>
+    <h4>Okay, so now it should be completely blank, no data whatsoever. Repartitioning the disk with <code>diskutil partitionDisk</code> and repairing with <code>diskutil repairDisk</code> now...</h4>
+    <p><img src="img/repairdisk1.jpg" alt="Alt text"></p>
+    <h4>The issue was repairing the volume from before, so we'll try that next with <code>diskutil repairVolume /dev/disk0s2</code>:</h4>
+    <p><img src="img/repairvolume1.jpg" alt="Alt text"></p>
+    <p><img src="img/surprisedcat1.jpg" alt="Alt text"></p>
+    <p>NO ERROR. Final attempt at installing the system:</p>
+    <p><img src="img/finalinstall1.jpg" alt="Alt text"></p>
+    <p><img src="img/surprisedcat1.jpg" alt="Alt text"></p>
+    <p><img src="img/finalinstall2.jpg" alt="Alt text"></p>
+    <p><img src="img/surprisedcat1.jpg" alt="Alt text"></p>
+    <p><img src="img/finalinstall3.jpg" alt="Alt text"></p>
+    <p><img src="img/surprisedcat1.jpg" alt="Alt text"></p>
+    <p><img src="img/finalinstall4.jpg" alt="Alt text"></p>
+    <p><img src="img/gasp.gif" alt="Alt text"></p>
+    <p><img src="img/done.jpg" alt="Alt text"></p>
+    <p><img src="img/effyeah.png" alt="Alt text"></p>
+    <h2><em>Never give up.</em></h2>
+    <h3><a href="../disk-error-mba2/">Part 2 Here</a></h3>
+    <hr>
+    <p>Copyright © wheelsandbytes 2015-2017. All Rights Reserved</p>
+  </div></div>
+  <script></script>
+</body>
+</html>

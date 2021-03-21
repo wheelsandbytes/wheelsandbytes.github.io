@@ -23,30 +23,30 @@
       <style> body{background-color: #fafafa;color:#444} .text-cell {font-size: 16px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 17px;}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      
+
       <div id="contentarea"><div class="cell markdown-cell"><h1>How to install rEFIt on an external USB drive</h1>
 <hr>
 <h2>Basically <a href="http://refit.sourceforge.net/doc/c1s1_install.html">this</a> with pretty pictures.</h2>
 <h3>1. Download rEFIt from <a href="http://prdownloads.sourceforge.net/refit/rEFIt-0.14.dmg?download">here</a>.</h3>
-<p><img src="resources/6877E00DB45E393FDE8F38EC0A670A57.png" alt="1.png" width="406" height="106"></p>
+<p><img src="img/6877E00DB45E393FDE8F38EC0A670A57.png" alt="1.png" width="406" height="106"></p>
 <h3>2. Open the disk image.</h3>
-<p><img src="resources/52D4ADE5798287142226350DA2923791.png" alt="2.png" width="659" height="477"></p>
+<p><img src="img/52D4ADE5798287142226350DA2923791.png" alt="2.png" width="659" height="477"></p>
 <h3>3. Wait, the disk image isn't needed just yet...</h3>
 <h3>4. Plug your flash drive in...</h3>
-<p><img src="resources/768E14177194FF140987DAAF8585024B.jpg" alt="3.jpg" width="525" height="481"></p>
-<p><img src="resources/72F4F5D5E5BEECD8C5B678DD450686A4.jpg" alt="4.jpg" width="525" height="471"></p>
+<p><img src="img/768E14177194FF140987DAAF8585024B.jpg" alt="3.jpg" width="525" height="481"></p>
+<p><img src="img/72F4F5D5E5BEECD8C5B678DD450686A4.jpg" alt="4.jpg" width="525" height="471"></p>
 <h3>5. Open Terminal</h3>
 <p>Type <code>diskutil list</code> and press enter</p>
 <p>Should like something like this:</p>
-<p><img src="resources/C9FFC90105180ED0DEB07F12D40A8726.png" alt="5.png" width="682" height="312"></p>
+<p><img src="img/C9FFC90105180ED0DEB07F12D40A8726.png" alt="5.png" width="682" height="312"></p>
 <p>The USB disks are always at the bottom. You can see mine is listed as:</p>
-<p><img src="resources/5150BEF93683281F9A4D5AC10F65FCDA.png" alt="6.png" width="682" height="82"></p>
+<p><img src="img/5150BEF93683281F9A4D5AC10F65FCDA.png" alt="6.png" width="682" height="82"></p>
 <p>In most cases, the <code>IDENTIFIER</code> for your USB flash drive is something else. In my case, it is <code>disk3</code></p>
 <p><em>Make sure to note your correct <code>IDENTIFIER</code>, otherwise u gon erase the wrong disk.</em></p>
 <h3>6. Erase USB flash drive using Terminal</h3>
 <p>In Terminal, type <code>diskutil eraseDisk JHFS+ "USB" GPT /dev/disk3</code> but replace <code>disk3</code> with <em>your</em> <code>IDENTIFIER</code>. Press enter. POOF there goes your data.</p>
 <p>It gon look like dis:</p>
-<p><img src="resources/736FA0785AED8255810DDFD1130A68A6.png" alt="7.png" width="682" height="182"></p>
+<p><img src="img/736FA0785AED8255810DDFD1130A68A6.png" alt="7.png" width="682" height="182"></p>
 <h3>7. Copy the "efi" folder to the USB drive</h3>
 <p>Recall that our USB flash drive was renamed to <code>USB</code> in the erase process.</p>
 <p>In Terminal, type <code>cp -R /Volumes/rEFIt/efi /Volumes/USB</code> and press enter</p>
@@ -54,14 +54,13 @@
 <p>Then, <code>sudo ./enable.sh</code> and press enter</p>
 <p>YOUR PASSWORD AIN'T GONNA SHOW but type it in and press enter anyway. Why? Because UNIX.</p>
 <p>Should look like this:</p>
-<p><img src="resources/5CBEA4D27E5760D60E6BEACF6ED16465.png" alt="9.png" width="682" height="93"></p>
+<p><img src="img/5CBEA4D27E5760D60E6BEACF6ED16465.png" alt="9.png" width="682" height="93"></p>
 <h3>Done.</h3>
 <p>Eject the USB flash drive like you normally would, then reboot your Mac while holding the option key, and you should see rEFIt as an option.</p>
-<p><img src="resources/9DA93F5484FDF8E1A917B501A018F685.jpg" alt="10.jpg" width="225" height="180"></p>
+<p><img src="img/9DA93F5484FDF8E1A917B501A018F685.jpg" alt="10.jpg" width="225" height="180"></p>
 <hr>
-<p>Copyright © wheelsandbytes 2015-2019. All Rights Reserved</p>
+<p>Copyright © wheelsandbytes 2015-2021. All Rights Reserved</p>
 </div></div>
       <script></script>
     </body>
     </html>
-  
