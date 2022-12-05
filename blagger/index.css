@@ -1,0 +1,59 @@
+html {
+  font-family: Menlo, Monaco, monospace;
+}
+body {
+  background-color: #333;
+  color: #eee;
+  margin: 1rem;
+  max-width: 800px;
+}
+#post-input-controls {
+  display: flex;
+  margin-bottom: 1rem;
+}
+input {
+  padding: 6px 12px;
+  margin: 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: inline-block;
+}
+input[type=button] {
+  border-style: outset;
+}
+input[type=button]:active {
+  border-style: inset;
+}
+#post-content-input-field {
+  padding: 12px 12px;
+  width: 100%;
+}
+#button-submit-new-post {
+  padding: 12px 20px;
+}
+.control-buttons {
+  margin: 8px 0;
+}
+.posts {
+  display: flex;
+  flex-direction: column;
+}
+.post {
+  display: inline-flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.post-text {
+  width: 100%;
+  margin: 0;
+}
+.post-timestamp {
+  font-size: 0.75rem;
+  margin: 0;
+}
+#saved-or-loaded-message {
+  margin-bottom: 0.9rem;
+  font-size: 0.75rem;
+}
+

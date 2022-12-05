@@ -5,77 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>blagger</title>
-    <style>
-html {
-  font-family: Menlo, Monaco, monospace;
-}
-body {
-  background-color: #333;
-  color: #eee;
-  margin: 1rem;
-  max-width: 800px;
-}
-.post-input {
-  display: block;
-}
-input {
-  padding: 6px 12px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border-radius: 4px;
-}
-input[type=text] {
-  display: inline-block;
-  padding: 12px 12px;
-  width: 80%;
-}
-input[type=button] {
-  display: inline-block;
-  border-style: outset;
-}
-input[type=button]:active {
-  border-style: inset;
-}
-input[type=submit] {
-  padding: 12px 20px;
-}
-.posts {
-  width: 80%;
-}
-      .post-text {
-        display: inline-block;
-        width: 75%;
-        overflow-wrap: break-word;
-      }
-      .post-timestamp {
-        vertical-align: top;
-        width: 20%;
-        font-size: 0.75rem;
-        text-align: left;
-        display: inline-block;
-        margin-left: 2rem;
-      }
-      #saved-or-loaded-message {
-        font-size: 0.75rem;
-      }
-    </style>
+    <link rel="stylesheet" href="index.css">
   </head>
   <body>
     <h1>blagger</h1>
+    <div class="control-buttons">
     <i id="saved-or-loaded-message" style="display:none;"></i>
     <input type="button" value="save" onclick="saveToLocalStorage()" />
     <input type="button" value="load" onclick="loadFromLocalStorage()" />
     <input type="button" value="new" onclick="eraseAllPosts()" />
     <input type="button" value="delete saved posts" onclick="clearLocalStorage()" />
-    <div id="post-input" class="post-input">
-      <input id="post-text-field" type="text" placeholder="plz blog here..." />
-      <input id="post-button-submit" type="submit" onclick="createPost()" value="post" />
+    </div>
+    <div id="post-input-controls">
+      <input id="post-content-input-field" type="text" placeholder="plz blog here..." />
+      <input id="button-submit-new-post" type="submit" onclick="createPost()" value="post" />
     </div>
     <div id="posts" class="posts"></div>
     <script>
       let posts = []
-      let postButton = document.getElementById('post-button-submit')
-      let inputField = document.getElementById('post-text-field')
+      let postButton = document.getElementById('button-submit-new-post')
+      let inputField = document.getElementById('post-content-input-field')
+      loadFromLocalStorage()
 
       inputField.addEventListener('keypress', function(event) {
         if (event.key === 'Enter') {
@@ -90,7 +40,7 @@ input[type=submit] {
       }
 
       function createPost() {
-        const postText = document.getElementById('post-text-field').value
+        const postText = document.getElementById('post-content-input-field').value
         const timestamp = getCurrentTimestamp()
         posts.push({timestamp, postText})
         updateWithNewPost({timestamp, postText})
@@ -101,6 +51,7 @@ input[type=submit] {
         const postsSection = document.getElementById('posts')
         const postDiv = document.createElement('div')
         postDiv.id = timestamp
+        postDiv.classList.add('post')
         const formattedTimestamp = new Date(timestamp).toLocaleString()
         postDiv.innerHTML = `<p class="post-text">${postText}</p><p class="post-timestamp">${formattedTimestamp}</p>`
         return postsSection.insertBefore(postDiv, postsSection.children[0])
