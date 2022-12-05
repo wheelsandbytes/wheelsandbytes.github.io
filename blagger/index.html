@@ -10,13 +10,13 @@
   <body>
     <h1>blagger</h1>
     <div class="control-buttons">
-    <i id="saved-or-loaded-message" style="display:none;"></i>
-    <input type="button" value="save" onclick="saveToLocalStorage()" />
-    <input type="button" value="load" onclick="loadFromLocalStorage()" />
-    <input type="button" value="new" onclick="eraseAllPosts()" />
-    <input type="button" value="delete saved posts" onclick="clearLocalStorage()" />
+      <i id="message-at-top" class="message-at-top" style="display:none;"></i>
+      <input type="button" value="save" onclick="saveToLocalStorage()" />
+      <input type="button" value="load" onclick="loadFromLocalStorage()" />
+      <input type="button" value="new" onclick="eraseAllPosts()" />
+      <input type="button" value="delete saved posts" onclick="clearLocalStorage()" />
     </div>
-    <div id="post-input-controls">
+    <div id="post-input-controls" class="post-input-controls">
       <input id="post-content-input-field" type="text" placeholder="plz blog here..." />
       <input id="button-submit-new-post" type="submit" onclick="createPost()" value="post" />
     </div>
@@ -69,31 +69,34 @@
         postsSection.innerHTML = ''
       }
 
+      function displayMessageAtTop (message) {
+        const msgBlock = document.getElementById('message-at-top')
+        msgBlock.style.display = "block"
+        msgBlock.innerText = message
+      }
+
       function loadFromLocalStorage () {
         let stringPosts = localStorage.getItem('posts')
-        let parsedPosts = JSON.parse(stringPosts)
-        const postsSection = document.getElementById('posts')
-        postsSection.innerHTML = ''
-        posts = parsedPosts;
-        const loadedMessage = document.getElementById('saved-or-loaded-message')
-        loadedMessage.style.display = "block"
-        loadedMessage.innerText = "loaded posts from localStorage on " + new Date(getCurrentTimestamp()).toLocaleString()
-        return displayPosts()
+        if (stringPosts) {
+          let parsedPosts = JSON.parse(stringPosts)
+          const postsSection = document.getElementById('posts')
+          postsSection.innerHTML = ''
+          posts = parsedPosts;
+          displayMessageAtTop("loaded posts from localStorage on " + new Date(getCurrentTimestamp()).toLocaleString())
+          return displayPosts()
+        }
+        return displayMessageAtTop("no posts saved in localStorage")
       }
 
       function saveToLocalStorage () {
         localStorage.setItem('posts', JSON.stringify(posts))
-        const savedMessage = document.getElementById('saved-or-loaded-message')
-        savedMessage.style.display = "block"
-        savedMessage.innerText = "saved posts to localStorage on " + new Date(getCurrentTimestamp()).toLocaleString()
+        displayMessageAtTop("saved posts to localStorage on " + new Date(getCurrentTimestamp()).toLocaleString())
         return
       }
 
       function clearLocalStorage () {
         localStorage.removeItem('posts')
-        const deletedMessage = document.getElementById('saved-or-loaded-message')
-        deletedMessage.style.display = "block"
-        deletedMessage.innerText = "deleted posts from localStorage on " + new Date(getCurrentTimestamp()).toLocaleString()
+        displayMessageAtTop("deleted posts from localStorage on " + new Date(getCurrentTimestamp()).toLocaleString())
         return
       }
     </script>

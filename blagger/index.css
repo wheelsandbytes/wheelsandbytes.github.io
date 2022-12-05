@@ -7,15 +7,24 @@ body {
   margin: 1rem;
   max-width: 800px;
 }
-#post-input-controls {
-  display: flex;
+.post-input-controls {
+  display: inline-flex;
+  gap: 1rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
+  width: 100%;
+}
+#post-content-input-field {
+  padding: 6px 10px 6px 10px;
+  width: 100%;
+}
+#button-submit-new-post {
+  padding: 6px 10px 6px 10px;
 }
 input {
-  padding: 6px 12px;
   margin: 0;
   box-sizing: border-box;
-  border-radius: 4px;
+  border-radius: 2px;
   display: inline-block;
 }
 input[type=button] {
@@ -23,13 +32,6 @@ input[type=button] {
 }
 input[type=button]:active {
   border-style: inset;
-}
-#post-content-input-field {
-  padding: 12px 12px;
-  width: 100%;
-}
-#button-submit-new-post {
-  padding: 12px 20px;
 }
 .control-buttons {
   margin: 8px 0;
@@ -51,8 +53,9 @@ input[type=button]:active {
 .post-timestamp {
   font-size: 0.75rem;
   margin: 0;
+  text-align: end;
 }
-#saved-or-loaded-message {
+.message-at-top {
   margin-bottom: 0.9rem;
   font-size: 0.75rem;
 }
