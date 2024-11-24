@@ -1,49 +1,85 @@
+<!DOCTYPE html>
+<html ng-app>
+  <!-- w h e e l s _a n d_ b y t e s -->
+  <!-- h o m e -->
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <!-- common.css -->
-      <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
-      <!-- ace-static.css -->
-      <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
-      <style>.ace-tomorrow-night-eighties .ace_gutter {background: #272727;color: #CCC}.ace-tomorrow-night-eighties .ace_print-margin {width: 1px;background: #272727}.ace-tomorrow-night-eighties {background-color: #2D2D2D;color: #CCCCCC}.ace-tomorrow-night-eighties .ace_constant.ace_other,.ace-tomorrow-night-eighties .ace_cursor {color: #CCCCCC}.ace-tomorrow-night-eighties .ace_marker-layer .ace_selection {background: #515151}.ace-tomorrow-night-eighties.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #2D2D2D;}.ace-tomorrow-night-eighties .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-tomorrow-night-eighties .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #6A6A6A}.ace-tomorrow-night-bright .ace_stack {background: rgb(66, 90, 44)}.ace-tomorrow-night-eighties .ace_marker-layer .ace_active-line {background: #393939}.ace-tomorrow-night-eighties .ace_gutter-active-line {background-color: #393939}.ace-tomorrow-night-eighties .ace_marker-layer .ace_selected-word {border: 1px solid #515151}.ace-tomorrow-night-eighties .ace_invisible {color: #6A6A6A}.ace-tomorrow-night-eighties .ace_keyword,.ace-tomorrow-night-eighties .ace_meta,.ace-tomorrow-night-eighties .ace_storage,.ace-tomorrow-night-eighties .ace_storage.ace_type,.ace-tomorrow-night-eighties .ace_support.ace_type {color: #CC99CC}.ace-tomorrow-night-eighties .ace_keyword.ace_operator {color: #66CCCC}.ace-tomorrow-night-eighties .ace_constant.ace_character,.ace-tomorrow-night-eighties .ace_constant.ace_language,.ace-tomorrow-night-eighties .ace_constant.ace_numeric,.ace-tomorrow-night-eighties .ace_keyword.ace_other.ace_unit,.ace-tomorrow-night-eighties .ace_support.ace_constant,.ace-tomorrow-night-eighties .ace_variable.ace_parameter {color: #F99157}.ace-tomorrow-night-eighties .ace_invalid {color: #CDCDCD;background-color: #F2777A}.ace-tomorrow-night-eighties .ace_invalid.ace_deprecated {color: #CDCDCD;background-color: #CC99CC}.ace-tomorrow-night-eighties .ace_fold {background-color: #6699CC;border-color: #CCCCCC}.ace-tomorrow-night-eighties .ace_entity.ace_name.ace_function,.ace-tomorrow-night-eighties .ace_support.ace_function,.ace-tomorrow-night-eighties .ace_variable {color: #6699CC}.ace-tomorrow-night-eighties .ace_support.ace_class,.ace-tomorrow-night-eighties .ace_support.ace_type {color: #FFCC66}.ace-tomorrow-night-eighties .ace_heading,.ace-tomorrow-night-eighties .ace_markup.ace_heading,.ace-tomorrow-night-eighties .ace_string {color: #99CC99}.ace-tomorrow-night-eighties .ace_comment {color: #999999}.ace-tomorrow-night-eighties .ace_entity.ace_name.ace_tag,.ace-tomorrow-night-eighties .ace_entity.ace_other.ace_attribute-name,.ace-tomorrow-night-eighties .ace_meta.ace_tag,.ace-tomorrow-night-eighties .ace_variable {color: #F2777A}.ace-tomorrow-night-eighties .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ09NrYAgMjP4PAAtGAwchHMyAAAAAAElFTkSuQmCC) right repeat-y}</style>
-      <!-- export.css -->
-      <style>
-        body{margin:0 auto;max-width:800px;line-height:1.4}
-        #nav{margin:5px 0 10px;font-size:15px}
-        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
-        #contentarea{font-size:15px;margin:16px 0}
-        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
-        .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
-        .latex-cell{white-space:pre-wrap;}
-      </style>
-      <!-- User CSS -->
-      <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
-    </head>
-    <body>
-      
-      <div id="titlearea">
-        <h2># How to change the asinine menu bar item spacing in macOS:</h2>
+    <!-- FontAwesome icons :D -->
+    <script src="https://use.fontawesome.com/8280dcd8f6.js"></script>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+    <!-- AngularJS ftw -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- LOCAL -->
+
+
+    <!-- le mi app controlleres -->
+
+    <!-- le mi custom css -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Custom Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  </head>
+
+  <body class="grey darken-3">
+
+    <!-- navs -->
+    <nav>
+      <div class="nav-wrapper grey darken-3">
+        <div class="row">
+          <div class="col s12 l6">
+            <a href="index.html" class="brand-logo">[ wheels_and_bytes ]</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          </div>
+
+
+          <ul class="right hide-on-med-and-down">
+            <li><a href="blagger/">Blagger</a></li>
+            <li><a href="auto/">Auto Stuffs</a></li>
+            <li><a href="comp/">Comp Stuffs</a></li>
+          </ul>
+          <ul class="side-nav grey lighten-3 z-depth-5" id="mobile-demo">
+            <li><a href="blagger/">Blagger</a></li>
+            <li><a href="auto/">Auto Stuffs</a></li>
+            <li><a href="comp/">Comp Stuffs</a></li>
+          </ul>
+        </div>
       </div>
-      <div id="contentarea"><div class="cell markdown-cell"><h2>In Terminal, run:</h2>
-<pre><div class="ace-tomorrow-night-eighties"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>defaults -currentHost write -globalDomain NSStatusItemSpacing -int x
-</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int y
-</div></div></div></pre>
-<p>Logout/relogin to apply changes.</p>
-<p>A value of 6 (x) for spacing and 12 (y) for padding looks good, but if you want more compact spacing, 4 (x) and 8 (y) may be better particularly on the 13 and 14 inch notched MacBooks. It seems that results are optimal when the padding value is twice the spacing value.</p>
-<p>Values can be decreased down to 0 for extra-compact appearance. Keep in mind that below a certain value, the small Location Services symbol periodically appearing in the Control Center menu bar item might be cut off.</p>
-<p>Revert back to default settings:</p>
-<pre><div class="ace-tomorrow-night-eighties"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>defaults -currentHost delete -globalDomain NSStatusItemSelectionPadding
-</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>defaults -currentHost delete -globalDomain NSStatusItemSpacing
-</div></div></div></pre>
-<p>You <em>can</em> apply the settings without logging out with this:</p>
-<pre><div class="ace-tomorrow-night-eighties"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>ps -A | grep Core | awk '{ print $1 }' | xargs -I{} kill -9 {}
-</div></div></div></pre>
-<p>But logging out is more thorough, because otherwise you'll have to manually restart all of the third party apps that have menu bar icons.</p>
-</div><div class="cell markdown-cell"></div></div>
-      <script></script>
-    </body>
-    </html>
-  
+    </nav>
+    <script src="js/scripts.js"></script>
+
+    <div class="parallax-container">
+      <div class="parallax"><img src="img/bg/intro-bg.jpg"></div>
+      <!-- haedaers -->
+      <div data-ng-include="'header.html'"></div>
+    </div>
+
+    <!-- stuffs -->
+    <div data-ng-include="'content.html'"></div>
+
+    <div class="parallax-container">
+      <div class="parallax"><img src="img/bg/mgm-bg.jpg"></div>
+    </div>
+
+    <!-- <div data-ng-include="'forsale.html'"></div> -->
+
+    <!-- futters -->
+    <div data-ng-include="'footer.html'"></div>
+
+  </body>
+</html>
