@@ -1,0 +1,110 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #000;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#game {
+  position: relative;
+  width: 640px;
+  height: 480px;
+}
+
+#screen {
+  display: block;
+  width: 640px;
+  height: 480px;
+  image-rendering: pixelated;
+}
+
+/* Classic Mac OS style modal dialogs */
+.rd-dialog-backdrop {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.rd-dialog {
+  min-width: 300px;
+  max-width: 440px;
+  padding: 14px 16px;
+  background: #ddd;
+  border: 1px solid #000;
+  box-shadow: 2px 2px 0 #000, inset 1px 1px 0 #fff, inset -1px -1px 0 #888;
+  font: 12px Geneva, Verdana, sans-serif;
+  color: #000;
+}
+
+.rd-dialog p {
+  margin: 0 0 10px;
+}
+
+.rd-dialog .rd-title {
+  font-weight: bold;
+}
+
+.rd-dialog .rd-small {
+  font-size: 11px;
+}
+
+.rd-dialog fieldset {
+  margin: 0 0 10px;
+  border: 1px solid #888;
+}
+
+.rd-dialog fieldset > label {
+  display: block;
+  margin: 3px 0;
+}
+
+.rd-dialog .rd-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.rd-dialog .rd-row > label {
+  min-width: 90px;
+}
+
+.rd-dialog input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.rd-dialog .rd-row input[type=text] {
+  width: auto;
+  margin: 0;
+}
+
+.rd-dialog .rd-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.rd-dialog button {
+  min-width: 64px;
+  font: inherit;
+}
+
+.rd-dialog button.rd-default {
+  outline: 2px solid #000;
+  outline-offset: 1px;
+  border-radius: 4px;
+}
+
+.rd-dialog .rd-key {
+  min-width: 120px;
+}
