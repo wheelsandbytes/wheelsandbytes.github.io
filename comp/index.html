@@ -35,10 +35,23 @@
         <li><a href="/comp/" aria-current="page"><svg class="icon" aria-hidden="true"><use href="/icons.svg#laptop"/></svg>computers</a></li>
         <li><a href="/auto/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#car"/></svg>cars</a></li>
         <li><a href="/proj/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#grid"/></svg>projects</a></li>
+        <li><a href="/music/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#music"/></svg>music</a></li>
+        <li><a href="/about/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#user"/></svg>about</a></li>
       </ul>
     </nav>
+  </div>
+  <div class="sidebar-utils">
+    <label class="lang-switch">
+      <svg class="icon" aria-hidden="true"><use href="/icons.svg#translate"/></svg>
+      <span class="visually-hidden">Language</span>
+      <select id="lang-select">
+        <option value="en" lang="en" selected>English</option>
+        <option value="ru" lang="ru">Русский</option>
+        <option value="zh" lang="zh">中文</option>
+      </select>
+    </label>
     <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" hidden>
-      <svg class="icon" aria-hidden="true"><use href="/icons.svg#moon"/></svg>dark mode<span class="switch" aria-hidden="true"></span>
+      <svg class="icon off" aria-hidden="true"><use href="/icons.svg#toggle-off"/></svg><svg class="icon on" aria-hidden="true"><use href="/icons.svg#toggle-on"/></svg>dark mode
     </button>
   </div>
 </aside>
@@ -49,12 +62,24 @@
     <div class="hero-text">
       <p class="kicker">#justcomputerthings</p>
       <h1>i play with computers</h1>
-      <p>13 articles · not me breaking (and occasionally fixing) computers...</p>
+      <p>16 articles · not me breaking (and occasionally fixing) computers...</p>
     </div>
   </header>
 
   <section class="card">
     <ul class="compact">
+      <li><a href="/comp/use-mac-like-a-pro/">
+        <div><h2>a better macOS applications experience</h2><p>ditch the mac app store and gatekeeper</p><time datetime="2024-12-10">Dec 2024</time></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,g_auto,w_200,h_200,q_auto,f_auto/v1795814891/comp/use-mac-like-a-pro/img/featured.png" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/new-macos-setup-tweaks/">
+        <div><h2>when defaults write comes to save your sanity</h2><p>some of these defaults...smh</p><time datetime="2024-11-28">Nov 2024</time></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,g_auto,w_200,h_200,q_auto,f_auto/v1795814888/comp/new-macos-setup-tweaks/img/head-desk.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/menu-bar-spacing/">
+        <div><h2>how to fix the asinine menu bar item spacing in macOS</h2><p>i will never understand why they changed the spacing in the first place</p><time datetime="2024-11-19">Nov 2024</time></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,g_auto,w_200,h_200,q_auto,f_auto/v1795814887/comp/menu-bar-spacing/img/featured.png" alt="" width="200" height="200" loading="lazy">
+      </a></li>
       <li><a href="/comp/noob-site/">
         <div><h2>Web dev for n00bs</h2><p>Starting a stupid basic website the easy way.</p><time datetime="2018-03">Mar 2018</time></div>
         <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343276/comp/noob-site/img/thumbnail.png" alt="" width="200" height="200" loading="lazy">

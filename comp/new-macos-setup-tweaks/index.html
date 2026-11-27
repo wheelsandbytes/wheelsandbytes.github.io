@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>when defaults write comes to save your sanity · wheels_and_bytes</title>
+<meta name="description" content="some of these defaults...smh">
+<!-- shared:head -->
+<script>try{var t=localStorage.getItem("wnb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/theme.js" defer></script>
+<!-- /shared:head -->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="layout">
+
+<!-- shared:sidebar -->
+<aside class="sidebar">
+  <div class="profile">
+    <a href="/" tabindex="-1"><img class="avatar" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_240,h_240,q_auto,f_auto/v1795809489/avatar_fc_mg3d7z.png" alt="Tim" width="240" height="240"></a>
+    <p class="site-name"><a href="/"><b>[</b> wheels_and_bytes <b>]</b></a></p>
+    <p class="site-tagline">wheels because cars, bytes because computers<span lang="zh">别介意它。。。；）</span></p>
+  </div>
+  <ul class="social" aria-label="Elsewhere">
+    <li><a href="https://github.com/wheelsandbytes" title="GitHub"><svg class="icon" aria-hidden="true"><use href="/icons.svg#code"/></svg><span class="visually-hidden">GitHub</span></a></li>
+    <li><a href="https://wheelsandbytes.wordpress.com" title="Blog"><svg class="icon" aria-hidden="true"><use href="/icons.svg#pen"/></svg><span class="visually-hidden">Blog</span></a></li>
+    <li><a href="https://soundcloud.com/sn0wninja" title="SoundCloud"><svg class="icon" aria-hidden="true"><use href="/icons.svg#wave"/></svg><span class="visually-hidden">SoundCloud</span></a></li>
+    <li><a href="https://www.instagram.com/frozen_timmy/" title="Instagram"><svg class="icon" aria-hidden="true"><use href="/icons.svg#camera"/></svg><span class="visually-hidden">Instagram</span></a></li>
+  </ul>
+  <div class="sidebar-bottom">
+    <nav class="menu" aria-label="Main">
+      <ul>
+        <li><a href="/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#home"/></svg>home</a></li>
+        <li><a href="/comp/" aria-current="page"><svg class="icon" aria-hidden="true"><use href="/icons.svg#laptop"/></svg>computers</a></li>
+        <li><a href="/auto/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#car"/></svg>cars</a></li>
+        <li><a href="/proj/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#grid"/></svg>projects</a></li>
+        <li><a href="/music/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#music"/></svg>music</a></li>
+        <li><a href="/about/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#user"/></svg>about</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="sidebar-utils">
+    <label class="lang-switch">
+      <svg class="icon" aria-hidden="true"><use href="/icons.svg#translate"/></svg>
+      <span class="visually-hidden">Language</span>
+      <select id="lang-select">
+        <option value="en" lang="en" selected>English</option>
+        <option value="ru" lang="ru">Русский</option>
+        <option value="zh" lang="zh">中文</option>
+      </select>
+    </label>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" hidden>
+      <svg class="icon off" aria-hidden="true"><use href="/icons.svg#toggle-off"/></svg><svg class="icon on" aria-hidden="true"><use href="/icons.svg#toggle-on"/></svg>dark mode
+    </button>
+  </div>
+</aside>
+<!-- /shared:sidebar -->
+
+<main class="main" id="main">
+  <article class="card">
+    <img class="article-cover" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,g_auto,w_1400,h_640,q_auto,f_auto/v1795814888/comp/new-macos-setup-tweaks/img/head-desk.jpg" alt="" width="1400" height="640">
+    <header class="article-header">
+      <ul class="pills"><li><a class="pill" href="/comp/">computers</a></li></ul>
+      <h1>when defaults write comes to save your sanity</h1>
+      <p class="subtitle">some of these defaults...smh</p>
+      <div class="card-meta">
+        <span><svg class="icon" aria-hidden="true"><use href="/icons.svg#calendar"/></svg><time datetime="2024-11-28">November 28, 2024</time></span>
+        <span><svg class="icon" aria-hidden="true"><use href="/icons.svg#clock"/></svg>3 minute read</span>
+      </div>
+    </header>
+
+    <div class="prose">
+<p><em>if you prefer to just copypasta the entire block in one go, skip to the bottom</em></p>
+<h2 id="after-first-install">after first install:</h2>
+<h3>speed up animations system-wide:</h3>
+<pre><code class="language-shell"># opening and closing windows and popovers
+defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
+
+# showing and hiding sheets, resizing preference windows, zooming windows
+# float 0 doesn't work
+defaults write -g NSWindowResizeTime -float 0.001
+
+# opening and closing Quick Look windows
+defaults write -g QLPanelAnimationDuration -float 0
+
+# rubberband scrolling (doesn't affect web views)
+defaults write -g NSScrollViewRubberbanding -bool false
+
+# resizing windows before and after showing the version browser
+# also disabled by NSWindowResizeTime -float 0.001
+defaults write -g NSDocumentRevisionsWindowTransformAnimation -bool false
+
+# showing a toolbar or menu bar in full screen
+defaults write -g NSToolbarFullScreenAnimationDuration -float 0
+
+# scrolling column views
+defaults write -g NSBrowserColumnAnimationSpeedMultiplier -float 0
+
+# at least AnimateInfoPanes
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+# sending messages and opening windows for replies
+defaults write com.apple.Mail DisableSendAnimations -bool true
+defaults write com.apple.Mail DisableReplyAnimations -bool true</code></pre>
+<h3>Dock tweaks:</h3>
+<h4>Remove dock animation entirely</h4>
+<p><em>it's sloooooooow</em></p>
+<pre><code class="language-shell"># showing the Dock
+defaults write com.apple.dock autohide-time-modifier -float 0
+defaults write com.apple.dock autohide-delay -float 0
+
+# showing and hiding Mission Control, command+numbers
+defaults write com.apple.dock expose-animation-duration -float 0
+
+# showing and hiding Launchpad
+defaults write com.apple.dock springboard-show-duration -float 0
+defaults write com.apple.dock springboard-hide-duration -float 0
+
+# changing pages in Launchpad
+defaults write com.apple.dock springboard-page-duration -float 0
+
+# restart Dock after all changes are applied
+killall Dock</code></pre>
+<h4>Show running applications only (old school Mac OS X behavior)</h4>
+<pre><code class="language-shell">defaults write com.apple.dock static-only -bool true;
+killall Dock</code></pre>
+<h4>show app switcher on all displays</h4>
+<p><em>i feel like this should be the default</em></p>
+<pre><code class="language-shell">defaults write com.apple.Dock appswitcher-all-displays -bool true;
+killall Dock</code></pre>
+<h3>Enable repeating keys</h3>
+<p><em>lifesaver for those of us who use Option+[letter] to access accent keys</em></p>
+<pre><code class="language-shell">defaults write -g ApplePressAndHoldEnabled -bool false</code></pre>
+<h3>stop Time Machine from nagging about new disks when they're plugged in</h3>
+<pre><code class="language-shell">defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true</code></pre>
+<h3>fix menu bar spacing</h3>
+<pre><code class="language-shell">defaults -currentHost write -globalDomain NSStatusItemSpacing -int 6
+defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 12</code></pre>
+<h2 id="all-tweaks-in-one-go">all tweaks in one go:</h2>
+<pre><code class="language-shell">defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+defaults write -g QLPanelAnimationDuration -float 0
+defaults write -g NSToolbarTitleViewRolloverDelay -float 0
+defaults write -g NSDocumentRevisionsWindowTransformAnimation -bool false
+defaults write -g NSToolbarFullScreenAnimationDuration -float 0
+defaults write com.apple.dock expose-animation-duration -float 0
+defaults write com.apple.dock autohide-delay -float 0; defaults write com.apple.dock autohide-time-modifier -int 0
+defaults write com.apple.dock springboard-show-duration -float 0
+defaults write com.apple.dock springboard-hide-duration -float 0
+defaults write com.apple.dock springboard-page-duration -float 0
+defaults write com.apple.finder DisableAllAnimations -bool true
+defaults write com.apple.Mail DisableSendAnimations -bool true
+defaults write com.apple.Mail DisableReplyAnimations -bool true
+defaults write com.apple.dock static-only -bool true
+defaults write com.apple.Dock appswitcher-all-displays -bool true
+defaults write -g ApplePressAndHoldEnabled -bool false
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+defaults -currentHost write -globalDomain NSStatusItemSpacing -int 6
+defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 12</code></pre>
+<p><strong>log out and log back in</strong></p>
+    </div>
+    <footer class="article-footer">
+      <ul class="pills" aria-label="Tags">
+        <li><span class="pill quiet">#macos</span></li>
+        <li><span class="pill quiet">#defaults</span></li>
+        <li><span class="pill quiet">#bigsur</span></li>
+        <li><span class="pill quiet">#monterey</span></li>
+        <li><span class="pill quiet">#ventura</span></li>
+        <li><span class="pill quiet">#sonoma</span></li>
+        <li><span class="pill quiet">#sequoia</span></li>
+      </ul>
+      <a href="/comp/">← back to computers</a>
+    </footer>
+  </article>
+
+  <h2 class="widget-title"><svg class="icon" aria-hidden="true"><use href="/icons.svg#laptop"/></svg>more computer stuff</h2>
+  <section class="card">
+    <ul class="compact">
+      <li><a href="/comp/use-mac-like-a-pro/">
+        <div><h3>a better macOS applications experience</h3><p>ditch the mac app store and gatekeeper</p></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,g_auto,w_200,h_200,q_auto,f_auto/v1795814891/comp/use-mac-like-a-pro/img/featured.png" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/menu-bar-spacing/">
+        <div><h3>how to fix the asinine menu bar item spacing in macOS</h3><p>i will never understand why they changed the spacing in the first place</p></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,g_auto,w_200,h_200,q_auto,f_auto/v1795814887/comp/menu-bar-spacing/img/featured.png" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+    </ul>
+  </section>
+
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <span>© wheelsandbytes 2015–2026</span>
+  </footer>
+  <!-- /shared:footer -->
+</main>
+</div>
+</body>
+</html>

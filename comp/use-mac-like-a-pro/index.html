@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>a better macOS applications experience · wheels_and_bytes</title>
+<meta name="description" content="ditch the mac app store and gatekeeper">
+<!-- shared:head -->
+<script>try{var t=localStorage.getItem("wnb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/theme.js" defer></script>
+<!-- /shared:head -->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="layout has-toc">
+
+<!-- shared:sidebar -->
+<aside class="sidebar">
+  <div class="profile">
+    <a href="/" tabindex="-1"><img class="avatar" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_240,h_240,q_auto,f_auto/v1795809489/avatar_fc_mg3d7z.png" alt="Tim" width="240" height="240"></a>
+    <p class="site-name"><a href="/"><b>[</b> wheels_and_bytes <b>]</b></a></p>
+    <p class="site-tagline">wheels because cars, bytes because computers<span lang="zh">别介意它。。。；）</span></p>
+  </div>
+  <ul class="social" aria-label="Elsewhere">
+    <li><a href="https://github.com/wheelsandbytes" title="GitHub"><svg class="icon" aria-hidden="true"><use href="/icons.svg#code"/></svg><span class="visually-hidden">GitHub</span></a></li>
+    <li><a href="https://wheelsandbytes.wordpress.com" title="Blog"><svg class="icon" aria-hidden="true"><use href="/icons.svg#pen"/></svg><span class="visually-hidden">Blog</span></a></li>
+    <li><a href="https://soundcloud.com/sn0wninja" title="SoundCloud"><svg class="icon" aria-hidden="true"><use href="/icons.svg#wave"/></svg><span class="visually-hidden">SoundCloud</span></a></li>
+    <li><a href="https://www.instagram.com/frozen_timmy/" title="Instagram"><svg class="icon" aria-hidden="true"><use href="/icons.svg#camera"/></svg><span class="visually-hidden">Instagram</span></a></li>
+  </ul>
+  <div class="sidebar-bottom">
+    <nav class="menu" aria-label="Main">
+      <ul>
+        <li><a href="/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#home"/></svg>home</a></li>
+        <li><a href="/comp/" aria-current="page"><svg class="icon" aria-hidden="true"><use href="/icons.svg#laptop"/></svg>computers</a></li>
+        <li><a href="/auto/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#car"/></svg>cars</a></li>
+        <li><a href="/proj/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#grid"/></svg>projects</a></li>
+        <li><a href="/music/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#music"/></svg>music</a></li>
+        <li><a href="/about/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#user"/></svg>about</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="sidebar-utils">
+    <label class="lang-switch">
+      <svg class="icon" aria-hidden="true"><use href="/icons.svg#translate"/></svg>
+      <span class="visually-hidden">Language</span>
+      <select id="lang-select">
+        <option value="en" lang="en" selected>English</option>
+        <option value="ru" lang="ru">Русский</option>
+        <option value="zh" lang="zh">中文</option>
+      </select>
+    </label>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" hidden>
+      <svg class="icon off" aria-hidden="true"><use href="/icons.svg#toggle-off"/></svg><svg class="icon on" aria-hidden="true"><use href="/icons.svg#toggle-on"/></svg>dark mode
+    </button>
+  </div>
+</aside>
+<!-- /shared:sidebar -->
+
+<main class="main" id="main">
+  <article class="card">
+    <img class="article-cover" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,g_auto,w_1400,h_640,q_auto,f_auto/v1795814891/comp/use-mac-like-a-pro/img/featured.png" alt="" width="1400" height="640">
+    <header class="article-header">
+      <ul class="pills"><li><a class="pill" href="/comp/">computers</a></li></ul>
+      <h1>a better macOS applications experience</h1>
+      <p class="subtitle">ditch the mac app store and gatekeeper</p>
+      <div class="card-meta">
+        <span><svg class="icon" aria-hidden="true"><use href="/icons.svg#calendar"/></svg><time datetime="2024-12-10">December 10, 2024</time></span>
+        <span><svg class="icon" aria-hidden="true"><use href="/icons.svg#clock"/></svg>7 minute read</span>
+      </div>
+    </header>
+
+    <div class="prose">
+<h2 id="intro">intro</h2>
+<p>in Michael Bazzell's book, Extreme Privacy, his guide to setting up a highly secure and private macOS device requires the user to <strong>ditch any and all reliance on the mac app store.</strong> this means that if you want to use macOS without an apple ID, you can't use the mac app store to install any of your applications.</p>
+<p>Bazzell's alternative to the mac app store is to use <a href="https://brew.sh">homebrew</a> for sourcing as many of your applications as possible.</p>
+<p>i've been using <code>brew install --cask</code> for years to install a very few select desktop applications, but it never ocurred to me to...<em>just try and search</em> for all my commonly used applications using <code>brew search {app name}</code>. it turns out there are a whole lot more desktop applications available to be installed through <code>brew install --cask</code>.</p>
+<pre><code class="language-shell">brew install --cask brave-browser # installs Brave Browser.app</code></pre>
+<p>probably the single biggest convenience of sourcing as many of your applications as you can is to be able to update all of them in just a single command:</p>
+<pre><code class="language-shell">brew upgrade --cask --greedy</code></pre>
+<h2 id="disable-gatekeeper">disable gatekeeper</h2>
+<p><em>(pro users are, <strong>shockingly</strong>, adults who understand how to use our macs responsibly)</em></p>
+<p><em>this wasn't necessary pre-macOS-Ventura because we could simply right-click to open a new unsigned application, and confirm with a <strong>single</strong> prompt</em>, but Ventura and later cranked up the babysitting to 11 by, first, telling us "no you can't open this unverified application", then forcing us to go to System Settings -&gt; Privacy and Security, clicking "Open anyway", confirming yet <em>another</em> prompt and authenticating with a password or Touch ID, before the application will finally open.</p>
+<p>when setting up a new mac, this is a big hassle to for every application you want to use that isn't signed by apple.</p>
+<pre><code class="language-shell"># check the status of gatekeeper
+$ sudo spctl --status
+assessments disabled
+
+# disable gatekeeper with
+$ sudo spctl --master-disable
+Globally disabling the assessment system needs to be confirmed in System Settings.</code></pre>
+<p>then go to System Settings -&gt; Privacy and Security -&gt; Allow applications from: -&gt; Anywhere</p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1795814889/comp/use-mac-like-a-pro/img/allow-from.png"><img alt="screenshot of system settings" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1795814889/comp/use-mac-like-a-pro/img/allow-from.png" width="968" height="410" loading="lazy"></a></figure>
+<p>and dismiss the babysitter by clicking "Allow From Anywhere"</p>
+<figure><img alt="screenshot of the babysitting prompt" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1795814890/comp/use-mac-like-a-pro/img/go-away-babysitter.png" width="546" height="678" loading="lazy"></figure>
+<p><em>now that we are one setting closer to the good ol' days of Mac OS X Tiger...</em></p>
+<h2 id="example-applications-available-through-homebrew">example applications available through homebrew</h2>
+<p>here are some applications i've been using for years but did not know were available through homebrew:</p>
+<h3>CharlesSoft's <a href="https://www.charlessoft.com/">Pacifist</a>!</h3>
+<p><em>finding this homebrew was pretty awesome</em></p>
+<pre><code class="language-shell">$ brew info pacifist
+==&gt; pacifist: 4.1.1 (auto_updates)
+https://www.charlessoft.com/
+Installed
+/opt/homebrew/Caskroom/pacifist/4.1.1 (56.7MB)
+  Installed using the formulae.brew.sh API on 2024-12-10 at 18:10:04
+From: https://github.com/Homebrew/homebrew-cask/blob/HEAD/Casks/p/pacifist.rb
+==&gt; Name
+Pacifist
+==&gt; Description
+Extract files and folders from package files, disk images, and archives
+==&gt; Artifacts
+Pacifist.app (App)
+/Applications/Pacifist.app/Contents/Resources/usr/bin/pacifist (Binary)
+==&gt; Analytics
+install: 35 (30 days), 123 (90 days), 423 (365 days)</code></pre>
+<h3>the OG <a href="http://freemacsoft.net/appcleaner/">AppCleaner</a></h3>
+<pre><code class="language-shell">$ brew info appcleaner
+==&gt; appcleaner: 3.6.8 (auto_updates)
+https://freemacsoft.net/appcleaner/
+Not installed
+From: https://github.com/Homebrew/homebrew-cask/blob/HEAD/Casks/a/appcleaner.rb
+==&gt; Name
+FreeMacSoft AppCleaner
+==&gt; Description
+Application uninstaller
+==&gt; Artifacts
+AppCleaner.app (App)
+==&gt; Analytics
+install: 3,160 (30 days), 8,326 (90 days), 31,759 (365 days)</code></pre>
+<h3>the entire <a href="https://www.omnigroup.com/download">OmniGroup suite</a> (including OmniDiskSweeper!)</h3>
+<pre><code class="language-shell">$ brew search omni
+==&gt; Formulae
+omniorb
+
+==&gt; Casks
+insomnia              insomnium             omnidb                omnifocus             omnioutliner          omnipresence
+insomnia@alpha        omnidazzle            omnidisksweeper       omnigraffle           omniplan
+
+$ brew info omnidisksweeper
+==&gt; omnidisksweeper: 1.15.1b (auto_updates)
+https://www.omnigroup.com/more/
+Not installed
+From: https://github.com/Homebrew/homebrew-cask/blob/HEAD/Casks/o/omnidisksweeper.rb
+==&gt; Name
+OmniDiskSweeper
+==&gt; Description
+Finds large, unwanted files and deletes them
+==&gt; Artifacts
+OmniDiskSweeper.app (App)
+==&gt; Analytics
+install: 279 (30 days), 801 (90 days), 2,697 (365 days)</code></pre>
+<h3><a href="https://folivora.ai/">BetterTouchTool</a></h3>
+<p>i can't live without BTT, but for the last...<em>decade?</em>...i've been installing it manually through the website. that is no longer necessary!</p>
+<pre><code class="language-shell">$ brew info bettertouchtool
+==&gt; bettertouchtool: 4.964,2024121009 (auto_updates)
+https://folivora.ai/
+Not installed
+From: https://github.com/Homebrew/homebrew-cask/blob/HEAD/Casks/b/bettertouchtool.rb
+==&gt; Name
+BetterTouchTool
+==&gt; Description
+Tool to customise input devices and automate computer systems
+==&gt; Artifacts
+BetterTouchTool.app (App)
+==&gt; Analytics
+install: 1,518 (30 days), 4,536 (90 days), 15,710 (365 days)</code></pre>
+<h3><a href="https://mactracker.ca">MacTracker</a></h3>
+<p>(though this one should have been obvious over a decade ago...)</p>
+<pre><code class="language-shell">$ brew info mactracker
+==&gt; mactracker: 7.13 (auto_updates)
+https://mactracker.ca/
+Installed
+/opt/homebrew/Caskroom/mactracker/7.13 (280.5MB)
+  Installed using the formulae.brew.sh API on 2024-12-04 at 19:58:41
+From: https://github.com/Homebrew/homebrew-cask/blob/HEAD/Casks/m/mactracker.rb
+==&gt; Name
+Mactracker
+==&gt; Description
+Detailed information on every Apple product ever made
+==&gt; Artifacts
+Mactracker.app (App)
+==&gt; Analytics
+install: 125 (30 days), 266 (90 days), 1,067 (365 days)</code></pre>
+<h3><a href="https://music.163.com">网易云音乐 (Netease Music)</a> and <a href="https://www.wechat.com">微信 (WeChat)</a></h3>
+<p><em>these two i never expected to be available through homebrew</em></p>
+<pre><code class="language-shell">$ brew info neteasemusic
+==&gt; neteasemusic: 2.3.21_1077 (auto_updates)
+https://music.163.com/
+Not installed
+From: https://github.com/Homebrew/homebrew-cask/blob/HEAD/Casks/n/neteasemusic.rb
+==&gt; Names
+NetEase cloud music
+网易云音乐
+==&gt; Description
+Music streaming platform
+==&gt; Artifacts
+NeteaseMusic.app (App)
+==&gt; Analytics
+install: 228 (30 days), 641 (90 days), 2,849 (365 days)
+
+$ brew info wechat
+==&gt; wechat: 3.8.9.17 (auto_updates)
+https://mac.weixin.qq.com/
+Not installed
+From: https://github.com/Homebrew/homebrew-cask/blob/HEAD/Casks/w/wechat.rb
+==&gt; Names
+WeChat for Mac
+微信 Mac 版
+==&gt; Description
+Free messaging and calling application
+==&gt; Artifacts
+WeChat.app (App)
+==&gt; Analytics
+install: 811 (30 days), 2,377 (90 days), 9,029 (365 days)</code></pre>
+<h3><a href="https://objective-see.com/products/lulu.html">Lulu</a> (open-source firewall)</h3>
+<pre><code class="language-shell">brew info lulu
+==&gt; lulu: 2.9.6
+https://objective-see.com/products/lulu.html
+Installed
+/opt/homebrew/Caskroom/lulu/2.9.6 (7.3MB)
+  Installed using the formulae.brew.sh API on 2024-12-10 at 18:08:37
+From: https://github.com/Homebrew/homebrew-cask/blob/HEAD/Casks/l/lulu.rb
+==&gt; Name
+LuLu
+==&gt; Description
+Open-source firewall to block unknown outgoing connections
+==&gt; Artifacts
+LuLu.app (App)
+==&gt; Analytics
+install: 804 (30 days), 2,558 (90 days), 11,246 (365 days)</code></pre>
+<h3><a href="https://intelliscapesolutions.com/apps/caffeine">Caffeine</a></h3>
+<p>the one that keeps your mac from sleeping with one click in the menu bar!</p>
+<pre><code class="language-shell">$ brew info caffeine
+==&gt; caffeine: 1.1.3
+https://intelliscapesolutions.com/apps/caffeine
+Not installed
+From: https://github.com/Homebrew/homebrew-cask/blob/HEAD/Casks/c/caffeine.rb
+==&gt; Name
+Caffeine
+==&gt; Description
+Utility that prevents the system from going to sleep
+==&gt; Artifacts
+Caffeine.app (App)
+==&gt; Caveats
+caffeine is built for Intel macOS and so requires Rosetta 2 to be installed.
+You can install Rosetta 2 with:
+  softwareupdate --install-rosetta --agree-to-license
+Note that it is very difficult to remove Rosetta 2 once it is installed.
+
+==&gt; Analytics
+install: 1,526 (30 days), 4,136 (90 days), 16,276 (365 days)</code></pre>
+<p>and a whole host of others more, including:</p>
+<pre><code class="language-shell">vlc # yep—VLC.app!
+standard-notes
+onyx
+knockknock
+taskexplorer
+xnviewmp
+telegram-desktop
+bruno
+iterm2
+utm # UTM.app, the VM manager!
+betterdisplay # as in BetterDisplay.pro</code></pre>
+<h2 id="search-info-install-upgrade">search, info, install, upgrade</h2>
+<p>you can always do a search for your favorite application with <code>brew search</code>:</p>
+<pre><code class="language-shell">$ brew search pacifist
+==&gt; Formulae
+pachi
+
+==&gt; Casks
+pacifist ✔</code></pre>
+<p>and confirm it's exactly what you're looking for with <code>brew info</code>:</p>
+<pre><code class="language-shell">$ brew info pacifist
+==&gt; pacifist: 4.1.1 (auto_updates)
+https://www.charlessoft.com/
+Installed
+/opt/homebrew/Caskroom/pacifist/4.1.1 (56.7MB)
+  Installed using the formulae.brew.sh API on 2024-12-10 at 18:10:04
+From: https://github.com/Homebrew/homebrew-cask/blob/HEAD/Casks/p/pacifist.rb
+==&gt; Name
+Pacifist
+==&gt; Description
+Extract files and folders from package files, disk images, and archives
+==&gt; Artifacts
+Pacifist.app (App)
+/Applications/Pacifist.app/Contents/Resources/usr/bin/pacifist (Binary)
+==&gt; Analytics
+install: 35 (30 days), 123 (90 days), 423 (365 days)</code></pre>
+<p>install with <code>brew install --cask</code>:</p>
+<pre><code class="language-shell">$ brew install --cask pacifist
+==&gt; Downloading https://formulae.brew.sh/api/cask.jws.json
+########################################################################################################################################## 100.0%
+Warning: Not upgrading pacifist, the latest version is already installed</code></pre>
+<p>check for installed applications with <code>brew list --cask</code>, and upgrade them all with <code>brew upgrade --cask --greedy</code></p>
+    </div>
+    <footer class="article-footer">
+      <ul class="pills" aria-label="Tags">
+        <li><span class="pill quiet">#macos</span></li>
+        <li><span class="pill quiet">#defaults</span></li>
+        <li><span class="pill quiet">#bigsur</span></li>
+        <li><span class="pill quiet">#monterey</span></li>
+        <li><span class="pill quiet">#ventura</span></li>
+        <li><span class="pill quiet">#sonoma</span></li>
+        <li><span class="pill quiet">#sequoia</span></li>
+      </ul>
+      <a href="/comp/">← back to computers</a>
+    </footer>
+  </article>
+
+  <h2 class="widget-title"><svg class="icon" aria-hidden="true"><use href="/icons.svg#laptop"/></svg>more computer stuff</h2>
+  <section class="card">
+    <ul class="compact">
+      <li><a href="/comp/new-macos-setup-tweaks/">
+        <div><h3>when defaults write comes to save your sanity</h3><p>some of these defaults...smh</p></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,g_auto,w_200,h_200,q_auto,f_auto/v1795814888/comp/new-macos-setup-tweaks/img/head-desk.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/menu-bar-spacing/">
+        <div><h3>how to fix the asinine menu bar item spacing in macOS</h3><p>i will never understand why they changed the spacing in the first place</p></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,g_auto,w_200,h_200,q_auto,f_auto/v1795814887/comp/menu-bar-spacing/img/featured.png" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+    </ul>
+  </section>
+
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <span>© wheelsandbytes 2015–2026</span>
+  </footer>
+  <!-- /shared:footer -->
+</main>
+<aside class="card toc" aria-labelledby="toc-title">
+  <h2 id="toc-title">contents</h2>
+  <ol>
+    <li><a href="#intro">intro</a></li>
+    <li><a href="#disable-gatekeeper">disable gatekeeper</a></li>
+    <li><a href="#example-applications-available-through-homebrew">example applications available through homebrew</a></li>
+    <li><a href="#search-info-install-upgrade">search, info, install, upgrade</a></li>
+  </ol>
+</aside>
+</div>
+</body>
+</html>

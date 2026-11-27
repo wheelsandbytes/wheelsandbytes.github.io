@@ -153,18 +153,6 @@ a:hover { color: var(--accent-hot); }
   color: var(--text-dim);
 }
 .theme-toggle:hover { color: var(--accent); background: var(--card-bg); }
-.theme-toggle .switch {
-  margin-left: auto;
-  width: 2.2rem; height: 1.25rem; border-radius: 999px;
-  background: var(--line); position: relative; transition: background .2s;
-}
-.theme-toggle .switch::after {
-  content: ""; position: absolute; top: .15rem; left: .15rem;
-  width: .95rem; height: .95rem; border-radius: 50%; background: var(--card-bg);
-  box-shadow: 0 1px 2px rgb(0 0 0 / .3); transition: transform .2s;
-}
-.theme-toggle[aria-pressed="true"] .switch { background: var(--accent); }
-.theme-toggle[aria-pressed="true"] .switch::after { transform: translateX(.95rem); }
 
 /* ---------- cards ---------- */
 .card {
@@ -444,3 +432,61 @@ kbd {
 .section-hero:not(.plain) { aspect-ratio: 16 / 7; }
 /* Night photos: only shade the bottom, where the title sits */
 .section-hero.light-scrim::before { background: linear-gradient(to top, rgb(0 0 0 / .6), rgb(0 0 0 / 0) 50%); }
+
+/* ---------- additions: music, about, tables ---------- */
+a.card.about { display: grid; }
+.compact a:not(:has(img)) { grid-template-columns: minmax(0, 1fr); }
+.prose.lyrics p { margin: 0 0 .9rem; line-height: 1.75; }
+.prose figure.art img { max-width: min(100%, 22rem); border-radius: var(--radius-sm); box-shadow: var(--shadow); }
+.table-wrap { overflow-x: auto; margin: 1.25rem 0; }
+.prose table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+.prose th, .prose td { border-bottom: 1px solid var(--line); padding: .5rem .75rem; text-align: left; }
+.prose th { font-weight: 650; }
+
+/* ---------- sidebar: full-height, utilities pinned to the bottom ---------- */
+.sidebar {
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  margin-block: -2.5rem;          /* cancel the layout's top/bottom padding... */
+  padding-block: 2.5rem;          /* ...and keep it inside the sidebar instead */
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.sidebar-utils { margin-top: auto; display: grid; gap: .15rem; }
+
+/* Language and dark mode: plain menu-style rows, icon then label (like the menu) */
+.lang-switch {
+  display: inline-flex; align-items: center; gap: .8rem;
+  padding: .55rem 0;
+  color: var(--text);
+  font-weight: 500;
+  cursor: pointer;
+}
+.lang-switch .icon, .theme-toggle .icon { color: var(--text-dim); }
+.lang-switch select {
+  appearance: none; -webkit-appearance: none;
+  border: 0; background: none; color: inherit;
+  font: inherit; font-weight: 500;
+  padding: 0; margin: 0;
+  cursor: pointer;
+}
+.lang-switch select:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+.lang-switch:hover, .lang-switch:hover .icon { color: var(--accent); }
+.lang-switch select option { color: var(--text); background: var(--card-bg); }
+
+.theme-toggle,
+.theme-toggle:hover { width: auto; margin: 0; padding: .55rem 0; background: none; color: var(--text); }
+.theme-toggle:hover, .theme-toggle:hover .icon { color: var(--accent); }
+.theme-toggle .icon.on { display: none; }
+.theme-toggle[aria-pressed="true"] { color: var(--accent); font-weight: 700; }
+.theme-toggle[aria-pressed="true"] .icon { color: var(--accent); }
+.theme-toggle[aria-pressed="true"] .icon.on { display: inline; }
+.theme-toggle[aria-pressed="true"] .icon.off { display: none; }
+
+@media (max-width: 52rem) {
+  .sidebar { height: auto; margin-block: 0; padding-block: 0; overflow: visible; }
+  .sidebar-utils { margin-top: 0; display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; }
+  .lang-switch, .theme-toggle { padding: .45rem 0; }
+  .sidebar-bottom { display: block; }
+}

@@ -36,10 +36,23 @@
         <li><a href="/comp/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#laptop"/></svg>computers</a></li>
         <li><a href="/auto/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#car"/></svg>cars</a></li>
         <li><a href="/proj/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#grid"/></svg>projects</a></li>
+        <li><a href="/music/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#music"/></svg>music</a></li>
+        <li><a href="/about/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#user"/></svg>about</a></li>
       </ul>
     </nav>
+  </div>
+  <div class="sidebar-utils">
+    <label class="lang-switch">
+      <svg class="icon" aria-hidden="true"><use href="/icons.svg#translate"/></svg>
+      <span class="visually-hidden">Language</span>
+      <select id="lang-select">
+        <option value="en" lang="en" selected>English</option>
+        <option value="ru" lang="ru">Русский</option>
+        <option value="zh" lang="zh">中文</option>
+      </select>
+    </label>
     <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" hidden>
-      <svg class="icon" aria-hidden="true"><use href="/icons.svg#moon"/></svg>dark mode<span class="switch" aria-hidden="true"></span>
+      <svg class="icon off" aria-hidden="true"><use href="/icons.svg#toggle-off"/></svg><svg class="icon on" aria-hidden="true"><use href="/icons.svg#toggle-on"/></svg>dark mode
     </button>
   </div>
 </aside>
@@ -60,7 +73,7 @@
         <h3>i play with computers</h3>
         <p>Playing around with EFI on the Late-08 MacBook Pro and getting Windows 7 to boot in EFI was fun.
           I built a Hackintosh. Oh, and a PlayStation 1 emulator setup brought back lots of memories.</p>
-        <div class="card-meta"><span><svg class="icon" aria-hidden="true"><use href="/icons.svg#notes"/></svg>13 articles</span></div>
+        <div class="card-meta"><span><svg class="icon" aria-hidden="true"><use href="/icons.svg#notes"/></svg>16 articles</span></div>
       </div>
     </a>
     <a class="card" href="/auto/">
@@ -87,7 +100,7 @@
   </div>
 
   <h2 class="widget-title"><svg class="icon" aria-hidden="true"><use href="/icons.svg#home"/></svg>about</h2>
-  <section class="card about">
+  <a class="card about" href="/about/">
     <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,g_face,w_520,h_600,q_auto,f_auto/v1775343296/img/me.jpg" alt="Tim" width="520" height="600" loading="lazy">
     <div class="card-body">
       <p class="hello" lang="ru">Привет! Меня зовут Тёма.</p>
@@ -96,7 +109,7 @@
       <p class="plain">Oops, wrong keyboard. My name is Tim. I'm from Russia, and currently live in the United States.
         I blast K-pop in my 日本-style American car.</p>
     </div>
-  </section>
+  </a>
 
   <!-- shared:footer -->
   <footer class="site-footer">

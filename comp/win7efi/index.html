@@ -35,10 +35,23 @@
         <li><a href="/comp/" aria-current="page"><svg class="icon" aria-hidden="true"><use href="/icons.svg#laptop"/></svg>computers</a></li>
         <li><a href="/auto/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#car"/></svg>cars</a></li>
         <li><a href="/proj/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#grid"/></svg>projects</a></li>
+        <li><a href="/music/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#music"/></svg>music</a></li>
+        <li><a href="/about/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#user"/></svg>about</a></li>
       </ul>
     </nav>
+  </div>
+  <div class="sidebar-utils">
+    <label class="lang-switch">
+      <svg class="icon" aria-hidden="true"><use href="/icons.svg#translate"/></svg>
+      <span class="visually-hidden">Language</span>
+      <select id="lang-select">
+        <option value="en" lang="en" selected>English</option>
+        <option value="ru" lang="ru">Русский</option>
+        <option value="zh" lang="zh">中文</option>
+      </select>
+    </label>
     <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" hidden>
-      <svg class="icon" aria-hidden="true"><use href="/icons.svg#moon"/></svg>dark mode<span class="switch" aria-hidden="true"></span>
+      <svg class="icon off" aria-hidden="true"><use href="/icons.svg#toggle-off"/></svg><svg class="icon on" aria-hidden="true"><use href="/icons.svg#toggle-on"/></svg>dark mode
     </button>
   </div>
 </aside>
@@ -59,9 +72,9 @@
     </header>
 
     <div class="prose">
-<h2 id="why">Why?</h2>
-<p><strong>Because I can.</strong></p>
-<p>Actually, it's because Apple's BIOS Emulation setup for Bootcamp doesn't allow you to use both of the GPUs that are built-in (GeForce 9400M and Geforce 9600M GT). BIOS Emulation restricts you to just the 9600M GT, which produces a lot of heat and drains the battery fairly quickly (thanks to terrible power management). While it's great for gaming, it's overkill for simpler tasks that you may need Windows for. Booting up Windows using the MacBook's native EFI allows you to have access to both GPUs, and gives you a bit more control of what they do.</p>
+<p><em>turns out the Mac's EFI does support it...</em></p>
+<p>"but why?" you may ask...</p>
+<p>It's because Apple's BIOS Emulation setup for Bootcamp doesn't allow you to use both of the GPUs that are built-in (GeForce 9400M and Geforce 9600M GT). BIOS Emulation restricts you to just the 9600M GT, which produces a lot of heat and drains the battery fairly quickly (thanks to terrible power management). While it's great for gaming, it's overkill for simple tasks that you may need Windows for. Booting up Windows using the MacBook's native EFI allows you to have access to both GPUs, and gives you a bit more control of what they do.</p>
 <h3>My original MacRumors post</h3>
 <p>This goes way back to 2014 when I first figured this out. I posted my documentation on MacRumors to see if it would help them out. To the best of my knowledge, I may have been the only one who got as far as booting up using the 9400M with the 9600M GT, but there were also a lot of pages that I didn't read. Nonetheless, here it is:</p>
 <p><a href="http://forums.macrumors.com/threads/win7-x64-booting-natively-via-efi-no-bios-emulation.696523/page-42#post-20529412">Post #1045 Dec 26, 2014</a></p>
@@ -76,7 +89,7 @@
 <p>PCI Device 02 00 00 &lt;- Nvidia GeForce 9600M GT (also device E5)<br/>
           PCI Device 03 00 00 &lt;- Nvidia GeForce 9400M (also device E7)</p>
 <p>#### How to switch between GPUs ####<br/>
-          User <code>dmpstore gpu-power-prefs</code> to check with GPU has power<br/>
+          Use <code>dmpstore gpu-power-prefs</code> to check with GPU has power<br/>
 <code>dmpstore gpu-power-prefs -s fs0:\gpu-power-prefs #store the existing setting on the EFI partition</code></p>
 <p>#edit the GPU power setting to power on the card that will be the display output<br/>
 <code>hexedit gpu-power-prefs</code><br/>
@@ -113,10 +126,9 @@
 <p><code>dh e7 -b</code> (the integrated 9400)</p>
 <p><code>pci -i 02 00 00 -b</code> (for the discrete gpu)</p>
 <p><code>pci -i 03 00 00 -b</code> (for the integrated gpu)</p>
-<p>Hope this helps, sorry again if I'm late and someone has already figured this out. Cheers!~</p>
+<p>Hope this helps, sorry again if I'm late and someone has already figured this out. Cheers!</p>
 </blockquote>
 <h3>The results speak for themselves:</h3>
-<i>(right-click -&gt; open in new tab for the full resolution)</i>
 <figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343289/comp/win7efi/img/everything_gfx.png"><img alt="proof suckas" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343289/comp/win7efi/img/everything_gfx.png" width="1440" height="900" loading="lazy"></a></figure>
     </div>
 
