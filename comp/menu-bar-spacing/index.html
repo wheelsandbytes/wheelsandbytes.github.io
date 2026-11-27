@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>how to fix the asinine menu bar item spacing in macOS · wheels_and_bytes</title>
+<meta name="description" content="i will never understand why they changed the spacing in the first place">
+<!-- shared:head -->
+<script>try{var t=localStorage.getItem("wnb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/theme.js" defer></script>
+<!-- /shared:head -->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="layout has-toc">
+
+<!-- shared:sidebar -->
+<aside class="sidebar">
+  <div class="profile">
+    <a href="/" tabindex="-1"><img class="avatar" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_240,h_240,q_auto,f_auto/v1795809489/avatar_fc_mg3d7z.png" alt="Tim" width="240" height="240"></a>
+    <p class="site-name"><a href="/"><b>[</b> wheels_and_bytes <b>]</b></a></p>
+    <p class="site-tagline">wheels because cars, bytes because computers<span lang="zh">别介意它。。。；）</span></p>
+  </div>
+  <ul class="social" aria-label="Elsewhere">
+    <li><a href="https://github.com/wheelsandbytes" title="GitHub"><svg class="icon" aria-hidden="true"><use href="/icons.svg#code"/></svg><span class="visually-hidden">GitHub</span></a></li>
+    <li><a href="https://wheelsandbytes.wordpress.com" title="Blog"><svg class="icon" aria-hidden="true"><use href="/icons.svg#pen"/></svg><span class="visually-hidden">Blog</span></a></li>
+    <li><a href="https://soundcloud.com/sn0wninja" title="SoundCloud"><svg class="icon" aria-hidden="true"><use href="/icons.svg#wave"/></svg><span class="visually-hidden">SoundCloud</span></a></li>
+    <li><a href="https://www.instagram.com/frozen_timmy/" title="Instagram"><svg class="icon" aria-hidden="true"><use href="/icons.svg#camera"/></svg><span class="visually-hidden">Instagram</span></a></li>
+  </ul>
+  <div class="sidebar-bottom">
+    <nav class="menu" aria-label="Main">
+      <ul>
+        <li><a href="/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#home"/></svg>home</a></li>
+        <li><a href="/comp/" aria-current="page"><svg class="icon" aria-hidden="true"><use href="/icons.svg#laptop"/></svg>computers</a></li>
+        <li><a href="/auto/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#car"/></svg>cars</a></li>
+        <li><a href="/proj/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#grid"/></svg>projects</a></li>
+        <li><a href="/music/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#music"/></svg>music</a></li>
+        <li><a href="/about/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#user"/></svg>about</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="sidebar-utils">
+    <label class="lang-switch">
+      <svg class="icon" aria-hidden="true"><use href="/icons.svg#translate"/></svg>
+      <span class="visually-hidden">Language</span>
+      <select id="lang-select">
+        <option value="en" lang="en" selected>English</option>
+        <option value="ru" lang="ru">Русский</option>
+        <option value="zh" lang="zh">中文</option>
+      </select>
+    </label>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" hidden>
+      <svg class="icon off" aria-hidden="true"><use href="/icons.svg#toggle-off"/></svg><svg class="icon on" aria-hidden="true"><use href="/icons.svg#toggle-on"/></svg>dark mode
+    </button>
+  </div>
+</aside>
+<!-- /shared:sidebar -->
+
+<main class="main" id="main">
+  <article class="card">
+    <img class="article-cover" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,g_auto,w_1400,h_640,q_auto,f_auto/v1795814887/comp/menu-bar-spacing/img/featured.png" alt="" width="1400" height="640">
+    <header class="article-header">
+      <ul class="pills"><li><a class="pill" href="/comp/">computers</a></li></ul>
+      <h1>how to fix the asinine menu bar item spacing in macOS</h1>
+      <p class="subtitle">i will never understand why they changed the spacing in the first place</p>
+      <div class="card-meta">
+        <span><svg class="icon" aria-hidden="true"><use href="/icons.svg#calendar"/></svg><time datetime="2024-11-19">November 19, 2024</time></span>
+        <span><svg class="icon" aria-hidden="true"><use href="/icons.svg#clock"/></svg>2 minute read</span>
+      </div>
+    </header>
+
+    <div class="prose">
+<h2 id="commands">commands</h2>
+<pre><code class="language-shell">defaults -currentHost write -globalDomain NSStatusItemSpacing -int 6
+defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 12</code></pre>
+<p>Logout/relogin to apply changes.</p>
+<h2 id="default-spacing">default spacing</h2>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1795814884/comp/menu-bar-spacing/img/spacing-before.png"><img alt="spacing-before.png" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1795814884/comp/menu-bar-spacing/img/spacing-before.png" width="1462" height="328" loading="lazy"></a></figure>
+<h2 id="new-spacing">new spacing</h2>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1795814885/comp/menu-bar-spacing/img/spacing-after.png"><img alt="spacing-after.png" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1795814885/comp/menu-bar-spacing/img/spacing-after.png" width="1428" height="328" loading="lazy"></a></figure>
+<p><em>The craziest part about modern macOS menu bar item spacing is that it was tighter when Apple still had a 30-inch display for sale—yet the decision to increase the spacing was at a time when Apple's largest display was 27 inches</em></p>
+<p>A value of 6 (x) for spacing and 12 (y) for padding looks good, but if you want more compact spacing, 4 (x) and 8 (y) may be better particularly on the 13 and 14 inch notched MacBooks. Results appear optimal when the padding value is twice the spacing value. <a href="https://www.reddit.com/r/MacOS/comments/1dfu8w0/psa_reduce_your_menu_bar_spacing_to_fit_more_items/">Reddit source link</a></p>
+<p>Values can be decreased down to 0 for extra-compact appearance. Keep in mind that below a certain value, the small Location Services symbol periodically appearing in the Control Center menu bar item might be cut off.</p>
+<h2 id="revert-back-to-default-settings">revert back to default settings</h2>
+<pre><code class="language-shell">defaults -currentHost delete -globalDomain NSStatusItemSelectionPadding
+defaults -currentHost delete -globalDomain NSStatusItemSpacing</code></pre>
+<p>You can apply the settings without logging out with this:</p>
+<pre><code class="language-shell">ps -A | grep Core | awk '{ print $1 }' | xargs -I{} kill -9 {}</code></pre>
+<p>But logging out is more thorough, because otherwise you'll have to manually restart all of the third party apps that have menu bar icons.</p>
+    </div>
+    <footer class="article-footer">
+      <ul class="pills" aria-label="Tags">
+        <li><span class="pill quiet">#macos</span></li>
+        <li><span class="pill quiet">#defaults</span></li>
+        <li><span class="pill quiet">#bigsur</span></li>
+        <li><span class="pill quiet">#monterey</span></li>
+        <li><span class="pill quiet">#ventura</span></li>
+        <li><span class="pill quiet">#sonoma</span></li>
+        <li><span class="pill quiet">#sequoia</span></li>
+      </ul>
+      <a href="/comp/">← back to computers</a>
+    </footer>
+  </article>
+
+  <h2 class="widget-title"><svg class="icon" aria-hidden="true"><use href="/icons.svg#laptop"/></svg>more computer stuff</h2>
+  <section class="card">
+    <ul class="compact">
+      <li><a href="/comp/use-mac-like-a-pro/">
+        <div><h3>a better macOS applications experience</h3><p>ditch the mac app store and gatekeeper</p></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,g_auto,w_200,h_200,q_auto,f_auto/v1795814891/comp/use-mac-like-a-pro/img/featured.png" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/new-macos-setup-tweaks/">
+        <div><h3>when defaults write comes to save your sanity</h3><p>some of these defaults...smh</p></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,g_auto,w_200,h_200,q_auto,f_auto/v1795814888/comp/new-macos-setup-tweaks/img/head-desk.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+    </ul>
+  </section>
+
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <span>© wheelsandbytes 2015–2026</span>
+  </footer>
+  <!-- /shared:footer -->
+</main>
+<aside class="card toc" aria-labelledby="toc-title">
+  <h2 id="toc-title">contents</h2>
+  <ol>
+    <li><a href="#commands">commands</a></li>
+    <li><a href="#default-spacing">default spacing</a></li>
+    <li><a href="#new-spacing">new spacing</a></li>
+    <li><a href="#revert-back-to-default-settings">revert back to default settings</a></li>
+  </ol>
+</aside>
+</div>
+</body>
+</html>

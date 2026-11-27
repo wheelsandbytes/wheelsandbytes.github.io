@@ -35,10 +35,23 @@
         <li><a href="/comp/" aria-current="page"><svg class="icon" aria-hidden="true"><use href="/icons.svg#laptop"/></svg>computers</a></li>
         <li><a href="/auto/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#car"/></svg>cars</a></li>
         <li><a href="/proj/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#grid"/></svg>projects</a></li>
+        <li><a href="/music/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#music"/></svg>music</a></li>
+        <li><a href="/about/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#user"/></svg>about</a></li>
       </ul>
     </nav>
+  </div>
+  <div class="sidebar-utils">
+    <label class="lang-switch">
+      <svg class="icon" aria-hidden="true"><use href="/icons.svg#translate"/></svg>
+      <span class="visually-hidden">Language</span>
+      <select id="lang-select">
+        <option value="en" lang="en" selected>English</option>
+        <option value="ru" lang="ru">Русский</option>
+        <option value="zh" lang="zh">中文</option>
+      </select>
+    </label>
     <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" hidden>
-      <svg class="icon" aria-hidden="true"><use href="/icons.svg#moon"/></svg>dark mode<span class="switch" aria-hidden="true"></span>
+      <svg class="icon off" aria-hidden="true"><use href="/icons.svg#toggle-off"/></svg><svg class="icon on" aria-hidden="true"><use href="/icons.svg#toggle-on"/></svg>dark mode
     </button>
   </div>
 </aside>
