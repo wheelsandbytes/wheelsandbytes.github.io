@@ -1,38 +1,67 @@
-
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<!-- common.css -->
-<style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
-<!-- ace-static.css -->
-<style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
-<style>.ace-tomorrow-night-eighties .ace_gutter {background: #272727;color: #CCC}.ace-tomorrow-night-eighties .ace_print-margin {width: 1px;background: #272727}.ace-tomorrow-night-eighties {background-color: #2D2D2D;color: #CCCCCC}.ace-tomorrow-night-eighties .ace_constant.ace_other,.ace-tomorrow-night-eighties .ace_cursor {color: #CCCCCC}.ace-tomorrow-night-eighties .ace_marker-layer .ace_selection {background: #515151}.ace-tomorrow-night-eighties.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #2D2D2D;}.ace-tomorrow-night-eighties .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-tomorrow-night-eighties .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #6A6A6A}.ace-tomorrow-night-bright .ace_stack {background: rgb(66, 90, 44)}.ace-tomorrow-night-eighties .ace_marker-layer .ace_active-line {background: #393939}.ace-tomorrow-night-eighties .ace_gutter-active-line {background-color: #393939}.ace-tomorrow-night-eighties .ace_marker-layer .ace_selected-word {border: 1px solid #515151}.ace-tomorrow-night-eighties .ace_invisible {color: #6A6A6A}.ace-tomorrow-night-eighties .ace_keyword,.ace-tomorrow-night-eighties .ace_meta,.ace-tomorrow-night-eighties .ace_storage,.ace-tomorrow-night-eighties .ace_storage.ace_type,.ace-tomorrow-night-eighties .ace_support.ace_type {color: #CC99CC}.ace-tomorrow-night-eighties .ace_keyword.ace_operator {color: #66CCCC}.ace-tomorrow-night-eighties .ace_constant.ace_character,.ace-tomorrow-night-eighties .ace_constant.ace_language,.ace-tomorrow-night-eighties .ace_constant.ace_numeric,.ace-tomorrow-night-eighties .ace_keyword.ace_other.ace_unit,.ace-tomorrow-night-eighties .ace_support.ace_constant,.ace-tomorrow-night-eighties .ace_variable.ace_parameter {color: #F99157}.ace-tomorrow-night-eighties .ace_invalid {color: #CDCDCD;background-color: #F2777A}.ace-tomorrow-night-eighties .ace_invalid.ace_deprecated {color: #CDCDCD;background-color: #CC99CC}.ace-tomorrow-night-eighties .ace_fold {background-color: #6699CC;border-color: #CCCCCC}.ace-tomorrow-night-eighties .ace_entity.ace_name.ace_function,.ace-tomorrow-night-eighties .ace_support.ace_function,.ace-tomorrow-night-eighties .ace_variable {color: #6699CC}.ace-tomorrow-night-eighties .ace_support.ace_class,.ace-tomorrow-night-eighties .ace_support.ace_type {color: #FFCC66}.ace-tomorrow-night-eighties .ace_heading,.ace-tomorrow-night-eighties .ace_markup.ace_heading,.ace-tomorrow-night-eighties .ace_string {color: #99CC99}.ace-tomorrow-night-eighties .ace_comment {color: #999999}.ace-tomorrow-night-eighties .ace_entity.ace_name.ace_tag,.ace-tomorrow-night-eighties .ace_entity.ace_other.ace_attribute-name,.ace-tomorrow-night-eighties .ace_meta.ace_tag,.ace-tomorrow-night-eighties .ace_variable {color: #F2777A}.ace-tomorrow-night-eighties .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ09NrYAgMjP4PAAtGAwchHMyAAAAAAElFTkSuQmCC) right repeat-y}</style>
-<!-- export.css -->
-<style>
-  body{margin:0 auto;max-width:800px;line-height:1.4}
-  #nav{margin:5px 0 10px;font-size:15px}
-  #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
-  #contentarea{font-size:15px;margin:16px 0}
-  .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
-  .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
-  .latex-cell{white-space:pre-wrap;}
-  </style>
-<!-- User CSS -->
-<style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pro tips on setting up a new Mac · wheels_and_bytes</title>
+<meta name="description" content="Starting from scratch &gt; Migration Assistant.">
+<!-- shared:head -->
+<script>try{var t=localStorage.getItem("wnb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/theme.js" defer></script>
+<!-- /shared:head -->
 </head>
 <body>
-<div id="titlearea">
-<h2>got a new Mac? (feat. jay wang)</h2>
-</div>
-<div id="contentarea"><div class="cell markdown-cell"><h1>pro tips on setting up a new Mac</h1>
-<h4>for those times when u get a new MacBook Pro and hate Migration Assistant...</h4>
-<p><img alt="assistant" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343268/comp/new-mac/img/assistant.png"/></p>
+<a class="skip" href="#main">Skip to content</a>
+<div class="layout">
+
+<!-- shared:sidebar -->
+<aside class="sidebar">
+  <div class="profile">
+    <a href="/" tabindex="-1"><img class="avatar" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_thumb,g_face,w_240,h_240,q_auto,f_auto/v1775343296/img/me.jpg" alt="Tim" width="240" height="240"></a>
+    <p class="site-name"><a href="/"><b>[</b> wheels_and_bytes <b>]</b></a></p>
+    <p class="site-tagline">wheels because cars, bytes because computers<span lang="zh">别介意它。。。；）</span></p>
+  </div>
+  <ul class="social" aria-label="Elsewhere">
+    <li><a href="https://github.com/wheelsandbytes" title="GitHub"><svg class="icon" aria-hidden="true"><use href="/icons.svg#code"/></svg><span class="visually-hidden">GitHub</span></a></li>
+    <li><a href="https://wheelsandbytes.wordpress.com" title="Blog"><svg class="icon" aria-hidden="true"><use href="/icons.svg#pen"/></svg><span class="visually-hidden">Blog</span></a></li>
+    <li><a href="https://soundcloud.com/sn0wninja" title="SoundCloud"><svg class="icon" aria-hidden="true"><use href="/icons.svg#wave"/></svg><span class="visually-hidden">SoundCloud</span></a></li>
+    <li><a href="https://www.instagram.com/frozen_timmy/" title="Instagram"><svg class="icon" aria-hidden="true"><use href="/icons.svg#camera"/></svg><span class="visually-hidden">Instagram</span></a></li>
+  </ul>
+  <div class="sidebar-bottom">
+    <nav class="menu" aria-label="Main">
+      <ul>
+        <li><a href="/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#home"/></svg>home</a></li>
+        <li><a href="/comp/" aria-current="page"><svg class="icon" aria-hidden="true"><use href="/icons.svg#laptop"/></svg>computers</a></li>
+        <li><a href="/auto/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#car"/></svg>cars</a></li>
+        <li><a href="/proj/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#grid"/></svg>projects</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" hidden>
+      <svg class="icon" aria-hidden="true"><use href="/icons.svg#moon"/></svg>dark mode<span class="switch" aria-hidden="true"></span>
+    </button>
+  </div>
+</aside>
+<!-- /shared:sidebar -->
+
+<main class="main" id="main">
+  <article class="card">
+    <header class="article-header">
+      <ul class="pills"><li><a class="pill" href="/comp/">computers</a></li></ul>
+      <h1>pro tips on setting up a new Mac</h1>
+      <p class="subtitle">for those times when u get a new MacBook Pro and hate Migration Assistant...</p>
+      <div class="card-meta">
+        <span><svg class="icon" aria-hidden="true"><use href="/icons.svg#calendar"/></svg><time datetime="2017-12-23">December 23, 2017</time></span>
+        <span><svg class="icon" aria-hidden="true"><use href="/icons.svg#clock"/></svg>1 minute read</span>
+      </div>
+    </header>
+
+    <div class="prose">
+<figure><img alt="assistant" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343268/comp/new-mac/img/assistant.png" width="500" height="297" loading="lazy"></figure>
+
 <hr/>
 <h3>first things first, get <a href="https://www.iterm2.com/">iTerm2</a></h3>
-<!-- ![iterm 2](https://www.iterm2.com/img/logo2x.jpg) -->
+
 <hr/>
 <p><strong>in your preferred terminal of choice (obviously iTerm2):</strong></p>
 <hr/>
@@ -61,9 +90,8 @@
 <p>match these settings:</p>
 </li>
 </ul>
-<p><img alt="finder1" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343269/comp/new-mac/img/finder1.png"/></p>
-<p><img alt="finder2" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343269/comp/new-mac/img/finder2.png"/></p>
-<p><img alt="finder3" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343270/comp/new-mac/img/finder3.png"/></p>
+<div class="gallery"><figure style="--ar:1.057"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343269/comp/new-mac/img/finder1.png"><img alt="finder1" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343269/comp/new-mac/img/finder1.png" width="500" height="473" loading="lazy"></a></figure><figure style="--ar:0.602"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343269/comp/new-mac/img/finder2.png"><img alt="finder2" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343269/comp/new-mac/img/finder2.png" width="500" height="831" loading="lazy"></a></figure><figure style="--ar:1.129"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343270/comp/new-mac/img/finder3.png"><img alt="finder3" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343270/comp/new-mac/img/finder3.png" width="500" height="443" loading="lazy"></a></figure></div>
+
 <ul>
 <li>
 <p>then go to menu bar &gt; View and select:</p>
@@ -77,7 +105,8 @@
 </ul>
 </li>
 </ul>
-<p><img alt="finder4" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343270/comp/new-mac/img/finder4.png"/></p>
+<figure><img alt="finder4" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343270/comp/new-mac/img/finder4.png" width="250" height="511" loading="lazy"></figure>
+
 <hr/>
 <h3>settings to adjust in System Preferences:</h3>
 <hr/>
@@ -89,7 +118,8 @@
 <p>change the sidebar icon size to small:</p>
 </li>
 </ul>
-<p><img alt="sysprefs1" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343271/comp/new-mac/img/sysprefs1.png"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343271/comp/new-mac/img/sysprefs1.png"><img alt="sysprefs1" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343271/comp/new-mac/img/sysprefs1.png" width="1560" height="508" loading="lazy"></a></figure>
+
 <ul>
 <li>
 <p>go to System Preferences &gt; Keyboard &gt; Modifier Keys...</p>
@@ -98,7 +128,8 @@
 <p>change the Caps Lock key to Escape (dafuq u need caps lock for?):</p>
 </li>
 </ul>
-<p><img alt="sysprefs2" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343271/comp/new-mac/img/sysprefs2.png"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343271/comp/new-mac/img/sysprefs2.png"><img alt="sysprefs2" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343271/comp/new-mac/img/sysprefs2.png" width="1560" height="983" loading="lazy"></a></figure>
+
 <ul>
 <li>
 <p>if you're using multiple languages when typing, change the keyboard shortcut for input source switching to option-space:</p>
@@ -110,12 +141,42 @@
 <p>match these settings:</p>
 </li>
 </ul>
-<p><img alt="sysprefs3" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343272/comp/new-mac/img/sysprefs3.png"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343272/comp/new-mac/img/sysprefs3.png"><img alt="sysprefs3" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343272/comp/new-mac/img/sysprefs3.png" width="1560" height="1056" loading="lazy"></a></figure>
+
 <hr/>
 <h3>install <a href="https://www.boastr.net">BetterTouchTool</a> if u have the touch bar</h3>
-<hr/>
-<p>Copyright © wheelsandbytes 2015-2021. All Rights Reserved</p>
-</div></div>
-<script></script>
+    </div>
+
+    <footer class="article-footer">
+      <ul class="pills" aria-label="Tags">
+        <li><span class="pill quiet">#macOS</span></li>
+        <li><span class="pill quiet">#terminal</span></li>
+        <li><span class="pill quiet">#setup</span></li>
+      </ul>
+      <a href="/comp/">← back to computers</a>
+    </footer>
+  </article>
+
+  <h2 class="widget-title"><svg class="icon" aria-hidden="true"><use href="/icons.svg#laptop"/></svg>more computer stuff</h2>
+  <section class="card">
+    <ul class="compact">
+      <li><a href="/comp/fw-password/">
+        <div><h3>Bye bye firmware password</h3><p>Remove a Mac firmware password without recovery mode.</p></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343263/comp/fw-password/img/thumbnail.png" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/install-refit/">
+        <div><h3>Install rEFIt on a USB disk</h3><p>How to install rEFIt on an external USB flash drive with macOS.</p></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343268/comp/install-refit/img/thumbnail.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+    </ul>
+  </section>
+
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <span>© wheelsandbytes 2015–2026</span>
+  </footer>
+  <!-- /shared:footer -->
+</main>
+</div>
 </body>
 </html>

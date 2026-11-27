@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>projects · wheels_and_bytes</title>
+<meta name="description" content="Side projects that run right in your browser: a JavaScript port of Reckless Drivin&#x27; and the Blagger microblog.">
+<!-- shared:head -->
+<script>try{var t=localStorage.getItem("wnb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/theme.js" defer></script>
+<!-- /shared:head -->
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="layout">
+
+<!-- shared:sidebar -->
+<aside class="sidebar">
+  <div class="profile">
+    <a href="/" tabindex="-1"><img class="avatar" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_thumb,g_face,w_240,h_240,q_auto,f_auto/v1775343296/img/me.jpg" alt="Tim" width="240" height="240"></a>
+    <p class="site-name"><a href="/"><b>[</b> wheels_and_bytes <b>]</b></a></p>
+    <p class="site-tagline">wheels because cars, bytes because computers<span lang="zh">别介意它。。。；）</span></p>
+  </div>
+  <ul class="social" aria-label="Elsewhere">
+    <li><a href="https://github.com/wheelsandbytes" title="GitHub"><svg class="icon" aria-hidden="true"><use href="/icons.svg#code"/></svg><span class="visually-hidden">GitHub</span></a></li>
+    <li><a href="https://wheelsandbytes.wordpress.com" title="Blog"><svg class="icon" aria-hidden="true"><use href="/icons.svg#pen"/></svg><span class="visually-hidden">Blog</span></a></li>
+    <li><a href="https://soundcloud.com/sn0wninja" title="SoundCloud"><svg class="icon" aria-hidden="true"><use href="/icons.svg#wave"/></svg><span class="visually-hidden">SoundCloud</span></a></li>
+    <li><a href="https://www.instagram.com/frozen_timmy/" title="Instagram"><svg class="icon" aria-hidden="true"><use href="/icons.svg#camera"/></svg><span class="visually-hidden">Instagram</span></a></li>
+  </ul>
+  <div class="sidebar-bottom">
+    <nav class="menu" aria-label="Main">
+      <ul>
+        <li><a href="/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#home"/></svg>home</a></li>
+        <li><a href="/comp/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#laptop"/></svg>computers</a></li>
+        <li><a href="/auto/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#car"/></svg>cars</a></li>
+        <li><a href="/proj/" aria-current="page"><svg class="icon" aria-hidden="true"><use href="/icons.svg#grid"/></svg>projects</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" hidden>
+      <svg class="icon" aria-hidden="true"><use href="/icons.svg#moon"/></svg>dark mode<span class="switch" aria-hidden="true"></span>
+    </button>
+  </div>
+</aside>
+<!-- /shared:sidebar -->
+
+<main class="main" id="main">
+  <header class="card section-hero plain">
+    <div class="hero-text">
+      <p class="kicker">#justprojectthings</p>
+      <h1>projects</h1>
+      <p>2 projects · small things that run right in your browser</p>
+    </div>
+  </header>
+
+  <article class="card project">
+    <div class="card-body">
+      <div class="project-head">
+        <span class="tile-icon"><svg class="icon" aria-hidden="true"><use href="/icons.svg#joystick"/></svg></span>
+        <div><h2>Reckless Drivin'</h2>
+          <ul class="pills" aria-label="Built with"><li><span class="pill quiet">JavaScript</span></li><li><span class="pill quiet">canvas</span></li><li><span class="pill quiet">no dependencies</span></li></ul></div>
+      </div>
+      <p>A browser port of Jonas Echterhoff's classic Mac OS game <em>Reckless Drivin'</em> (2000). The goal is to match the original exactly: the same 640×480 view, 60&nbsp;Hz physics, AI, rendering and sound, drawn in software and copied to a canvas every frame. All ten levels are unlocked.</p>
+      <dl class="keys" aria-label="Controls">
+        <dt><kbd>↑</kbd> <kbd>↓</kbd></dt><dd>accelerate / brake &amp; reverse</dd>
+        <dt><kbd>←</kbd> <kbd>→</kbd></dt><dd>steer</dd>
+        <dt><kbd>Shift</kbd></dt><dd>kickdown boost</dd>
+        <dt><kbd>Space</kbd></dt><dd>handbrake</dd>
+        <dt><kbd>Z</kbd> <kbd>X</kbd></dt><dd>drop mine / fire missile</dd>
+        <dt><kbd>P</kbd> <kbd>Esc</kbd></dt><dd>pause / quit</dd>
+      </dl>
+      <div class="actions">
+        <a class="button" href="/reckless-drivin/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#joystick"/></svg>play it</a>
+        <a class="button ghost" href="https://github.com/wheelsandbytes/wheelsandbytes.github.io/tree/master/reckless-drivin"><svg class="icon" aria-hidden="true"><use href="/icons.svg#code"/></svg>source</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="card project">
+    <div class="card-body">
+      <div class="project-head">
+        <span class="tile-icon"><svg class="icon" aria-hidden="true"><use href="/icons.svg#notes"/></svg></span>
+        <div><h2>Blagger</h2>
+          <ul class="pills" aria-label="Built with"><li><span class="pill quiet">HTML</span></li><li><span class="pill quiet">JavaScript</span></li><li><span class="pill quiet">localStorage</span></li></ul></div>
+      </div>
+      <p>A tiny microblog that lives entirely in your browser. Write posts, save them to your browser's local storage and load them back later. Nothing is ever sent to a server.</p>
+      <div class="actions">
+        <a class="button" href="/blagger/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#notes"/></svg>open blagger</a>
+        <a class="button ghost" href="https://github.com/wheelsandbytes/wheelsandbytes.github.io/tree/master/blagger"><svg class="icon" aria-hidden="true"><use href="/icons.svg#code"/></svg>source</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <span>© wheelsandbytes 2015–2026</span>
+  </footer>
+  <!-- /shared:footer -->
+</main>
+</div>
+</body>
+</html>

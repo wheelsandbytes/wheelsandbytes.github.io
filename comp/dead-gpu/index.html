@@ -1,150 +1,203 @@
-
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<!-- common.css -->
-<style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
-<!-- ace-static.css -->
-<style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
-<style>.ace-tomorrow-night-eighties .ace_gutter {background: #272727;color: #CCC}.ace-tomorrow-night-eighties .ace_print-margin {width: 1px;background: #272727}.ace-tomorrow-night-eighties {background-color: #2D2D2D;color: #CCCCCC}.ace-tomorrow-night-eighties .ace_constant.ace_other,.ace-tomorrow-night-eighties .ace_cursor {color: #CCCCCC}.ace-tomorrow-night-eighties .ace_marker-layer .ace_selection {background: #515151}.ace-tomorrow-night-eighties.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #2D2D2D;}.ace-tomorrow-night-eighties .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-tomorrow-night-eighties .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #6A6A6A}.ace-tomorrow-night-bright .ace_stack {background: rgb(66, 90, 44)}.ace-tomorrow-night-eighties .ace_marker-layer .ace_active-line {background: #393939}.ace-tomorrow-night-eighties .ace_gutter-active-line {background-color: #393939}.ace-tomorrow-night-eighties .ace_marker-layer .ace_selected-word {border: 1px solid #515151}.ace-tomorrow-night-eighties .ace_invisible {color: #6A6A6A}.ace-tomorrow-night-eighties .ace_keyword,.ace-tomorrow-night-eighties .ace_meta,.ace-tomorrow-night-eighties .ace_storage,.ace-tomorrow-night-eighties .ace_storage.ace_type,.ace-tomorrow-night-eighties .ace_support.ace_type {color: #CC99CC}.ace-tomorrow-night-eighties .ace_keyword.ace_operator {color: #66CCCC}.ace-tomorrow-night-eighties .ace_constant.ace_character,.ace-tomorrow-night-eighties .ace_constant.ace_language,.ace-tomorrow-night-eighties .ace_constant.ace_numeric,.ace-tomorrow-night-eighties .ace_keyword.ace_other.ace_unit,.ace-tomorrow-night-eighties .ace_support.ace_constant,.ace-tomorrow-night-eighties .ace_variable.ace_parameter {color: #F99157}.ace-tomorrow-night-eighties .ace_invalid {color: #CDCDCD;background-color: #F2777A}.ace-tomorrow-night-eighties .ace_invalid.ace_deprecated {color: #CDCDCD;background-color: #CC99CC}.ace-tomorrow-night-eighties .ace_fold {background-color: #6699CC;border-color: #CCCCCC}.ace-tomorrow-night-eighties .ace_entity.ace_name.ace_function,.ace-tomorrow-night-eighties .ace_support.ace_function,.ace-tomorrow-night-eighties .ace_variable {color: #6699CC}.ace-tomorrow-night-eighties .ace_support.ace_class,.ace-tomorrow-night-eighties .ace_support.ace_type {color: #FFCC66}.ace-tomorrow-night-eighties .ace_heading,.ace-tomorrow-night-eighties .ace_markup.ace_heading,.ace-tomorrow-night-eighties .ace_string {color: #99CC99}.ace-tomorrow-night-eighties .ace_comment {color: #999999}.ace-tomorrow-night-eighties .ace_entity.ace_name.ace_tag,.ace-tomorrow-night-eighties .ace_entity.ace_other.ace_attribute-name,.ace-tomorrow-night-eighties .ace_meta.ace_tag,.ace-tomorrow-night-eighties .ace_variable {color: #F2777A}.ace-tomorrow-night-eighties .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ09NrYAgMjP4PAAtGAwchHMyAAAAAAElFTkSuQmCC) right repeat-y}</style>
-<!-- export.css -->
-<style>
-        body{margin:0 auto;max-width:800px;line-height:1.4}
-        #nav{margin:5px 0 10px;font-size:15px}
-        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
-        #contentarea{font-size:15px;margin:16px 0}
-        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
-        .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
-        .latex-cell{white-space:pre-wrap;}
-      </style>
-<!-- User CSS -->
-<style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MacBookPro8,2 AMD GPU Dies... · wheels_and_bytes</title>
+<meta name="description" content="That awkward moment when your own MacBook Pro&#x27;s GPU dies...">
+<!-- shared:head -->
+<script>try{var t=localStorage.getItem("wnb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/theme.js" defer></script>
+<!-- /shared:head -->
 </head>
 <body>
-<div id="titlearea">
-<h2>MBP8,2 Dead GPU</h2>
-</div>
-<div id="contentarea"><div class="cell markdown-cell"><h1>MacBookPro8,2 AMD GPU Dies...</h1>
-<h2>So I'm sitting in class,</h2>
+<a class="skip" href="#main">Skip to content</a>
+<div class="layout has-toc">
+
+<!-- shared:sidebar -->
+<aside class="sidebar">
+  <div class="profile">
+    <a href="/" tabindex="-1"><img class="avatar" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_thumb,g_face,w_240,h_240,q_auto,f_auto/v1775343296/img/me.jpg" alt="Tim" width="240" height="240"></a>
+    <p class="site-name"><a href="/"><b>[</b> wheels_and_bytes <b>]</b></a></p>
+    <p class="site-tagline">wheels because cars, bytes because computers<span lang="zh">别介意它。。。；）</span></p>
+  </div>
+  <ul class="social" aria-label="Elsewhere">
+    <li><a href="https://github.com/wheelsandbytes" title="GitHub"><svg class="icon" aria-hidden="true"><use href="/icons.svg#code"/></svg><span class="visually-hidden">GitHub</span></a></li>
+    <li><a href="https://wheelsandbytes.wordpress.com" title="Blog"><svg class="icon" aria-hidden="true"><use href="/icons.svg#pen"/></svg><span class="visually-hidden">Blog</span></a></li>
+    <li><a href="https://soundcloud.com/sn0wninja" title="SoundCloud"><svg class="icon" aria-hidden="true"><use href="/icons.svg#wave"/></svg><span class="visually-hidden">SoundCloud</span></a></li>
+    <li><a href="https://www.instagram.com/frozen_timmy/" title="Instagram"><svg class="icon" aria-hidden="true"><use href="/icons.svg#camera"/></svg><span class="visually-hidden">Instagram</span></a></li>
+  </ul>
+  <div class="sidebar-bottom">
+    <nav class="menu" aria-label="Main">
+      <ul>
+        <li><a href="/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#home"/></svg>home</a></li>
+        <li><a href="/comp/" aria-current="page"><svg class="icon" aria-hidden="true"><use href="/icons.svg#laptop"/></svg>computers</a></li>
+        <li><a href="/auto/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#car"/></svg>cars</a></li>
+        <li><a href="/proj/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#grid"/></svg>projects</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" hidden>
+      <svg class="icon" aria-hidden="true"><use href="/icons.svg#moon"/></svg>dark mode<span class="switch" aria-hidden="true"></span>
+    </button>
+  </div>
+</aside>
+<!-- /shared:sidebar -->
+
+<main class="main" id="main">
+  <article class="card">
+    <header class="article-header">
+      <ul class="pills"><li><a class="pill" href="/comp/">computers</a></li></ul>
+      <h1>MacBookPro8,2 AMD GPU Dies...</h1>
+      <div class="card-meta">
+        <span><svg class="icon" aria-hidden="true"><use href="/icons.svg#calendar"/></svg><time datetime="2016-09-02">September 2, 2016</time></span>
+        <span><svg class="icon" aria-hidden="true"><use href="/icons.svg#clock"/></svg>3 minute read</span>
+      </div>
+    </header>
+
+    <div class="prose">
+<h2 id="so-i-m-sitting-in-class">So I'm sitting in class,</h2>
 <h4>setting Windows up to run in VirtualBox off my second internal SSD. VirtualBox did not give me any issues. The next step is to reboot and make sure it is still able to boot up natively. So I shut it down and prepare to go home.</h4>
 <h4>I get home and...</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343104/comp/dead-gpu/img/1.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343110/comp/dead-gpu/img/2.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343116/comp/dead-gpu/img/3.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343150/comp/dead-gpu/img/staring.png"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343121/comp/dead-gpu/img/4.jpg"/></p>
+<div class="gallery"><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343104/comp/dead-gpu/img/1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343104/comp/dead-gpu/img/1.jpg" width="900" height="900" loading="lazy"></a></figure><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343110/comp/dead-gpu/img/2.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343110/comp/dead-gpu/img/2.jpg" width="900" height="900" loading="lazy"></a></figure><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343116/comp/dead-gpu/img/3.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343116/comp/dead-gpu/img/3.jpg" width="900" height="900" loading="lazy"></a></figure></div>
+<div class="gallery"><figure style="--ar:1.444"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343150/comp/dead-gpu/img/staring.png"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343150/comp/dead-gpu/img/staring.png" width="650" height="450" loading="lazy"></a></figure><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343121/comp/dead-gpu/img/4.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343121/comp/dead-gpu/img/4.jpg" width="900" height="900" loading="lazy"></a></figure></div>
+
 <h4>IT WAS WORKING 20 MINUTES AGO</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343147/comp/dead-gpu/img/jackie-chan.png"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343149/comp/dead-gpu/img/questioning.png"/></p>
+<div class="gallery"><figure style="--ar:1.576"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343147/comp/dead-gpu/img/jackie-chan.png"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343147/comp/dead-gpu/img/jackie-chan.png" width="1500" height="952" loading="lazy"></a></figure><figure style="--ar:0.920"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343149/comp/dead-gpu/img/questioning.png"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343149/comp/dead-gpu/img/questioning.png" width="1500" height="1631" loading="lazy"></a></figure></div>
+
 <h4>Maybe the NVRAM forgot what needs to be booted. Time to give it a kick in the pants:</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343128/comp/dead-gpu/img/5.jpg"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343128/comp/dead-gpu/img/5.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343128/comp/dead-gpu/img/5.jpg" width="900" height="900" loading="lazy"></a></figure>
+
 <h4>Holding Option, we get the usual array of what is to be expected:</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343134/comp/dead-gpu/img/6.jpg"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343134/comp/dead-gpu/img/6.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343134/comp/dead-gpu/img/6.jpg" width="900" height="900" loading="lazy"></a></figure>
+
 <p>Odd, my usual SSD custom icons are not showing...already suspicious. Selecting Macintosh HD yields:</p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343141/comp/dead-gpu/img/7.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343150/comp/dead-gpu/img/staring.png"/></p>
+<div class="gallery"><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343141/comp/dead-gpu/img/7.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343141/comp/dead-gpu/img/7.jpg" width="900" height="900" loading="lazy"></a></figure><figure style="--ar:1.444"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343150/comp/dead-gpu/img/staring.png"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343150/comp/dead-gpu/img/staring.png" width="650" height="450" loading="lazy"></a></figure></div>
+
 <h4>AAAAAAAAAAND we're stuck again....</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343152/comp/dead-gpu/img/y-u-no-boot.png"/></p>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343152/comp/dead-gpu/img/y-u-no-boot.png" width="640" height="480" loading="lazy"></figure>
+
 <h3>Reboot again with attempt at verbose mode</h3>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343142/comp/dead-gpu/img/9.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343105/comp/dead-gpu/img/10.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343143/comp/dead-gpu/img/cereal-guy.png"/></p>
+<div class="gallery"><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343142/comp/dead-gpu/img/9.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343142/comp/dead-gpu/img/9.jpg" width="900" height="900" loading="lazy"></a></figure><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343105/comp/dead-gpu/img/10.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343105/comp/dead-gpu/img/10.jpg" width="900" height="900" loading="lazy"></a></figure><figure style="--ar:1.214"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343143/comp/dead-gpu/img/cereal-guy.png"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343143/comp/dead-gpu/img/cereal-guy.png" width="1500" height="1236" loading="lazy"></a></figure></div>
+
 <h3>What in the world...</h3>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343150/comp/dead-gpu/img/staring.png"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343106/comp/dead-gpu/img/12.jpg"/></p>
+<div class="gallery"><figure style="--ar:1.444"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343150/comp/dead-gpu/img/staring.png"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343150/comp/dead-gpu/img/staring.png" width="650" height="450" loading="lazy"></a></figure><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343106/comp/dead-gpu/img/12.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343106/comp/dead-gpu/img/12.jpg" width="900" height="900" loading="lazy"></a></figure></div>
+
 <h3>So instead of a white screen, we get a black screen...</h3>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343146/comp/dead-gpu/img/double-facepalm.png"/></p>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343146/comp/dead-gpu/img/double-facepalm.png" width="500" height="314" loading="lazy"></figure>
+
 <h3>Recovery mode?</h3>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343106/comp/dead-gpu/img/13.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343108/comp/dead-gpu/img/16.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343150/comp/dead-gpu/img/staring.png"/></p>
+<div class="gallery"><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343106/comp/dead-gpu/img/13.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343106/comp/dead-gpu/img/13.jpg" width="900" height="675" loading="lazy"></a></figure><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343108/comp/dead-gpu/img/16.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343108/comp/dead-gpu/img/16.jpg" width="900" height="675" loading="lazy"></a></figure></div>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343150/comp/dead-gpu/img/staring.png" width="650" height="450" loading="lazy"></figure>
+
 <h4>Alright, no recovery mode either then...</h4>
 <h4>Next step....uh... El Capitan installer?</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343108/comp/dead-gpu/img/17.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343151/comp/dead-gpu/img/swiss.png"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343143/comp/dead-gpu/img/close-enough.png"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343109/comp/dead-gpu/img/18.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343110/comp/dead-gpu/img/19.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343111/comp/dead-gpu/img/20.jpg"/></p>
+<div class="gallery"><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343108/comp/dead-gpu/img/17.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343108/comp/dead-gpu/img/17.jpg" width="900" height="900" loading="lazy"></a></figure><figure style="--ar:1.059"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343151/comp/dead-gpu/img/swiss.png"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343151/comp/dead-gpu/img/swiss.png" width="1372" height="1296" loading="lazy"></a></figure><figure style="--ar:1.277"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343143/comp/dead-gpu/img/close-enough.png"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343143/comp/dead-gpu/img/close-enough.png" width="1481" height="1160" loading="lazy"></a></figure></div>
+<div class="gallery"><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343109/comp/dead-gpu/img/18.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343109/comp/dead-gpu/img/18.jpg" width="900" height="900" loading="lazy"></a></figure><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343110/comp/dead-gpu/img/19.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343110/comp/dead-gpu/img/19.jpg" width="900" height="900" loading="lazy"></a></figure><figure style="--ar:0.750"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343111/comp/dead-gpu/img/20.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343111/comp/dead-gpu/img/20.jpg" width="900" height="1200" loading="lazy"></a></figure></div>
+
 <h3>FANTASTIC, a white screen again.</h3>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343144/comp/dead-gpu/img/dark-stare.png"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343144/comp/dead-gpu/img/dark-stare.png"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343144/comp/dead-gpu/img/dark-stare.png" width="1500" height="1108" loading="lazy"></a></figure>
+
 <h3>Welp... gonna try the installer in safe boot:</h3>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343111/comp/dead-gpu/img/21.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343112/comp/dead-gpu/img/22.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343113/comp/dead-gpu/img/24.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343150/comp/dead-gpu/img/suspicious.jpg"/></p>
-<h2>Diagnostics???</h2>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343113/comp/dead-gpu/img/25.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343116/comp/dead-gpu/img/3.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343145/comp/dead-gpu/img/deskflip-pokemon-card.jpg"/></p>
+<div class="gallery"><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343111/comp/dead-gpu/img/21.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343111/comp/dead-gpu/img/21.jpg" width="900" height="900" loading="lazy"></a></figure><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343112/comp/dead-gpu/img/22.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343112/comp/dead-gpu/img/22.jpg" width="900" height="900" loading="lazy"></a></figure><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343113/comp/dead-gpu/img/24.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343113/comp/dead-gpu/img/24.jpg" width="900" height="900" loading="lazy"></a></figure></div>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343150/comp/dead-gpu/img/suspicious.jpg" width="400" height="432" loading="lazy"></figure>
+
+<h2 id="diagnostics">Diagnostics???</h2>
+<div class="gallery"><figure style="--ar:0.750"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343113/comp/dead-gpu/img/25.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343113/comp/dead-gpu/img/25.jpg" width="900" height="1200" loading="lazy"></a></figure><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343116/comp/dead-gpu/img/3.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343116/comp/dead-gpu/img/3.jpg" width="900" height="900" loading="lazy"></a></figure></div>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343145/comp/dead-gpu/img/deskflip-pokemon-card.jpg" width="373" height="521" loading="lazy"></figure>
+
 <h3>I shall give the installer one more chance in Safe Boot:</h3>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343115/comp/dead-gpu/img/29.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343116/comp/dead-gpu/img/30.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343148/comp/dead-gpu/img/kernel-panic.png"/></p>
+<div class="gallery"><figure style="--ar:0.750"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343115/comp/dead-gpu/img/29.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343115/comp/dead-gpu/img/29.jpg" width="900" height="1200" loading="lazy"></a></figure><figure style="--ar:0.972"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343116/comp/dead-gpu/img/30.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343116/comp/dead-gpu/img/30.jpg" width="900" height="926" loading="lazy"></a></figure><figure style="--ar:1.224"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343148/comp/dead-gpu/img/kernel-panic.png"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343148/comp/dead-gpu/img/kernel-panic.png" width="497" height="406" loading="lazy"></a></figure></div>
+
 <h3>What happens if we try to boot Windows?</h3>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343117/comp/dead-gpu/img/31.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343117/comp/dead-gpu/img/32.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343118/comp/dead-gpu/img/33.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343144/comp/dead-gpu/img/computer-slice.png"/></p>
+<div class="gallery"><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343117/comp/dead-gpu/img/31.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343117/comp/dead-gpu/img/31.jpg" width="900" height="900" loading="lazy"></a></figure><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343117/comp/dead-gpu/img/32.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343117/comp/dead-gpu/img/32.jpg" width="900" height="900" loading="lazy"></a></figure><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343118/comp/dead-gpu/img/33.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343118/comp/dead-gpu/img/33.jpg" width="900" height="900" loading="lazy"></a></figure></div>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343144/comp/dead-gpu/img/computer-slice.png" width="252" height="159" loading="lazy"></figure>
+
 <h4>Nope. How about booting my SSD from USB?</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343118/comp/dead-gpu/img/34.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343119/comp/dead-gpu/img/35.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343119/comp/dead-gpu/img/36.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343120/comp/dead-gpu/img/37.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343120/comp/dead-gpu/img/38.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343121/comp/dead-gpu/img/39.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343122/comp/dead-gpu/img/40.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343123/comp/dead-gpu/img/41.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343123/comp/dead-gpu/img/42.jpg"/></p>
+<div class="gallery"><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343118/comp/dead-gpu/img/34.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343118/comp/dead-gpu/img/34.jpg" width="900" height="675" loading="lazy"></a></figure><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343119/comp/dead-gpu/img/35.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343119/comp/dead-gpu/img/35.jpg" width="900" height="675" loading="lazy"></a></figure></div>
+<div class="gallery"><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343119/comp/dead-gpu/img/36.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343119/comp/dead-gpu/img/36.jpg" width="900" height="900" loading="lazy"></a></figure><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343120/comp/dead-gpu/img/37.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343120/comp/dead-gpu/img/37.jpg" width="900" height="900" loading="lazy"></a></figure><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343120/comp/dead-gpu/img/38.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343120/comp/dead-gpu/img/38.jpg" width="900" height="900" loading="lazy"></a></figure></div>
+<div class="gallery"><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343121/comp/dead-gpu/img/39.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343121/comp/dead-gpu/img/39.jpg" width="900" height="900" loading="lazy"></a></figure><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343122/comp/dead-gpu/img/40.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343122/comp/dead-gpu/img/40.jpg" width="900" height="900" loading="lazy"></a></figure><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343123/comp/dead-gpu/img/41.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343123/comp/dead-gpu/img/41.jpg" width="900" height="900" loading="lazy"></a></figure></div>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343123/comp/dead-gpu/img/42.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343123/comp/dead-gpu/img/42.jpg" width="900" height="900" loading="lazy"></a></figure>
+
 <h4>Okay, NOW we are getting somewhere. The issue appears to video related. Faulty AMD GPU possibly?</h4>
-<h2>Context</h2>
-<p>This MacBook Pro has two GPUs, an Intel HD 3000 and an AMD 6490M. This generation of dual-GPU MacBooks defaults to the AMD card on boot up. This means that the firmware has the 6490M already selected before any OS starts up. Now, if the 6490M is in fact busted, then I have to find a way to fall back on the Intel HD graphics for the time being. That will be tough, since I have no idea how the PCI graphics controller works on this machine. <a href="../win7efi/win7efi.html">On my old MBP5,1</a> it was rather straightforward, since the active GPU was simply the last active GPU when the computer was shut down. Plus, I had the ability to control which GPU was selected through the gpu-power-prefs NVRAM variable. Having done some digging using the rEFIt shell on this machine, I cannot find such a variable. I guess that would make sense, considering the hardware is designed to switch GPUs on the fly with no interruption in video output. There appears to be no explicit setting for power to either GPU (and obviously the Intel GPU is always  powered, it is integrated into the CPU).</p>
+<h2 id="context">Context</h2>
+<p>This MacBook Pro has two GPUs, an Intel HD 3000 and an AMD 6490M. This generation of dual-GPU MacBooks defaults to the AMD card on boot up. This means that the firmware has the 6490M already selected before any OS starts up. Now, if the 6490M is in fact busted, then I have to find a way to fall back on the Intel HD graphics for the time being. That will be tough, since I have no idea how the PCI graphics controller works on this machine. <a href="/comp/win7efi/">On my old MBP5,1</a> it was rather straightforward, since the active GPU was simply the last active GPU when the computer was shut down. Plus, I had the ability to control which GPU was selected through the gpu-power-prefs NVRAM variable. Having done some digging using the rEFIt shell on this machine, I cannot find such a variable. I guess that would make sense, considering the hardware is designed to switch GPUs on the fly with no interruption in video output. There appears to be no explicit setting for power to either GPU (and obviously the Intel GPU is always  powered, it is integrated into the CPU).</p>
 <h3>Screenshots of my rEFIt shenanigans:</h3>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343124/comp/dead-gpu/img/43.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343124/comp/dead-gpu/img/44.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343125/comp/dead-gpu/img/45.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343126/comp/dead-gpu/img/46.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343126/comp/dead-gpu/img/47.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343127/comp/dead-gpu/img/48.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343127/comp/dead-gpu/img/49.jpg"/></p>
+<div class="gallery"><figure style="--ar:0.750"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343124/comp/dead-gpu/img/43.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343124/comp/dead-gpu/img/43.jpg" width="900" height="1200" loading="lazy"></a></figure><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343124/comp/dead-gpu/img/44.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343124/comp/dead-gpu/img/44.jpg" width="900" height="900" loading="lazy"></a></figure><figure style="--ar:1.218"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343125/comp/dead-gpu/img/45.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343125/comp/dead-gpu/img/45.jpg" width="900" height="739" loading="lazy"></a></figure></div>
+<div class="gallery"><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343126/comp/dead-gpu/img/46.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343126/comp/dead-gpu/img/46.jpg" width="900" height="900" loading="lazy"></a></figure><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343126/comp/dead-gpu/img/47.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343126/comp/dead-gpu/img/47.jpg" width="900" height="900" loading="lazy"></a></figure></div>
+<div class="gallery"><figure style="--ar:1.915"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343127/comp/dead-gpu/img/48.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343127/comp/dead-gpu/img/48.jpg" width="900" height="470" loading="lazy"></a></figure><figure style="--ar:1.325"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343127/comp/dead-gpu/img/49.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343127/comp/dead-gpu/img/49.jpg" width="900" height="679" loading="lazy"></a></figure></div>
+
 <h4>There is no gpu-power-prefs variable, and I really do not feel like studying the hex dump for GraphicsOutput xD</h4>
 <h3>Let us see if Apple has us covered...</h3>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343128/comp/dead-gpu/img/50.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343129/comp/dead-gpu/img/51.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343129/comp/dead-gpu/img/52.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343147/comp/dead-gpu/img/happy.png"/></p>
+<div class="gallery"><figure style="--ar:0.895"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343128/comp/dead-gpu/img/50.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343128/comp/dead-gpu/img/50.jpg" width="900" height="1006" loading="lazy"></a></figure><figure style="--ar:1.579"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343129/comp/dead-gpu/img/51.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343129/comp/dead-gpu/img/51.jpg" width="900" height="570" loading="lazy"></a></figure><figure style="--ar:0.429"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343129/comp/dead-gpu/img/52.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343129/comp/dead-gpu/img/52.jpg" width="900" height="2099" loading="lazy"></a></figure></div>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343147/comp/dead-gpu/img/happy.png"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343147/comp/dead-gpu/img/happy.png" width="942" height="961" loading="lazy"></a></figure>
+
 <h4>Awwww yeah. Time to get it ready for shipping!</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343134/comp/dead-gpu/img/59.jpg"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343134/comp/dead-gpu/img/59.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343134/comp/dead-gpu/img/59.jpg" width="900" height="1200" loading="lazy"></a></figure>
+
 <h4>Pulling the main SSD first so I can keep using my system on another Mac...</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343130/comp/dead-gpu/img/53.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343130/comp/dead-gpu/img/54.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343131/comp/dead-gpu/img/55.jpg"/></p>
+<div class="gallery"><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343130/comp/dead-gpu/img/53.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343130/comp/dead-gpu/img/53.jpg" width="900" height="675" loading="lazy"></a></figure><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343130/comp/dead-gpu/img/54.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343130/comp/dead-gpu/img/54.jpg" width="900" height="675" loading="lazy"></a></figure></div>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343131/comp/dead-gpu/img/55.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343131/comp/dead-gpu/img/55.jpg" width="900" height="675" loading="lazy"></a></figure>
+
 <h4>Wiped and ready for packaging!</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343132/comp/dead-gpu/img/56.jpg"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343132/comp/dead-gpu/img/56.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343132/comp/dead-gpu/img/56.jpg" width="900" height="1200" loading="lazy"></a></figure>
+
 <h4>Hoping not to screw up these instructions... XD</h4>
 <h4>Meanwhile, my friend's Apple Pencil came in:</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343133/comp/dead-gpu/img/58.jpg"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343133/comp/dead-gpu/img/58.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343133/comp/dead-gpu/img/58.jpg" width="900" height="1200" loading="lazy"></a></figure>
+
 <h4>Packaged up and ready to be shipped:</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343132/comp/dead-gpu/img/57.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343147/comp/dead-gpu/img/happy-kitteh.png"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343149/comp/dead-gpu/img/several-days-later.png"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343146/comp/dead-gpu/img/fedex.png"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343145/comp/dead-gpu/img/doge.png"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343135/comp/dead-gpu/img/60.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343135/comp/dead-gpu/img/61.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343137/comp/dead-gpu/img/62.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343137/comp/dead-gpu/img/63.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343138/comp/dead-gpu/img/64.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343139/comp/dead-gpu/img/65.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343140/comp/dead-gpu/img/66.jpg"/></p>
-<h2>Bonus backlit keyboard at night:</h2>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343140/comp/dead-gpu/img/67.jpg"/></p>
-<hr/>
-<p>Copyright © wheelsandbytes 2015-2017. All Rights Reserved</p>
-</div></div>
-<script></script>
+<div class="gallery"><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343132/comp/dead-gpu/img/57.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343132/comp/dead-gpu/img/57.jpg" width="900" height="675" loading="lazy"></a></figure><figure style="--ar:1.011"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343147/comp/dead-gpu/img/happy-kitteh.png"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343147/comp/dead-gpu/img/happy-kitteh.png" width="1013" height="1002" loading="lazy"></a></figure></div>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343149/comp/dead-gpu/img/several-days-later.png" width="325" height="240" loading="lazy"></figure>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343146/comp/dead-gpu/img/fedex.png" width="489" height="198" loading="lazy"></figure>
+<div class="gallery"><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343145/comp/dead-gpu/img/doge.png"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343145/comp/dead-gpu/img/doge.png" width="500" height="375" loading="lazy"></a></figure><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343135/comp/dead-gpu/img/60.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343135/comp/dead-gpu/img/60.jpg" width="900" height="675" loading="lazy"></a></figure></div>
+<div class="gallery"><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343135/comp/dead-gpu/img/61.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343135/comp/dead-gpu/img/61.jpg" width="900" height="675" loading="lazy"></a></figure><figure style="--ar:0.750"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343137/comp/dead-gpu/img/62.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343137/comp/dead-gpu/img/62.jpg" width="900" height="1200" loading="lazy"></a></figure></div>
+<div class="gallery"><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343137/comp/dead-gpu/img/63.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343137/comp/dead-gpu/img/63.jpg" width="900" height="675" loading="lazy"></a></figure><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343138/comp/dead-gpu/img/64.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343138/comp/dead-gpu/img/64.jpg" width="900" height="900" loading="lazy"></a></figure><figure style="--ar:1.000"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343139/comp/dead-gpu/img/65.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343139/comp/dead-gpu/img/65.jpg" width="900" height="900" loading="lazy"></a></figure></div>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343140/comp/dead-gpu/img/66.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343140/comp/dead-gpu/img/66.jpg" width="900" height="900" loading="lazy"></a></figure>
+
+<h2 id="bonus-backlit-keyboard-at-night">Bonus backlit keyboard at night:</h2>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343140/comp/dead-gpu/img/67.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343140/comp/dead-gpu/img/67.jpg" width="900" height="675" loading="lazy"></a></figure>
+    </div>
+
+    <footer class="article-footer">
+      <ul class="pills" aria-label="Tags">
+        <li><span class="pill quiet">#macbookpro</span></li>
+        <li><span class="pill quiet">#gpu</span></li>
+        <li><span class="pill quiet">#radeon</span></li>
+      </ul>
+      <a href="/comp/">← back to computers</a>
+    </footer>
+  </article>
+
+  <h2 class="widget-title"><svg class="icon" aria-hidden="true"><use href="/icons.svg#laptop"/></svg>more computer stuff</h2>
+  <section class="card">
+    <ul class="compact">
+      <li><a href="/comp/disk-error-mba2/">
+        <div><h3>MBA6,1 disk errors, part 2</h3><p>The MacBook Air saga continues...</p></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343248/comp/disk-error-mba2/img/tim-help.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/disk-error-mba/">
+        <div><h3>MBA6,1 disk errors</h3><p>My weekend struggle with a MacBook Air and its SSD issues.</p></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343226/comp/disk-error-mba/img/thumbnail.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+    </ul>
+  </section>
+
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <span>© wheelsandbytes 2015–2026</span>
+  </footer>
+  <!-- /shared:footer -->
+</main>
+<aside class="card toc" aria-labelledby="toc-title">
+  <h2 id="toc-title">contents</h2>
+  <ol>
+    <li><a href="#so-i-m-sitting-in-class">So I'm sitting in class,</a></li>
+    <li><a href="#diagnostics">Diagnostics???</a></li>
+    <li><a href="#context">Context</a></li>
+    <li><a href="#bonus-backlit-keyboard-at-night">Bonus backlit keyboard at night:</a></li>
+  </ol>
+</aside>
+</div>
 </body>
 </html>

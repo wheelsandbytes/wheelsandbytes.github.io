@@ -1,66 +1,148 @@
-
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<!-- common.css -->
-<style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Monaco, Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
-<!-- ace-static.css -->
-<style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
-<style>.ace-monokai .ace_gutter {background: #2F3129;color: #8F908A}.ace-monokai .ace_print-margin {width: 1px;background: #555651}.ace-monokai {background-color: #272822;color: #F8F8F2}.ace-monokai .ace_cursor {color: #F8F8F0}.ace-monokai .ace_marker-layer .ace_selection {background: #49483E}.ace-monokai.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #272822;}.ace-monokai .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-monokai .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #49483E}.ace-monokai .ace_marker-layer .ace_active-line {background: #202020}.ace-monokai .ace_gutter-active-line {background-color: #272727}.ace-monokai .ace_marker-layer .ace_selected-word {border: 1px solid #49483E}.ace-monokai .ace_invisible {color: #52524d}.ace-monokai .ace_entity.ace_name.ace_tag,.ace-monokai .ace_keyword,.ace-monokai .ace_meta.ace_tag,.ace-monokai .ace_storage {color: #F92672}.ace-monokai .ace_punctuation,.ace-monokai .ace_punctuation.ace_tag {color: #fff}.ace-monokai .ace_constant.ace_character,.ace-monokai .ace_constant.ace_language,.ace-monokai .ace_constant.ace_numeric,.ace-monokai .ace_constant.ace_other {color: #AE81FF}.ace-monokai .ace_invalid {color: #F8F8F0;background-color: #F92672}.ace-monokai .ace_invalid.ace_deprecated {color: #F8F8F0;background-color: #AE81FF}.ace-monokai .ace_support.ace_constant,.ace-monokai .ace_support.ace_function {color: #66D9EF}.ace-monokai .ace_fold {background-color: #A6E22E;border-color: #F8F8F2}.ace-monokai .ace_storage.ace_type,.ace-monokai .ace_support.ace_class,.ace-monokai .ace_support.ace_type {font-style: italic;color: #66D9EF}.ace-monokai .ace_entity.ace_name.ace_function,.ace-monokai .ace_entity.ace_other,.ace-monokai .ace_entity.ace_other.ace_attribute-name,.ace-monokai .ace_variable {color: #A6E22E}.ace-monokai .ace_variable.ace_parameter {font-style: italic;color: #FD971F}.ace-monokai .ace_string {color: #E6DB74}.ace-monokai .ace_comment {color: #75715E}.ace-monokai .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ0FD0ZXBzd/wPAAjVAoxeSgNeAAAAAElFTkSuQmCC) right repeat-y}</style>
-<!-- export.css -->
-<style>
-        body{margin:0 auto;max-width:800px;line-height:1.4}
-        #nav{margin:5px 0 10px;font-size:15px}
-        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
-        #contentarea{font-size:15px;margin:16px 0}
-        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
-        .code-cell{font-family:Monaco,Menlo,Consolas,'Ubuntu Mono','source-code-pro',monospace;font-size:12px;}
-        .latex-cell{white-space:pre-wrap;}
-      </style>
-<!-- User CSS -->
-<style> body{background-color: #fafafa;color:#444} .text-cell {font-size: 16px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 17px;}.latex-cell {font-size: 15px;}</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to install rEFIt on an external USB drive · wheels_and_bytes</title>
+<meta name="description" content="Step-by-step: install the rEFIt boot menu on an external USB flash drive from macOS, with screenshots.">
+<!-- shared:head -->
+<script>try{var t=localStorage.getItem("wnb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/theme.js" defer></script>
+<!-- /shared:head -->
 </head>
 <body>
-<div id="contentarea"><div class="cell markdown-cell"><h1>How to install rEFIt on an external USB drive</h1>
-<hr/>
-<h2>Basically <a href="http://refit.sourceforge.net/doc/c1s1_install.html">this</a> with pretty pictures.</h2>
-<h3>1. Download rEFIt from <a href="http://prdownloads.sourceforge.net/refit/rEFIt-0.14.dmg?download">here</a>.</h3>
-<p><img alt="1.png" height="106" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343265/comp/install-refit/img/6877E00DB45E393FDE8F38EC0A670A57.png" width="406"/></p>
-<h3>2. Open the disk image.</h3>
-<p><img alt="2.png" height="477" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343264/comp/install-refit/img/52D4ADE5798287142226350DA2923791.png" width="659"/></p>
-<h3>3. Wait, the disk image isn't needed just yet...</h3>
-<h3>4. Plug your flash drive in...</h3>
-<p><img alt="3.jpg" height="481" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343266/comp/install-refit/img/768E14177194FF140987DAAF8585024B.jpg" width="525"/></p>
-<p><img alt="4.jpg" height="471" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343265/comp/install-refit/img/72F4F5D5E5BEECD8C5B678DD450686A4.jpg" width="525"/></p>
-<h3>5. Open Terminal</h3>
-<p>Type <code>diskutil list</code> and press enter</p>
-<p>Should like something like this:</p>
-<p><img alt="5.png" height="312" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343267/comp/install-refit/img/C9FFC90105180ED0DEB07F12D40A8726.png" width="682"/></p>
-<p>The USB disks are always at the bottom. You can see mine is listed as:</p>
-<p><img alt="6.png" height="82" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343263/comp/install-refit/img/5150BEF93683281F9A4D5AC10F65FCDA.png" width="682"/></p>
-<p>In most cases, the <code>IDENTIFIER</code> for your USB flash drive is something else. In my case, it is <code>disk3</code></p>
-<p><em>Make sure to note your correct <code>IDENTIFIER</code>, otherwise u gon erase the wrong disk.</em></p>
-<h3>6. Erase USB flash drive using Terminal</h3>
-<p>In Terminal, type <code>diskutil eraseDisk JHFS+ "USB" GPT /dev/disk3</code> but replace <code>disk3</code> with <em>your</em> <code>IDENTIFIER</code>. Press enter. POOF there goes your data.</p>
-<p>It gon look like dis:</p>
-<p><img alt="7.png" height="182" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343266/comp/install-refit/img/736FA0785AED8255810DDFD1130A68A6.png" width="682"/></p>
-<h3>7. Copy the "efi" folder to the USB drive</h3>
-<p>Recall that our USB flash drive was renamed to <code>USB</code> in the erase process.</p>
-<p>In Terminal, type <code>cp -R /Volumes/rEFIt/efi /Volumes/USB</code> and press enter</p>
-<p>Then, <code>cd /Volumes/USB/efi/refit/</code> and press enter</p>
-<p>Then, <code>sudo ./enable.sh</code> and press enter</p>
-<p>YOUR PASSWORD AIN'T GONNA SHOW but type it in and press enter anyway. Why? Because UNIX.</p>
-<p>Should look like this:</p>
-<p><img alt="9.png" height="93" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343264/comp/install-refit/img/5CBEA4D27E5760D60E6BEACF6ED16465.png" width="682"/></p>
-<h3>Done.</h3>
-<p>Eject the USB flash drive like you normally would, then reboot your Mac while holding the option key, and you should see rEFIt as an option.</p>
-<p><img alt="10.jpg" height="180" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343267/comp/install-refit/img/9DA93F5484FDF8E1A917B501A018F685.jpg" width="225"/></p>
-<hr/>
-<p>Copyright © wheelsandbytes 2015-2021. All Rights Reserved</p>
-</div></div>
-<script></script>
+<a class="skip" href="#main">Skip to content</a>
+<div class="layout has-toc">
+
+<!-- shared:sidebar -->
+<aside class="sidebar">
+  <div class="profile">
+    <a href="/" tabindex="-1"><img class="avatar" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_thumb,g_face,w_240,h_240,q_auto,f_auto/v1775343296/img/me.jpg" alt="Tim" width="240" height="240"></a>
+    <p class="site-name"><a href="/"><b>[</b> wheels_and_bytes <b>]</b></a></p>
+    <p class="site-tagline">wheels because cars, bytes because computers<span lang="zh">别介意它。。。；）</span></p>
+  </div>
+  <ul class="social" aria-label="Elsewhere">
+    <li><a href="https://github.com/wheelsandbytes" title="GitHub"><svg class="icon" aria-hidden="true"><use href="/icons.svg#code"/></svg><span class="visually-hidden">GitHub</span></a></li>
+    <li><a href="https://wheelsandbytes.wordpress.com" title="Blog"><svg class="icon" aria-hidden="true"><use href="/icons.svg#pen"/></svg><span class="visually-hidden">Blog</span></a></li>
+    <li><a href="https://soundcloud.com/sn0wninja" title="SoundCloud"><svg class="icon" aria-hidden="true"><use href="/icons.svg#wave"/></svg><span class="visually-hidden">SoundCloud</span></a></li>
+    <li><a href="https://www.instagram.com/frozen_timmy/" title="Instagram"><svg class="icon" aria-hidden="true"><use href="/icons.svg#camera"/></svg><span class="visually-hidden">Instagram</span></a></li>
+  </ul>
+  <div class="sidebar-bottom">
+    <nav class="menu" aria-label="Main">
+      <ul>
+        <li><a href="/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#home"/></svg>home</a></li>
+        <li><a href="/comp/" aria-current="page"><svg class="icon" aria-hidden="true"><use href="/icons.svg#laptop"/></svg>computers</a></li>
+        <li><a href="/auto/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#car"/></svg>cars</a></li>
+        <li><a href="/proj/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#grid"/></svg>projects</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" hidden>
+      <svg class="icon" aria-hidden="true"><use href="/icons.svg#moon"/></svg>dark mode<span class="switch" aria-hidden="true"></span>
+    </button>
+  </div>
+</aside>
+<!-- /shared:sidebar -->
+
+<main class="main" id="main">
+  <article class="card">
+    <header class="article-header">
+      <ul class="pills"><li><a class="pill" href="/comp/">computers</a></li></ul>
+      <h1>How to install rEFIt on an external USB drive</h1>
+      <p class="subtitle">Basically <a href="http://refit.sourceforge.net/doc/c1s1_install.html">this</a> with pretty pictures.</p>
+      <div class="card-meta">
+        <span><svg class="icon" aria-hidden="true"><use href="/icons.svg#calendar"/></svg><time datetime="2017-03-12">March 12, 2017</time></span>
+        <span><svg class="icon" aria-hidden="true"><use href="/icons.svg#clock"/></svg>2 minute read</span>
+      </div>
+    </header>
+
+    <div class="prose">
+      <h2 id="download"><span class="step">1</span>Download rEFIt from <a href="http://prdownloads.sourceforge.net/refit/rEFIt-0.14.dmg?download">here</a>.</h2>
+      <figure><img alt="rEFIt-0.14.dmg in the Downloads folder" width="406" height="106" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343265/comp/install-refit/img/6877E00DB45E393FDE8F38EC0A670A57.png"></figure>
+
+      <h2 id="open-image"><span class="step">2</span>Open the disk image.</h2>
+      <figure><img alt="The mounted rEFIt disk image" width="659" height="477" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343264/comp/install-refit/img/52D4ADE5798287142226350DA2923791.png" loading="lazy"></figure>
+
+      <h2 id="wait"><span class="step">3</span>Wait, the disk image isn't needed just yet...</h2>
+
+      <h2 id="plug-in"><span class="step">4</span>Plug your flash drive in...</h2>
+      <figure><img alt="USB flash drive" width="525" height="481" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343266/comp/install-refit/img/768E14177194FF140987DAAF8585024B.jpg" loading="lazy"></figure>
+      <figure><img alt="USB flash drive plugged into the Mac" width="525" height="471" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343265/comp/install-refit/img/72F4F5D5E5BEECD8C5B678DD450686A4.jpg" loading="lazy"></figure>
+
+      <h2 id="terminal"><span class="step">5</span>Open Terminal</h2>
+      <p>Type this and press enter:</p>
+      <pre><code><span class="prompt">$ </span>diskutil list</code></pre>
+      <p>Should like something like this:</p>
+      <figure><img alt="diskutil list output" width="682" height="312" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343267/comp/install-refit/img/C9FFC90105180ED0DEB07F12D40A8726.png" loading="lazy"></figure>
+      <p>The USB disks are always at the bottom. You can see mine is listed as:</p>
+      <figure><img alt="The USB disk entry in diskutil list" width="682" height="82" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343263/comp/install-refit/img/5150BEF93683281F9A4D5AC10F65FCDA.png" loading="lazy"></figure>
+      <p>In most cases, the <code>IDENTIFIER</code> for your USB flash drive is something else. In my case, it is <code>disk3</code>.</p>
+      <div class="callout"><p><em>Make sure to note your correct <code>IDENTIFIER</code>, otherwise u gon erase the wrong disk.</em></p></div>
+
+      <h2 id="erase"><span class="step">6</span>Erase USB flash drive using Terminal</h2>
+      <p>In Terminal, type this but replace <code>disk3</code> with <em>your</em> <code>IDENTIFIER</code>. Press enter. POOF there goes your data.</p>
+      <pre><code><span class="prompt">$ </span>diskutil eraseDisk JHFS+ "USB" GPT /dev/disk3</code></pre>
+      <p>It gon look like dis:</p>
+      <figure><img alt="diskutil eraseDisk output" width="682" height="182" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343266/comp/install-refit/img/736FA0785AED8255810DDFD1130A68A6.png" loading="lazy"></figure>
+
+      <h2 id="copy-efi"><span class="step">7</span>Copy the "efi" folder to the USB drive</h2>
+      <p>Recall that our USB flash drive was renamed to <code>USB</code> in the erase process. In Terminal, run these one at a time, pressing enter after each:</p>
+      <pre><code><span class="prompt">$ </span>cp -R /Volumes/rEFIt/efi /Volumes/USB
+<span class="prompt">$ </span>cd /Volumes/USB/efi/refit/
+<span class="prompt">$ </span>sudo ./enable.sh</code></pre>
+      <p>YOUR PASSWORD AIN'T GONNA SHOW but type it in and press enter anyway. Why? Because UNIX.</p>
+      <p>Should look like this:</p>
+      <figure><img alt="enable.sh output" width="682" height="93" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343264/comp/install-refit/img/5CBEA4D27E5760D60E6BEACF6ED16465.png" loading="lazy"></figure>
+
+      <h2 id="done"><span class="step">✓</span>Done.</h2>
+      <p>Eject the USB flash drive like you normally would, then reboot your Mac while holding the option key, and you should see rEFIt as an option.</p>
+      <figure><img alt="rEFIt in the Mac startup manager" width="225" height="180" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343267/comp/install-refit/img/9DA93F5484FDF8E1A917B501A018F685.jpg" loading="lazy"></figure>
+    </div>
+
+    <footer class="article-footer">
+      <ul class="pills" aria-label="Tags">
+        <li><span class="pill quiet">#macOS</span></li>
+        <li><span class="pill quiet">#bootloaders</span></li>
+        <li><span class="pill quiet">#usb</span></li>
+      </ul>
+      <a href="/comp/">← back to computers</a>
+    </footer>
+  </article>
+
+  <h2 class="widget-title"><svg class="icon" aria-hidden="true"><use href="/icons.svg#laptop"/></svg>more computer stuff</h2>
+  <section class="card">
+    <ul class="compact">
+      <li><a href="/comp/win7efi/">
+        <div><h3>MBP5,1 Win 7 x64 EFI</h3><p>Windows 7 x64 booted using the 2008 MacBook Pro's EFI + dual GPU usage.</p></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343289/comp/win7efi/img/thumbnail.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/vbox-windows/">
+        <div><h3>Install Windows using VirtualBox</h3><p>Install Windows to an internal physical drive using VirtualBox.</p></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343286/comp/vbox-windows/img/thumbnail.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+    </ul>
+  </section>
+
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <span>© wheelsandbytes 2015–2026</span>
+  </footer>
+  <!-- /shared:footer -->
+</main>
+
+<aside class="card toc" aria-labelledby="toc-title">
+  <h2 id="toc-title">contents</h2>
+  <ol>
+    <li><a href="#download">1. Download rEFIt</a></li>
+    <li><a href="#open-image">2. Open the disk image</a></li>
+    <li><a href="#wait">3. Wait...</a></li>
+    <li><a href="#plug-in">4. Plug your flash drive in</a></li>
+    <li><a href="#terminal">5. Open Terminal</a></li>
+    <li><a href="#erase">6. Erase the USB drive</a></li>
+    <li><a href="#copy-efi">7. Copy the "efi" folder</a></li>
+    <li><a href="#done">Done</a></li>
+  </ol>
+</aside>
+</div>
 </body>
 </html>

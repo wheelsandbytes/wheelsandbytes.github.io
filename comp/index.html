@@ -1,241 +1,121 @@
 <!DOCTYPE html>
-
-<html>
-<!-- w h e e l s _a n d_ b y t e s -->
-<!-- c o m p u t e r _ w o r k s -->
-
+<html lang="en">
 <head>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <!--Import materialize.css-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet" />
-    <!--Let browser know website is optimized for mobile-->
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <!-- le mi app CSS -->
-    <link href="/css/custom.css" rel="stylesheet" />
-    <!-- Custom Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
-        type="text/css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>computers · wheels_and_bytes</title>
+<meta name="description" content="Mac, Windows and Linux guides: EFI booting, dead GPUs, SSD errors, emulators and more.">
+<!-- shared:head -->
+<script>try{var t=localStorage.getItem("wnb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/theme.js" defer></script>
+<!-- /shared:head -->
 </head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="layout">
 
-<body class="bg-lightgrey">
-    <nav>
-        <div class="nav-wrapper grey darken-3 z-depth-5">
-            <div class="row">
-                <div class="col s12 l6">
-                    <a class="brand-logo" href="../index.html">[ wheels_and_bytes ]</a>
-                    <a class="button-collapse" data-activates="mobile-demo" href="#"><i
-                            class="material-icons">menu</i></a>
-                </div>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="../auto/">Auto Stuffs</a></li>
-                    <li><a href="./">Comp Stuffs</a></li>
-                </ul>
-                <ul class="side-nav grey lighten-3 z-depth-5" id="mobile-demo">
-                    <li><a href="../auto/">Auto Stuffs</a></li>
-                    <li><a href="./">Comp Stuffs</a></li>
-                </ul>
-            </div>
-        </div>
+<!-- shared:sidebar -->
+<aside class="sidebar">
+  <div class="profile">
+    <a href="/" tabindex="-1"><img class="avatar" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_thumb,g_face,w_240,h_240,q_auto,f_auto/v1775343296/img/me.jpg" alt="Tim" width="240" height="240"></a>
+    <p class="site-name"><a href="/"><b>[</b> wheels_and_bytes <b>]</b></a></p>
+    <p class="site-tagline">wheels because cars, bytes because computers<span lang="zh">别介意它。。。；）</span></p>
+  </div>
+  <ul class="social" aria-label="Elsewhere">
+    <li><a href="https://github.com/wheelsandbytes" title="GitHub"><svg class="icon" aria-hidden="true"><use href="/icons.svg#code"/></svg><span class="visually-hidden">GitHub</span></a></li>
+    <li><a href="https://wheelsandbytes.wordpress.com" title="Blog"><svg class="icon" aria-hidden="true"><use href="/icons.svg#pen"/></svg><span class="visually-hidden">Blog</span></a></li>
+    <li><a href="https://soundcloud.com/sn0wninja" title="SoundCloud"><svg class="icon" aria-hidden="true"><use href="/icons.svg#wave"/></svg><span class="visually-hidden">SoundCloud</span></a></li>
+    <li><a href="https://www.instagram.com/frozen_timmy/" title="Instagram"><svg class="icon" aria-hidden="true"><use href="/icons.svg#camera"/></svg><span class="visually-hidden">Instagram</span></a></li>
+  </ul>
+  <div class="sidebar-bottom">
+    <nav class="menu" aria-label="Main">
+      <ul>
+        <li><a href="/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#home"/></svg>home</a></li>
+        <li><a href="/comp/" aria-current="page"><svg class="icon" aria-hidden="true"><use href="/icons.svg#laptop"/></svg>computers</a></li>
+        <li><a href="/auto/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#car"/></svg>cars</a></li>
+        <li><a href="/proj/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#grid"/></svg>projects</a></li>
+      </ul>
     </nav>
-    <img class="responsive-img" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343103/comp/bg.jpg" />
-    <h3 class="center">#justcomputerthings</h3>
-    <div class="section center">
-        <div class="row">
-            <ul>
-                <div class="col s12 m4 l3" style="padding:8px;">
-                    <li class="card z-depth-3 grey darken-3">
-                        <div class="card-image" style="padding:6px;">
-                            <img class="responsive-img"
-                                src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343278/comp/openemu-ps1/img/thumbnail.jpg" />
-                        </div>
-                        <div class="card-content white-text">
-                            <p>How to play PlayStation 1 games on a Mac!</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="openemu-ps1/">PlayStation 1 in OpenEmu</a>
-                        </div>
-                    </li>
-                </div>
-            </ul>
-            <ul>
-                <div class="col s12 m4 l3" style="padding:8px;">
-                    <li class="card z-depth-3 grey darken-3">
-                        <div class="card-image" style="padding:6px;">
-                            <img class="responsive-img"
-                                src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343289/comp/win7efi/img/thumbnail.jpg" />
-                        </div>
-                        <div class="card-content white-text">
-                            <p>Windows 7 x64 booted using the 2008 MacBook Pro's EFI + dual GPU usage</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="win7efi/win7efi.html">MBP5,1 Win 7 x64 EFI</a>
-                        </div>
-                    </li>
-                </div>
-            </ul>
-            <ul>
-                <div class="col s12 m4 l3" style="padding:8px;">
-                    <li class="card z-depth-3 grey darken-3">
-                        <div class="card-image" style="padding:6px;">
-                            <img class="responsive-img"
-                                src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343226/comp/disk-error-mba/img/thumbnail.jpg" />
-                        </div>
-                        <div class="card-content white-text">
-                            <p>My weekend struggle with a MacBook Air and its SSD issues</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="disk-error-mba/">MBA6,1 Disk Errors</a>
-                        </div>
-                    </li>
-                </div>
-            </ul>
-            <ul>
-                <div class="col s12 m4 l3" style="padding:8px;">
-                    <li class="card z-depth-3 grey darken-3">
-                        <div class="card-image" style="padding:6px;">
-                            <img class="responsive-img"
-                                src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343151/comp/dead-gpu/img/thumbnail.jpg" />
-                        </div>
-                        <div class="card-content white-text">
-                            <p>That awkward moment when your own MacBook Pro's GPU dies...</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="dead-gpu/">MBP8,2 Dead GPU</a>
-                        </div>
-                    </li>
-                </div>
-            </ul>
-            <ul>
-                <div class="col s12 m4 l3" style="padding:8px;">
-                    <li class="card z-depth-3 grey darken-3">
-                        <div class="card-image" style="padding:6px;">
-                            <img class="responsive-img"
-                                src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343279/comp/test-code/img/thumbnail.jpg" />
-                        </div>
-                        <div class="card-content white-text">
-                            <p>How to compile and test your code on UF's Thunder server</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="test-code/">Test Code Using SSH</a>
-                        </div>
-                    </li>
-                </div>
-            </ul>
-            <ul>
-                <div class="col s12 m4 l3" style="padding:8px;">
-                    <li class="card z-depth-3 grey darken-3">
-                        <div class="card-image" style="padding:6px;">
-                            <img class="responsive-img"
-                                src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343286/comp/vbox-windows/img/thumbnail.jpg" />
-                        </div>
-                        <div class="card-content white-text">
-                            <p>Install Windows to an internal physical drive using VirtualBox</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="vbox-windows/">Install Windows using VBox</a>
-                        </div>
-                    </li>
-                </div>
-            </ul>
-            <ul>
-                <div class="col s12 m4 l3" style="padding:8px;">
-                    <li class="card z-depth-3 grey darken-3">
-                        <div class="card-image" style="padding:6px;">
-                            <img class="responsive-img"
-                                src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343258/comp/firefox-useragent/img/thumbnail.jpg" />
-                        </div>
-                        <div class="card-content white-text">
-                            <p>How to spoof your user agent using Firefox...</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="firefox-useragent/">User Agent Spoofing</a>
-                        </div>
-                    </li>
-                </div>
-            </ul>
-            <ul>
-                <div class="col s12 m4 l3" style="padding:8px;">
-                    <li class="card z-depth-3 grey darken-3">
-                        <div class="card-image" style="padding:6px;">
-                            <img class="responsive-img"
-                                src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343268/comp/install-refit/img/thumbnail.jpg" />
-                        </div>
-                        <div class="card-content white-text">
-                            <p>How to install rEFIt on an external USB flash drive with macOS</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="install-refit/">Install rEFIt on a USB Disk</a>
-                        </div>
-                    </li>
-                </div>
-            </ul>
-            <ul>
-                <div class="col s12 m4 l3" style="padding:8px;">
-                    <li class="card z-depth-3 grey darken-3">
-                        <div class="card-image" style="padding:6px;">
-                            <img class="responsive-img"
-                                src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343190/comp/dell-hell/img/thumbnail.jpg" />
-                        </div>
-                        <div class="card-content white-text">
-                            <p>...welcome to Dell Hell...</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="dell-hell/">Coming soon...</a>
-                        </div>
-                    </li>
-                </div>
-            </ul>
-            <ul>
-                <div class="col s12 m4 l3" style="padding:8px;">
-                    <li class="card z-depth-3 grey darken-3">
-                        <div class="card-image" style="padding:6px;">
-                            <img class="responsive-img"
-                                src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343263/comp/fw-password/img/thumbnail.png" />
-                        </div>
-                        <div class="card-content white-text">
-                            <p>Remove a Mac firmware password without recovery mode</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="fw-password/">Bye bye firmware password</a>
-                        </div>
-                    </li>
-                </div>
-            </ul>
-            <ul>
-                <div class="col s12 m4 l3" style="padding:8px;">
-                    <li class="card z-depth-3 grey darken-3">
-                        <div class="card-image" style="padding:6px;">
-                            <img class="responsive-img"
-                                src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343272/comp/new-mac/img/thumbnail.jpg" />
-                        </div>
-                        <div class="card-content white-text">
-                            <p>starting from scratch &gt; Migration Assistant</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="new-mac/">pro tips for new mac</a>
-                        </div>
-                    </li>
-                </div>
-            </ul>
-            <ul>
-                <div class="col s12 m4 l3" style="padding:8px;">
-                    <li class="card z-depth-3 grey darken-3">
-                        <div class="card-image" style="padding:6px;">
-                            <img class="responsive-img"
-                                src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343276/comp/noob-site/img/thumbnail.png" />
-                        </div>
-                        <div class="card-content white-text">
-                            <p>starting a stupid basic website the easy way</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="noob-site/">web dev for n00bs</a>
-                        </div>
-                    </li>
-                </div>
-            </ul>
-        </div>
-    </div>
-</body>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" hidden>
+      <svg class="icon" aria-hidden="true"><use href="/icons.svg#moon"/></svg>dark mode<span class="switch" aria-hidden="true"></span>
+    </button>
+  </div>
+</aside>
+<!-- /shared:sidebar -->
 
+<main class="main" id="main">
+  <header class="card section-hero" style="background-image:url('https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_1400,h_520,q_auto,f_auto/v1775343103/comp/bg.jpg')">
+    <div class="hero-text">
+      <p class="kicker">#justcomputerthings</p>
+      <h1>i play with computers</h1>
+      <p>13 articles · guides from years of breaking (and occasionally fixing) Macs and PCs</p>
+    </div>
+  </header>
+
+  <section class="card">
+    <ul class="compact">
+      <li><a href="/comp/noob-site/">
+        <div><h2>Web dev for n00bs</h2><p>Starting a stupid basic website the easy way.</p><time datetime="2018-03">Mar 2018</time></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343276/comp/noob-site/img/thumbnail.png" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/new-mac/">
+        <div><h2>Pro tips for a new Mac</h2><p>Starting from scratch &gt; Migration Assistant.</p><time datetime="2017-12">Dec 2017</time></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343272/comp/new-mac/img/thumbnail.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/fw-password/">
+        <div><h2>Bye bye firmware password</h2><p>Remove a Mac firmware password without recovery mode.</p><time datetime="2017-11">Nov 2017</time></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343263/comp/fw-password/img/thumbnail.png" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/install-refit/">
+        <div><h2>Install rEFIt on a USB disk</h2><p>How to install rEFIt on an external USB flash drive with macOS.</p><time datetime="2017-03">Mar 2017</time></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343268/comp/install-refit/img/thumbnail.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/vbox-windows/">
+        <div><h2>Install Windows using VirtualBox</h2><p>Install Windows to an internal physical drive using VirtualBox.</p><time datetime="2017-02">Feb 2017</time></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343286/comp/vbox-windows/img/thumbnail.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/firefox-useragent/">
+        <div><h2>User agent spoofing</h2><p>How to spoof your user agent using Firefox.</p><time datetime="2016-09">Sep 2016</time></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343258/comp/firefox-useragent/img/thumbnail.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/dead-gpu/">
+        <div><h2>MBP8,2 dead GPU</h2><p>That awkward moment when your own MacBook Pro's GPU dies...</p><time datetime="2016-09">Sep 2016</time></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343151/comp/dead-gpu/img/thumbnail.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/disk-error-mba2/">
+        <div><h2>MBA6,1 disk errors, part 2</h2><p>The MacBook Air saga continues...</p><time datetime="2016-04">Apr 2016</time></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343248/comp/disk-error-mba2/img/tim-help.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/disk-error-mba/">
+        <div><h2>MBA6,1 disk errors</h2><p>My weekend struggle with a MacBook Air and its SSD issues.</p><time datetime="2016-04">Apr 2016</time></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343226/comp/disk-error-mba/img/thumbnail.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/openemu-ps1/">
+        <div><h2>PlayStation 1 in OpenEmu</h2><p>How to play PlayStation 1 games on a Mac!</p><time datetime="2016-03">Mar 2016</time></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343278/comp/openemu-ps1/img/thumbnail.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/win7efi/">
+        <div><h2>MBP5,1 Win 7 x64 EFI</h2><p>Windows 7 x64 booted using the 2008 MacBook Pro's EFI + dual GPU usage.</p><time datetime="2016-03">Mar 2016</time></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343289/comp/win7efi/img/thumbnail.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/test-code/">
+        <div><h2>Test code using SSH</h2><p>How to compile and test your code on UF's Thunder server.</p><time datetime="2016-01">Jan 2016</time></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343279/comp/test-code/img/thumbnail.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/dell-hell/">
+        <div><h2>Dell Hell</h2><p>...welcome to Dell Hell...</p><span class="soon">coming soon</span></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343190/comp/dell-hell/img/thumbnail.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+    </ul>
+  </section>
+
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <span>© wheelsandbytes 2015–2026</span>
+  </footer>
+  <!-- /shared:footer -->
+</main>
+</div>
+</body>
 </html>
