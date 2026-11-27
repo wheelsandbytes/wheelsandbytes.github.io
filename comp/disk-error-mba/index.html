@@ -1,132 +1,209 @@
-
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<!-- common.css -->
-<style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
-<!-- ace-static.css -->
-<style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
-<style>.ace-tomorrow-night-eighties .ace_gutter {background: #272727;color: #CCC}.ace-tomorrow-night-eighties .ace_print-margin {width: 1px;background: #272727}.ace-tomorrow-night-eighties {background-color: #2D2D2D;color: #CCCCCC}.ace-tomorrow-night-eighties .ace_constant.ace_other,.ace-tomorrow-night-eighties .ace_cursor {color: #CCCCCC}.ace-tomorrow-night-eighties .ace_marker-layer .ace_selection {background: #515151}.ace-tomorrow-night-eighties.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #2D2D2D;}.ace-tomorrow-night-eighties .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-tomorrow-night-eighties .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #6A6A6A}.ace-tomorrow-night-bright .ace_stack {background: rgb(66, 90, 44)}.ace-tomorrow-night-eighties .ace_marker-layer .ace_active-line {background: #393939}.ace-tomorrow-night-eighties .ace_gutter-active-line {background-color: #393939}.ace-tomorrow-night-eighties .ace_marker-layer .ace_selected-word {border: 1px solid #515151}.ace-tomorrow-night-eighties .ace_invisible {color: #6A6A6A}.ace-tomorrow-night-eighties .ace_keyword,.ace-tomorrow-night-eighties .ace_meta,.ace-tomorrow-night-eighties .ace_storage,.ace-tomorrow-night-eighties .ace_storage.ace_type,.ace-tomorrow-night-eighties .ace_support.ace_type {color: #CC99CC}.ace-tomorrow-night-eighties .ace_keyword.ace_operator {color: #66CCCC}.ace-tomorrow-night-eighties .ace_constant.ace_character,.ace-tomorrow-night-eighties .ace_constant.ace_language,.ace-tomorrow-night-eighties .ace_constant.ace_numeric,.ace-tomorrow-night-eighties .ace_keyword.ace_other.ace_unit,.ace-tomorrow-night-eighties .ace_support.ace_constant,.ace-tomorrow-night-eighties .ace_variable.ace_parameter {color: #F99157}.ace-tomorrow-night-eighties .ace_invalid {color: #CDCDCD;background-color: #F2777A}.ace-tomorrow-night-eighties .ace_invalid.ace_deprecated {color: #CDCDCD;background-color: #CC99CC}.ace-tomorrow-night-eighties .ace_fold {background-color: #6699CC;border-color: #CCCCCC}.ace-tomorrow-night-eighties .ace_entity.ace_name.ace_function,.ace-tomorrow-night-eighties .ace_support.ace_function,.ace-tomorrow-night-eighties .ace_variable {color: #6699CC}.ace-tomorrow-night-eighties .ace_support.ace_class,.ace-tomorrow-night-eighties .ace_support.ace_type {color: #FFCC66}.ace-tomorrow-night-eighties .ace_heading,.ace-tomorrow-night-eighties .ace_markup.ace_heading,.ace-tomorrow-night-eighties .ace_string {color: #99CC99}.ace-tomorrow-night-eighties .ace_comment {color: #999999}.ace-tomorrow-night-eighties .ace_entity.ace_name.ace_tag,.ace-tomorrow-night-eighties .ace_entity.ace_other.ace_attribute-name,.ace-tomorrow-night-eighties .ace_meta.ace_tag,.ace-tomorrow-night-eighties .ace_variable {color: #F2777A}.ace-tomorrow-night-eighties .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ09NrYAgMjP4PAAtGAwchHMyAAAAAAElFTkSuQmCC) right repeat-y}</style>
-<!-- export.css -->
-<style>
-  body{margin:0 auto;max-width:800px;line-height:1.4}
-  #nav{margin:5px 0 10px;font-size:15px}
-  #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
-  #contentarea{font-size:15px;margin:16px 0}
-  .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
-  .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
-  .latex-cell{white-space:pre-wrap;}
-  </style>
-<!-- User CSS -->
-<style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MacBookAir6,1 disk I/O error...and how I fixed it · wheels_and_bytes</title>
+<meta name="description" content="My weekend struggle with a MacBook Air and its SSD issues.">
+<!-- shared:head -->
+<script>try{var t=localStorage.getItem("wnb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/css/site.css">
+<script src="/js/theme.js" defer></script>
+<!-- /shared:head -->
 </head>
 <body>
-<div id="titlearea">
-<h2>MBA6,1 Disk Errors</h2>
-</div>
-<div id="contentarea"><div class="cell markdown-cell"><h1>MacBookAir6,1 disk I/O error...and how I fixed it</h1>
-<h2>I'm usually up late, so this is normal:</h2>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343220/comp/disk-error-mba/img/problem1.jpg"/></p>
+<a class="skip" href="#main">Skip to content</a>
+<div class="layout has-toc">
+
+<!-- shared:sidebar -->
+<aside class="sidebar">
+  <div class="profile">
+    <a href="/" tabindex="-1"><img class="avatar" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_240,h_240,q_auto,f_auto/v1795809489/avatar_fc_mg3d7z.png" alt="Tim" width="240" height="240"></a>
+    <p class="site-name"><a href="/"><b>[</b> wheels_and_bytes <b>]</b></a></p>
+    <p class="site-tagline">wheels because cars, bytes because computers<span lang="zh">别介意它。。。；）</span></p>
+  </div>
+  <ul class="social" aria-label="Elsewhere">
+    <li><a href="https://github.com/wheelsandbytes" title="GitHub"><svg class="icon" aria-hidden="true"><use href="/icons.svg#code"/></svg><span class="visually-hidden">GitHub</span></a></li>
+    <li><a href="https://wheelsandbytes.wordpress.com" title="Blog"><svg class="icon" aria-hidden="true"><use href="/icons.svg#pen"/></svg><span class="visually-hidden">Blog</span></a></li>
+    <li><a href="https://soundcloud.com/sn0wninja" title="SoundCloud"><svg class="icon" aria-hidden="true"><use href="/icons.svg#wave"/></svg><span class="visually-hidden">SoundCloud</span></a></li>
+    <li><a href="https://www.instagram.com/frozen_timmy/" title="Instagram"><svg class="icon" aria-hidden="true"><use href="/icons.svg#camera"/></svg><span class="visually-hidden">Instagram</span></a></li>
+  </ul>
+  <div class="sidebar-bottom">
+    <nav class="menu" aria-label="Main">
+      <ul>
+        <li><a href="/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#home"/></svg>home</a></li>
+        <li><a href="/comp/" aria-current="page"><svg class="icon" aria-hidden="true"><use href="/icons.svg#laptop"/></svg>computers</a></li>
+        <li><a href="/auto/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#car"/></svg>cars</a></li>
+        <li><a href="/proj/"><svg class="icon" aria-hidden="true"><use href="/icons.svg#grid"/></svg>projects</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" hidden>
+      <svg class="icon" aria-hidden="true"><use href="/icons.svg#moon"/></svg>dark mode<span class="switch" aria-hidden="true"></span>
+    </button>
+  </div>
+</aside>
+<!-- /shared:sidebar -->
+
+<main class="main" id="main">
+  <article class="card">
+    <header class="article-header">
+      <ul class="pills"><li><a class="pill" href="/comp/">computers</a></li></ul>
+      <h1>MacBookAir6,1 disk I/O error...and how I fixed it</h1>
+      <div class="card-meta">
+        <span><svg class="icon" aria-hidden="true"><use href="/icons.svg#calendar"/></svg><time datetime="2016-04-04">April 4, 2016</time></span>
+        <span><svg class="icon" aria-hidden="true"><use href="/icons.svg#clock"/></svg>2 minute read</span>
+      </div>
+    </header>
+
+    <div class="prose">
+<h2 id="i-m-usually-up-late-so-this-is-normal">I'm usually up late, so this is normal:</h2>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343220/comp/disk-error-mba/img/problem1.jpg" width="500" height="452" loading="lazy"></figure>
+
 <h4>It's late? Only 12:45am haha</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343228/comp/disk-error-mba/img/yaoming.png"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343221/comp/disk-error-mba/img/problem2.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343193/comp/disk-error-mba/img/challengeaccepted.jpg"/></p>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343228/comp/disk-error-mba/img/yaoming.png" width="200" height="259" loading="lazy"></figure>
+<div class="gallery"><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343221/comp/disk-error-mba/img/problem2.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343221/comp/disk-error-mba/img/problem2.jpg" width="1280" height="960" loading="lazy"></a></figure><figure style="--ar:1.276"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343193/comp/disk-error-mba/img/challengeaccepted.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343193/comp/disk-error-mba/img/challengeaccepted.jpg" width="500" height="392" loading="lazy"></a></figure></div>
+
 <h4>Alright, so let's use verbose mode to figure out what's going on. OS X is pretty descriptive with a little <code>-v</code> magic.</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343202/comp/disk-error-mba/img/errors1.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343220/comp/disk-error-mba/img/pokerface.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343203/comp/disk-error-mba/img/errors2.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343226/comp/disk-error-mba/img/surprisedface.jpg"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343202/comp/disk-error-mba/img/errors1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343202/comp/disk-error-mba/img/errors1.jpg" width="960" height="1280" loading="lazy"></a></figure>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343220/comp/disk-error-mba/img/pokerface.jpg" width="300" height="465" loading="lazy"></figure>
+<div class="gallery"><figure style="--ar:0.750"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343203/comp/disk-error-mba/img/errors2.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343203/comp/disk-error-mba/img/errors2.jpg" width="960" height="1280" loading="lazy"></a></figure><figure style="--ar:1.078"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343226/comp/disk-error-mba/img/surprisedface.jpg" width="400" height="371" loading="lazy"></figure></div>
+
 <p>I've never seen this before. Let's try single user mode and <code>fsck -fy /</code></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343210/comp/disk-error-mba/img/fsck1.jpg"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343210/comp/disk-error-mba/img/fsck1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343210/comp/disk-error-mba/img/fsck1.jpg" width="1280" height="960" loading="lazy"></a></figure>
+
 <h4><code>** The voume Macintosh HD could not be verified completely.</code></h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343220/comp/disk-error-mba/img/pokerface.jpg"/></p>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343220/comp/disk-error-mba/img/pokerface.jpg" width="300" height="465" loading="lazy"></figure>
+
 <p>It's worth noting that <code>fsck -drfy /</code> wasn't able to do anything either.</p>
 <p>Time to bring out the El Capitan installer disk. Thanks to <a href="http://diskmakerx.com">DiskMaker X</a>, we had the installer running shortly:</p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343212/comp/disk-error-mba/img/installer1.jpg"/></p>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343212/comp/disk-error-mba/img/installer1.jpg" width="768" height="1024" loading="lazy"></figure>
+
 <h4>Attempting to run First Aid using Disk Utility proved absolutely <em>worthless</em></h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343209/comp/disk-error-mba/img/firstaid1.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343196/comp/disk-error-mba/img/deskflip1.png"/></p>
+<div class="gallery"><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343209/comp/disk-error-mba/img/firstaid1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343209/comp/disk-error-mba/img/firstaid1.jpg" width="1280" height="960" loading="lazy"></a></figure><figure style="--ar:1.328"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343196/comp/disk-error-mba/img/deskflip1.png"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343196/comp/disk-error-mba/img/deskflip1.png" width="1024" height="771" loading="lazy"></a></figure></div>
+
 <p>This tool used to be so good and reliable... Anyway, looks like a hardware issue with the internal SSD. I really hope not...but always assume the worst.</p>
 <h4>Let's see if the filesystem is still readable...</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343191/comp/disk-error-mba/img/accessiblefs1.jpg"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343191/comp/disk-error-mba/img/accessiblefs1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343191/comp/disk-error-mba/img/accessiblefs1.jpg" width="1280" height="960" loading="lazy"></a></figure>
+
 <h4>Oh good, it looks like we can read the files. Yay! You won't lose anything!</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343217/comp/disk-error-mba/img/kittehsmile.jpg"/></p>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343217/comp/disk-error-mba/img/kittehsmile.jpg" width="300" height="297" loading="lazy"></figure>
+
 <h4>Took the computer home, busted out <code>cp -R</code> and within about an hour had everything backed up.</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343195/comp/disk-error-mba/img/copyfiles1.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343195/comp/disk-error-mba/img/copyfiles2.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343227/comp/disk-error-mba/img/thumbsup.jpg"/></p>
-<h2>Time to experiment</h2>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343213/comp/disk-error-mba/img/installer2.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343214/comp/disk-error-mba/img/installer3.jpg"/></p>
+<div class="gallery"><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343195/comp/disk-error-mba/img/copyfiles1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343195/comp/disk-error-mba/img/copyfiles1.jpg" width="1280" height="960" loading="lazy"></a></figure><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343195/comp/disk-error-mba/img/copyfiles2.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343195/comp/disk-error-mba/img/copyfiles2.jpg" width="1280" height="960" loading="lazy"></a></figure></div>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343227/comp/disk-error-mba/img/thumbsup.jpg" width="300" height="241" loading="lazy"></figure>
+
+<h2 id="time-to-experiment">Time to experiment</h2>
+<div class="gallery"><figure style="--ar:0.750"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343213/comp/disk-error-mba/img/installer2.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343213/comp/disk-error-mba/img/installer2.jpg" width="768" height="1024" loading="lazy"></a></figure><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343214/comp/disk-error-mba/img/installer3.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343214/comp/disk-error-mba/img/installer3.jpg" width="1280" height="960" loading="lazy"></a></figure></div>
+
 <p>Let's give <code>fsck_hfs -fy /dev/disk0s2</code> a shot and see what it says:</p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343217/comp/disk-error-mba/img/machd1.jpg"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343217/comp/disk-error-mba/img/machd1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343217/comp/disk-error-mba/img/machd1.jpg" width="1280" height="376" loading="lazy"></a></figure>
+
 <h4>This was expected. Wipe it with <code>diskutil eraseDisk jhfs+ "MACHD" /dev/disk0</code></h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343219/comp/disk-error-mba/img/machd2.jpg"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343219/comp/disk-error-mba/img/machd2.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343219/comp/disk-error-mba/img/machd2.jpg" width="1076" height="1024" loading="lazy"></a></figure>
+
 <h4>...is there hope?</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343219/comp/disk-error-mba/img/machdinstall1.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343214/comp/disk-error-mba/img/installfailed1.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343215/comp/disk-error-mba/img/installfailed2.png"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343215/comp/disk-error-mba/img/installfailed3.png"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343194/comp/disk-error-mba/img/computerstare.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343204/comp/disk-error-mba/img/errors3.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343191/comp/disk-error-mba/img/areyoukiddingme.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343210/comp/disk-error-mba/img/fsck2.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343204/comp/disk-error-mba/img/facepalm.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343227/comp/disk-error-mba/img/whyyy.jpg"/></p>
+<div class="gallery"><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343219/comp/disk-error-mba/img/machdinstall1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343219/comp/disk-error-mba/img/machdinstall1.jpg" width="1280" height="960" loading="lazy"></a></figure><figure style="--ar:1.786"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343214/comp/disk-error-mba/img/installfailed1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343214/comp/disk-error-mba/img/installfailed1.jpg" width="1200" height="672" loading="lazy"></a></figure></div>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343215/comp/disk-error-mba/img/installfailed2.png"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343215/comp/disk-error-mba/img/installfailed2.png" width="1162" height="619" loading="lazy"></a></figure>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343215/comp/disk-error-mba/img/installfailed3.png"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343215/comp/disk-error-mba/img/installfailed3.png" width="1027" height="91" loading="lazy"></a></figure>
+<div class="gallery"><figure style="--ar:1.355"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343194/comp/disk-error-mba/img/computerstare.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343194/comp/disk-error-mba/img/computerstare.jpg" width="500" height="369" loading="lazy"></a></figure><figure style="--ar:0.750"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343204/comp/disk-error-mba/img/errors3.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343204/comp/disk-error-mba/img/errors3.jpg" width="768" height="1024" loading="lazy"></a></figure></div>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343191/comp/disk-error-mba/img/areyoukiddingme.jpg" width="236" height="232" loading="lazy"></figure>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343210/comp/disk-error-mba/img/fsck2.jpg" width="768" height="1024" loading="lazy"></figure>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343204/comp/disk-error-mba/img/facepalm.jpg" width="200" height="251" loading="lazy"></figure>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343227/comp/disk-error-mba/img/whyyy.jpg" width="300" height="265" loading="lazy"></figure>
+
 <h4>Apple diagnostics?</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343199/comp/disk-error-mba/img/diagnostic1.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343200/comp/disk-error-mba/img/diagnostic2.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343220/comp/disk-error-mba/img/noissuefound.png"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343201/comp/disk-error-mba/img/doublefacepalm.png"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343196/comp/disk-error-mba/img/deskflip1.png"/></p>
+<div class="gallery"><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343199/comp/disk-error-mba/img/diagnostic1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343199/comp/disk-error-mba/img/diagnostic1.jpg" width="1280" height="960" loading="lazy"></a></figure><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343200/comp/disk-error-mba/img/diagnostic2.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343200/comp/disk-error-mba/img/diagnostic2.jpg" width="1280" height="960" loading="lazy"></a></figure></div>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343220/comp/disk-error-mba/img/noissuefound.png"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343220/comp/disk-error-mba/img/noissuefound.png" width="1176" height="303" loading="lazy"></a></figure>
+<div class="gallery"><figure style="--ar:1.592"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343201/comp/disk-error-mba/img/doublefacepalm.png"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343201/comp/disk-error-mba/img/doublefacepalm.png" width="500" height="314" loading="lazy"></a></figure><figure style="--ar:1.328"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343196/comp/disk-error-mba/img/deskflip1.png"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343196/comp/disk-error-mba/img/deskflip1.png" width="1024" height="771" loading="lazy"></a></figure></div>
+
 <h4>Wiping it with <code>diskutil</code> didn't help, so let's give Gparted a go.</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343211/comp/disk-error-mba/img/gparted1.jpg"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343211/comp/disk-error-mba/img/gparted1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343211/comp/disk-error-mba/img/gparted1.jpg" width="1280" height="960" loading="lazy"></a></figure>
+
 <h4>Boots right up with no problem. EFI ftw.</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343212/comp/disk-error-mba/img/gparted2.jpg"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343212/comp/disk-error-mba/img/gparted2.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343212/comp/disk-error-mba/img/gparted2.jpg" width="1280" height="960" loading="lazy"></a></figure>
+
 <h4>Created a completely new GPT setup. Attempting to install OS X again:</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343192/comp/disk-error-mba/img/attempt1.jpg"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343192/comp/disk-error-mba/img/attempt1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343192/comp/disk-error-mba/img/attempt1.jpg" width="1280" height="960" loading="lazy"></a></figure>
+
 <h4>Left the apartment for 3 hours and came back to this:</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343192/comp/disk-error-mba/img/attempt2.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343222/comp/disk-error-mba/img/questioning.jpg"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343192/comp/disk-error-mba/img/attempt2.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343192/comp/disk-error-mba/img/attempt2.jpg" width="1280" height="960" loading="lazy"></a></figure>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343222/comp/disk-error-mba/img/questioning.jpg" width="300" height="326" loading="lazy"></figure>
+
 <h4>Reboot with <code>-v</code> aaaaaaand</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343193/comp/disk-error-mba/img/attempt3.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343197/comp/disk-error-mba/img/deskflip2.gif"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343224/comp/disk-error-mba/img/sadsitting.jpg"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343193/comp/disk-error-mba/img/attempt3.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343193/comp/disk-error-mba/img/attempt3.jpg" width="1280" height="960" loading="lazy"></a></figure>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343197/comp/disk-error-mba/img/deskflip2.gif" loading="lazy"></figure>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343224/comp/disk-error-mba/img/sadsitting.jpg" width="200" height="200" loading="lazy"></figure>
+
 <h4>I'm about to give up and call it a hardware issue.</h4>
-<h2>Hold on...</h2>
+<h2 id="hold-on">Hold on...</h2>
 <p>There is one thing I have never tried on a disk... <em>zeroing</em></p>
 <h5>Hmm...</h5>
 <p>Pulled the SSD from my MacBook Pro because the Terminal on the installer is annoying:</p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343224/comp/disk-error-mba/img/ssdrescue1.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343225/comp/disk-error-mba/img/ssdrescue2.jpg"/></p>
+<div class="gallery"><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343224/comp/disk-error-mba/img/ssdrescue1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343224/comp/disk-error-mba/img/ssdrescue1.jpg" width="1280" height="960" loading="lazy"></a></figure><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343225/comp/disk-error-mba/img/ssdrescue2.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343225/comp/disk-error-mba/img/ssdrescue2.jpg" width="1280" height="960" loading="lazy"></a></figure></div>
+
 <h4><em>Never tried this before...</em></h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343229/comp/disk-error-mba/img/zerodisk1.jpg"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343229/comp/disk-error-mba/img/zerodisk1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343229/comp/disk-error-mba/img/zerodisk1.jpg" width="1280" height="716" loading="lazy"></a></figure>
+
 <h4>Almost done...</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343229/comp/disk-error-mba/img/zerodisk2.jpg"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343229/comp/disk-error-mba/img/zerodisk2.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343229/comp/disk-error-mba/img/zerodisk2.jpg" width="1898" height="1030" loading="lazy"></a></figure>
+
 <h4>Okay, so now it should be completely blank, no data whatsoever. Repartitioning the disk with <code>diskutil partitionDisk</code> and repairing with <code>diskutil repairDisk</code> now...</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343222/comp/disk-error-mba/img/repairdisk1.jpg"/></p>
+<figure><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343222/comp/disk-error-mba/img/repairdisk1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343222/comp/disk-error-mba/img/repairdisk1.jpg" width="1532" height="1089" loading="lazy"></a></figure>
+
 <h4>The issue was repairing the volume from before, so we'll try that next with <code>diskutil repairVolume /dev/disk0s2</code>:</h4>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343223/comp/disk-error-mba/img/repairvolume1.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343226/comp/disk-error-mba/img/surprisedcat1.jpg"/></p>
+<div class="gallery"><figure style="--ar:1.441"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343223/comp/disk-error-mba/img/repairvolume1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343223/comp/disk-error-mba/img/repairvolume1.jpg" width="1941" height="1347" loading="lazy"></a></figure><figure style="--ar:1.579"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343226/comp/disk-error-mba/img/surprisedcat1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343226/comp/disk-error-mba/img/surprisedcat1.jpg" width="736" height="466" loading="lazy"></a></figure></div>
+
 <p>NO ERROR. Final attempt at installing the system:</p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343206/comp/disk-error-mba/img/finalinstall1.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343226/comp/disk-error-mba/img/surprisedcat1.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343207/comp/disk-error-mba/img/finalinstall2.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343226/comp/disk-error-mba/img/surprisedcat1.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343208/comp/disk-error-mba/img/finalinstall3.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343226/comp/disk-error-mba/img/surprisedcat1.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343208/comp/disk-error-mba/img/finalinstall4.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343211/comp/disk-error-mba/img/gasp.gif"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343200/comp/disk-error-mba/img/done.jpg"/></p>
-<p><img alt="Alt text" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343202/comp/disk-error-mba/img/effyeah.png"/></p>
-<h2><em>Never give up.</em></h2>
-<h3><a href="../disk-error-mba2/">Part 2 Here</a></h3>
-<hr/>
-<p>Copyright © wheelsandbytes 2015-2017. All Rights Reserved</p>
-</div></div>
-<script></script>
+<div class="gallery"><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343206/comp/disk-error-mba/img/finalinstall1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343206/comp/disk-error-mba/img/finalinstall1.jpg" width="1280" height="960" loading="lazy"></a></figure><figure style="--ar:1.579"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343226/comp/disk-error-mba/img/surprisedcat1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343226/comp/disk-error-mba/img/surprisedcat1.jpg" width="736" height="466" loading="lazy"></a></figure></div>
+<div class="gallery"><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343207/comp/disk-error-mba/img/finalinstall2.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343207/comp/disk-error-mba/img/finalinstall2.jpg" width="1280" height="960" loading="lazy"></a></figure><figure style="--ar:1.579"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343226/comp/disk-error-mba/img/surprisedcat1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343226/comp/disk-error-mba/img/surprisedcat1.jpg" width="736" height="466" loading="lazy"></a></figure></div>
+<div class="gallery"><figure style="--ar:1.333"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343208/comp/disk-error-mba/img/finalinstall3.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343208/comp/disk-error-mba/img/finalinstall3.jpg" width="4032" height="3024" loading="lazy"></a></figure><figure style="--ar:1.579"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343226/comp/disk-error-mba/img/surprisedcat1.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343226/comp/disk-error-mba/img/surprisedcat1.jpg" width="736" height="466" loading="lazy"></a></figure></div>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_1400,q_auto,f_auto/v1775343208/comp/disk-error-mba/img/finalinstall4.jpg" width="768" height="1024" loading="lazy"></figure>
+<figure><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/v1775343211/comp/disk-error-mba/img/gasp.gif" loading="lazy"></figure>
+<div class="gallery"><figure style="--ar:0.750"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343200/comp/disk-error-mba/img/done.jpg"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343200/comp/disk-error-mba/img/done.jpg" width="768" height="1024" loading="lazy"></a></figure><figure style="--ar:0.947"><a href="https://res.cloudinary.com/du5qvjvrf/image/upload/q_auto/v1775343202/comp/disk-error-mba/img/effyeah.png"><img alt="" src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_limit,w_900,q_auto,f_auto/v1775343202/comp/disk-error-mba/img/effyeah.png" width="500" height="528" loading="lazy"></a></figure></div>
+
+<h2 id="never-give-up"><em>Never give up.</em></h2>
+<h3><a href="/comp/disk-error-mba2/">Part 2 Here</a></h3>
+    </div>
+
+    <footer class="article-footer">
+      <ul class="pills" aria-label="Tags">
+        <li><span class="pill quiet">#macbookair</span></li>
+        <li><span class="pill quiet">#ssd</span></li>
+        <li><span class="pill quiet">#troubleshooting</span></li>
+      </ul>
+      <a href="/comp/">← back to computers</a>
+    </footer>
+  </article>
+
+  <h2 class="widget-title"><svg class="icon" aria-hidden="true"><use href="/icons.svg#laptop"/></svg>more computer stuff</h2>
+  <section class="card">
+    <ul class="compact">
+      <li><a href="/comp/openemu-ps1/">
+        <div><h3>PlayStation 1 in OpenEmu</h3><p>How to play PlayStation 1 games on a Mac!</p></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343278/comp/openemu-ps1/img/thumbnail.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+      <li><a href="/comp/win7efi/">
+        <div><h3>MBP5,1 Win 7 x64 EFI</h3><p>Windows 7 x64 booted using the 2008 MacBook Pro's EFI + dual GPU usage.</p></div>
+        <img src="https://res.cloudinary.com/du5qvjvrf/image/upload/c_fill,w_200,h_200,q_auto,f_auto/v1775343289/comp/win7efi/img/thumbnail.jpg" alt="" width="200" height="200" loading="lazy">
+      </a></li>
+    </ul>
+  </section>
+
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <span>© wheelsandbytes 2015–2026</span>
+  </footer>
+  <!-- /shared:footer -->
+</main>
+<aside class="card toc" aria-labelledby="toc-title">
+  <h2 id="toc-title">contents</h2>
+  <ol>
+    <li><a href="#i-m-usually-up-late-so-this-is-normal">I'm usually up late, so this is normal:</a></li>
+    <li><a href="#time-to-experiment">Time to experiment</a></li>
+    <li><a href="#hold-on">Hold on...</a></li>
+    <li><a href="#never-give-up">Never give up.</a></li>
+  </ol>
+</aside>
+</div>
 </body>
 </html>
