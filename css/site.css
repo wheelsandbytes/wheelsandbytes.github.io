@@ -439,3 +439,8 @@ kbd {
   font: 700 clamp(1.4rem, 4.2vw, 2.4rem)/1.2 var(--sans);
   text-shadow: 2px 2px 8px #333;
 }
+
+/* Photo banners on section pages match the article banner's 16:7 shape */
+.section-hero:not(.plain) { aspect-ratio: 16 / 7; }
+/* Night photos: only shade the bottom, where the title sits */
+.section-hero.light-scrim::before { background: linear-gradient(to top, rgb(0 0 0 / .6), rgb(0 0 0 / 0) 50%); }
