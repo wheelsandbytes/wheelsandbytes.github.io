@@ -421,3 +421,4 @@ kbd {
   .gallery { flex-wrap: wrap; }
   .gallery figure { flex-basis: calc(50% - .25rem); }
 }
+.prose del { opacity: .5; }
