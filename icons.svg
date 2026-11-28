@@ -1,11 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg">
-  <!-- Simple 24px stroke icons, drawn for this site. Use: <svg class="icon"><use href="/icons.svg#name"/>  <symbol id="music" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></symbol>
-  <symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
-  <symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/></symbol>
-  <symbol id="translate" viewBox="0 0 24 24"><path d="M8 2.5v2"/><path d="M3.5 4.5h9"/><path d="M10.5 4.5c-.4 4-2.6 7.6-6.5 9.5"/><path d="M5.5 8c1.3 2.6 3.4 4.4 6.5 5.3"/><path d="M13 21.5l4-9.5 4 9.5"/><path d="M14.4 18.3h5.2"/></symbol>
-  <symbol id="toggle-off" viewBox="0 0 24 24"><rect x="2" y="6.5" width="20" height="11" rx="5.5"/><circle cx="7.5" cy="12" r="2.5"/></symbol>
-  <symbol id="toggle-on" viewBox="0 0 24 24"><rect x="2" y="6.5" width="20" height="11" rx="5.5"/><circle cx="16.5" cy="12" r="2.5" fill="currentColor"/></symbol>
-</svg> -->
+  <!-- Icon sprite. Use: an svg element with class "icon" containing use href="/icons.svg#NAME".
+       24px stroke icons drawn for this site; "wordpress" is the filled logo from Simple Icons (CC0-1.0). -->
   <symbol id="home" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></symbol>
   <symbol id="laptop" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></symbol>
   <symbol id="car" viewBox="0 0 24 24"><path d="M5 17H3.5v-4.5L6 7h12l2.5 5.5V17H19"/><path d="M3.5 12.5h17"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M9.5 17h5"/></symbol>
@@ -26,4 +21,5 @@
   <symbol id="translate" viewBox="0 0 24 24"><path d="M8 2.5v2"/><path d="M3.5 4.5h9"/><path d="M10.5 4.5c-.4 4-2.6 7.6-6.5 9.5"/><path d="M5.5 8c1.3 2.6 3.4 4.4 6.5 5.3"/><path d="M13 21.5l4-9.5 4 9.5"/><path d="M14.4 18.3h5.2"/></symbol>
   <symbol id="toggle-off" viewBox="0 0 24 24"><rect x="2" y="6.5" width="20" height="11" rx="5.5"/><circle cx="7.5" cy="12" r="2.5"/></symbol>
   <symbol id="toggle-on" viewBox="0 0 24 24"><rect x="2" y="6.5" width="20" height="11" rx="5.5"/><circle cx="16.5" cy="12" r="2.5" fill="currentColor"/></symbol>
+  <symbol id="wordpress" viewBox="0 0 24 24"><path d="M21.469 6.825c.84 1.537 1.318 3.3 1.318 5.175 0 3.979-2.156 7.456-5.363 9.325l3.295-9.527c.615-1.54.82-2.771.82-3.864 0-.405-.026-.78-.07-1.11m-7.981.105c.647-.03 1.232-.105 1.232-.105.582-.075.514-.93-.067-.899 0 0-1.755.135-2.88.135-1.064 0-2.85-.15-2.85-.15-.585-.03-.661.855-.075.885 0 0 .54.061 1.125.09l1.68 4.605-2.37 7.08L5.354 6.9c.649-.03 1.234-.1 1.234-.1.585-.075.516-.93-.065-.896 0 0-1.746.138-2.874.138-.2 0-.438-.008-.69-.015C4.911 3.15 8.235 1.215 12 1.215c2.809 0 5.365 1.072 7.286 2.833-.046-.003-.091-.009-.141-.009-1.06 0-1.812.923-1.812 1.914 0 .89.513 1.643 1.06 2.531.411.72.89 1.643.89 2.977 0 .915-.354 1.994-.821 3.479l-1.075 3.585-3.9-11.61.001.014zM12 22.784c-1.059 0-2.081-.153-3.048-.437l3.237-9.406 3.315 9.087c.024.053.05.101.078.149-1.12.393-2.325.609-3.582.609M1.211 12c0-1.564.336-3.05.935-4.39L7.29 21.709C3.694 19.96 1.212 16.271 1.211 12M12 0C5.385 0 0 5.385 0 12s5.385 12 12 12 12-5.385 12-12S18.615 0 12 0" fill="currentColor" stroke="none"/></symbol>
 </svg>
