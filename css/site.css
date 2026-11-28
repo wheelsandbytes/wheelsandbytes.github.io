@@ -452,7 +452,12 @@ a.card.about { display: grid; }
   padding-block: 2.5rem;          /* ...and keep it inside the sidebar instead */
   overflow-y: auto;
   scrollbar-width: none;
+  /* overflow-y also clips sideways, so give the menu pills' negative margins,
+     the avatar ring and button shadows room inside the box */
+  padding-inline: 1rem;
+  margin-inline: -1rem;
 }
+.sidebar::-webkit-scrollbar { display: none; }
 .sidebar-utils { margin-top: auto; display: grid; gap: .15rem; }
 
 /* Language and dark mode: plain menu-style rows, icon then label (like the menu) */
@@ -485,7 +490,7 @@ a.card.about { display: grid; }
 .theme-toggle[aria-pressed="true"] .icon.off { display: none; }
 
 @media (max-width: 52rem) {
-  .sidebar { height: auto; margin-block: 0; padding-block: 0; overflow: visible; }
+  .sidebar { height: auto; margin: 0; padding: 0; overflow: visible; }
   .sidebar-utils { margin-top: 0; display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; }
   .lang-switch, .theme-toggle { padding: .45rem 0; }
   .sidebar-bottom { display: block; }
