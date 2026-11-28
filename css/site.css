@@ -495,3 +495,7 @@ a.card.about { display: grid; }
   .lang-switch, .theme-toggle { padding: .45rem 0; }
   .sidebar-bottom { display: block; }
 }
+
+/* home: latest posts (date + section line) */
+.compact .when { margin-top: .35rem; font-size: .8rem; color: var(--text-dim); }
+.compact .when time { display: inline; margin: 0; }
